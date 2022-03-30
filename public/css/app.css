@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
+
 /*
     Template: Admin Board
     Author: Saiful
@@ -4514,4 +4514,10 @@ h6.h1 {
   }
 }
 
-
+/*------Icons colors----------*/
+.fa-regular{
+color: #01A0C6;
+}
+.fa-trash{
+  color: #EC3C37;
+}
