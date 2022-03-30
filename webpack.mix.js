@@ -16,7 +16,5 @@ mix.js('resources/js/app.js', 'public/js')
         //
     ]);
 
-mix.copy('resources/css/themify-icons.css', 'public/css')
-    .copy('resources/css/font-awesome.min.css', 'public/css')
-    .copy('resources/css/helper.css', 'public/css')
+mix.copy('resources/css/helper.css', 'public/css')
     .copy('resources/css/bootstrap.min.css', 'public/css');
