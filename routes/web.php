@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\productController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,3 +25,5 @@ Route::get('/warehouses', function () {
 Route::get('/dashboard',function(){
     return view('dashboard');
 });
+
+Route::post('/inventory',[productController::class,'store']);
