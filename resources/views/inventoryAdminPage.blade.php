@@ -74,6 +74,11 @@
                             <label class="form-label">Branch adress</label>
                             <input type="text" class="form-control" id="Warehouse_address" name="Warehouse_address">
                         </div>
+                        <select id="places_select" name="type_of_place">
+                            <option value="1">Warehouse</option>
+                            <option value="2">Printhouse</option>
+                            <option value="3">Store</option>
+                        </select>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
@@ -104,6 +109,11 @@
                             <label class="form-label">Printing_house_address</label>
                             <input type="text" class="form-control" id="Printing_house_address" name="Printing_house_address">
                         </div>
+                        <select id="places_select" name="type_of_place">
+                            <option value="1">Warehouse</option>
+                            <option value="2">Printhouse</option>
+                            <option value="3">Store</option>
+                        </select>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
@@ -134,10 +144,16 @@
                             <label class="form-label">Store Location</label>
                             <input type="text" class="form-control" id="Store_address" name="Store_address">
                         </div>
+                        <select id="places_select" name="type_of_place">
+                            <option value="1">Warehouse</option>
+                            <option value="2">Printhouse</option>
+                            <option value="3">Store</option>
+                        </select>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
                     </form>
+
                 </div>
             </div>
         </div>
