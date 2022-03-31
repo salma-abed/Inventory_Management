@@ -11,15 +11,17 @@
 
 
     <!-- Styles -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('/css/app.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/css/themify-icons.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/css/helper.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
+    <link rel="stylesheet" type="text/css" href="/css/helper.css">
+
 
 </head>
 
@@ -31,9 +33,10 @@
                 <div class="col-lg-6">
                     <div class="login-content">
                         <div class="login-logo">
-                            <img src="{{ asset('/images/otta b ta2ya.png') }}" alt="otta b ta2ya">
+                            <img src="/images/logo.png" alt="logo">
+                            <img src="/images/otta b ta2ya.png" alt="otta b ta2ya">
                         </div>
-                        <div class="login-form">
+                        <div class=" login-form">
                             <h4>Login</h4>
                             <form>
                                 <div class="form-group">
@@ -57,11 +60,11 @@
                                 <div class="social-login-content">
                                     <div class="social-button">
                                         <button type="button"
-                                            class="btn btn-primary bg-facebook btn-flat btn-addon m-b-10"><i
-                                                class="ti-facebook"></i>Sign in with facebook</button>
+                                            class="btn btn-primary bg-facebook btn-flat btn-addon m-b-10">
+                                            <i class="fa-brands fa-facebook-f"></i>Sign in with facebook</button>
                                         <button type="button"
-                                            class="btn btn-primary bg-twitter btn-flat btn-addon m-t-10"><i
-                                                class="ti-twitter"></i>Sign in with twitter</button>
+                                            class="btn btn-primary bg-google btn-flat btn-addon m-t-10">
+                                            <i class="fa-brands fa-google"></i>Sign in with google</button>
                                     </div>
                                 </div>
                                 <div class="register-link m-t-15 text-center">
