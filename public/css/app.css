@@ -4316,6 +4316,7 @@ h6.h1 {
   background-color: #dc3545;
   color: #ffffff;
 }
+
 /*
 /* Version: 1.0
 */
@@ -4520,4 +4521,8 @@ color: #01A0C6;
 }
 .fa-trash{
   color: #EC3C37;
+}
+
+#but_add3{
+  background-color:#1e7e34;
 }
