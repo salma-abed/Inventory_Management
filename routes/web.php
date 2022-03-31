@@ -19,3 +19,7 @@ Route::get('/', function () {
 Route::get('/inventory', function () {
     return view('inventoryAdminPage');
 });
+
+Route::get('/dashboard',function(){
+    return view('dashboard');
+});
