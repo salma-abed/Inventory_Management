@@ -32,7 +32,7 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-l-200 p-r-40">
+    <nav class="navbar navbar-expand-lg p-l-200 p-r-40" id="navbar">
         <!-- Container wrapper -->
         <div class="container-fluid">
             <!-- Toggle button -->
@@ -46,8 +46,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Navbar brand -->
                 <a class="navbar-brand mt-2 mt-lg-0" href="#">
-                    <img src="images/HeavenOtta.png" height="50" />
-                    <h1>2oolameme</h1>
+                    <img src="images/logo.png" height="60" />
                 </a>
             </div>
             <!-- Collapsible wrapper -->
@@ -57,7 +56,7 @@
 
                 <!-- Notifications -->
                 <div class="dropdown">
-                    <a class="text-reset me-3 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink"
+                    <a class="dropdown-toggle text-reset me-3 hidden-arrow p-r-10" href="#" id="navbarDropdownMenuLink"
                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-bell"></i>
                         <span class="badge rounded-pill badge-notification bg-danger">1</span>
