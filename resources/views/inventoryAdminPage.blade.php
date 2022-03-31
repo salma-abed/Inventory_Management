@@ -1,18 +1,23 @@
 @extends('layouts/layoutNavbar')
+@extends('layouts/layoutFooter')
 <!DOCTYPE html>
 <html lang="en">
 
 <body>
     @section('content')
+
+    <!-- Modal -->
     <!-------Add product Form--------->
-    <div id="ModalExample" class="modal fade">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" id="productmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title">Add Product</h1>
+                    <h5 class="modal-title" id="staticBackdropLabel">Add Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="formElement" style="display: none;">
+                    <form id="formElement">
                         <div class="mb-3">
                             <label class="form-label">Product Name</label>
                             <input type="text" class="form-control" id="productname">
@@ -29,7 +34,109 @@
                             <label class="form-label">Quantity</label>
                             <input type="text" class="form-control" id="quantity">
                         </div>
-                        <button type="button" class="btn btn-primary">Submit</button>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---------------------------------->
+
+    <!-------Add Warehouse Form--------->
+    <div class="modal fade" id="warehousemodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Add Warehouse Branch</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formElement">
+                        <div class="mb-3">
+                            <label class="form-label">Code</label>
+                            <input type="text" class="form-control" id="quantity">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Branch name</label>
+                            <input type="text" class="form-control" id="productname">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Location</label>
+                            <input type="text" class="form-control" id="location">
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---------------------------------->
+
+    <!-------Add Printinghouse Form--------->
+    <div class="modal fade" id="printinghousemodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Add Printinghouse Branch</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formElement">
+                        <div class="mb-3">
+                            <label class="form-label">Code</label>
+                            <input type="text" class="form-control" id="quantity">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Branch name</label>
+                            <input type="text" class="form-control" id="productname">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Location</label>
+                            <input type="text" class="form-control" id="location">
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---------------------------------->
+
+    <!-------Add Store Form--------->
+    <div class="modal fade" id="storemodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Add Store Branch</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formElement">
+                        <div class="mb-3">
+                            <label class="form-label">Code</label>
+                            <input type="text" class="form-control" id="quantity">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Branch name</label>
+                            <input type="text" class="form-control" id="productname">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Location</label>
+                            <input type="text" class="form-control" id="location">
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
                     </form>
                 </div>
             </div>
@@ -106,20 +213,21 @@
                                         </thead>
                                     </table>
 
-
-                                    <button type="button" class="btn btn-sm btn-primary" id="updateButton"
-                                        data-toggle="modal" data-target="#ModalExample" onclick="showForm()">Add
-                                        Product</button>
-
+                                    <div class="container-fluid p-t-10">
+                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#productmodal">Add
+                                            Product</button>
+                                    </div>
 
                                 </div>
                                 <div class="tab-pane fade" id="warehouses" role="tabpanel"
                                     aria-labelledby="warehouses-tab">
-                                    <table class="table" id="makeEditable1">
+                                    <table class="table" id="warehousetable">
                                         <thead>
                                             <tr>
                                                 <th>Code</th>
                                                 <th>Branch Name</th>
+                                                <th>Location</th>
                                                 <th>View Products</th>
                                             </tr>
                                         </thead>
@@ -129,19 +237,21 @@
                                         </tbody>
 
                                     </table>
-                                    <span>
-                                        <button type="button" class="btn btn-sm btn-primary" id="but_add1">Add
+                                    <div class="container-fluid p-t-10">
+                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#warehousemodal">Add
                                             Branch</button>
-                                    </span>
+                                    </div>
 
                                 </div>
                                 <div class="tab-pane fade" id="printinghouses" role="tabpanel"
                                     aria-labelledby="printinghouses-tab">
-                                    <table class="table" id="makeEditable2">
+                                    <table class="table" id="printinghousetable">
                                         <thead>
                                             <tr>
                                                 <th>Code</th>
                                                 <th>Branch Name</th>
+                                                <th>Location</th>
                                                 <th>View Products</th>
                                             </tr>
                                         </thead>
@@ -149,17 +259,19 @@
 
                                         </tbody>
                                     </table>
-                                    <span>
-                                        <button type="button" class="btn btn-sm btn-primary" id="but_add2">Add
+                                    <div class="container-fluid p-t-10">
+                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#printinghousemodal">Add
                                             Branch</button>
-                                    </span>
+                                    </div>
                                 </div>
                                 <div class="tab-pane fade" id="stores" role="tabpanel" aria-labelledby="stores-tab">
-                                    <table class="table" id="makeEditable3">
+                                    <table class="table" id="storetable">
                                         <thead>
                                             <tr>
                                                 <th>Code</th>
                                                 <th>Branch Name</th>
+                                                <th>Location</th>
                                                 <th>View Products</th>
                                             </tr>
                                         </thead>
@@ -167,10 +279,11 @@
 
                                         </tbody>
                                     </table>
-                                    <span>
-                                        <button type="button" class="btn btn-sm btn-primary" id="but_add3">Add
+                                    <div class="container-fluid p-t-10">
+                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#storemodal">Add
                                             Branch</button>
-                                    </span>
+                                    </div>
                                 </div>
                             </div>
 
@@ -190,10 +303,6 @@
         onAdd: function() {},
         $addButton: $('#but_add')
     });
-
-    function showForm() {
-        document.getElementById('formElement').style.display = 'block';
-    }
     </script>
     @endsection
 </body>
