@@ -64,22 +64,18 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="formElement">
-                        <div class="mb-3">
-                            <label class="form-label">Code</label>
-                            <input type="text" class="form-control" id="quantity">
-                        </div>
+                <form id="formElement" method="POST" action="">
                         <div class="mb-3">
                             <label class="form-label">Branch name</label>
-                            <input type="text" class="form-control" id="productname">
+                            <input type="text" class="form-control" id="Warehouse_name" name="Warehouse_name">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Location</label>
-                            <input type="text" class="form-control" id="location">
+                            <label class="form-label">Branch adress</label>
+                            <input type="text" class="form-control" id="Warehouse_address" name="Warehouse_address">
                         </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
                     </form>
                 </div>
             </div>
