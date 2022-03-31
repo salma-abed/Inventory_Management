@@ -3802,7 +3802,7 @@ h6.h1 {
 /*    Background Mixins
 --------------------------*/
 .bg-primary {
-  background-color: #01A0C6 !important;
+  background-color:#F0CD13 !important;
   color: #ffffff;
   fill: #5873fe;
 }
@@ -4523,6 +4523,16 @@ color: #01A0C6;
   color: #EC3C37;
 }
 
-#but_add3{
-  background-color:#1e7e34;
+#navbar{
+  background-color: #F0CD13;
+}
+.fa-bell{
+ color: #01A0C6;
+}
+.dropdown-toggle{
+  color: #01A0C6;
+}
+#footer{
+
+  background-color:#000000;
 }
