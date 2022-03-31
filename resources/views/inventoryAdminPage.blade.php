@@ -34,6 +34,10 @@
                             <label class="form-label">Quantity</label>
                             <input type="text" class="form-control" id="quantity">
                         </div>
+                        <div class="mb-3">
+                            <label class="form-label">Description</label><br>
+                            <input type="file" name="fileToUpload" id="fileToUpload">
+                        </div>
 
                 </div>
                 <div class="modal-footer">
@@ -209,6 +213,7 @@
                                                 <th>Location</th>
                                                 <th>Price</th>
                                                 <th>Quantity</th>
+                                                <th>Description</th>
                                             </tr>
                                         </thead>
                                     </table>
