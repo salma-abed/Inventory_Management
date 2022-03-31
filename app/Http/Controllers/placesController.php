@@ -50,7 +50,7 @@ class placesController extends Controller
             //POST
             
 
-            $Object->place_type = "warehouse";
+            //need to get the place type here to store in db and to chose which if condition to run => $Object->place_type = $request->input::pluck('carlist');
             $Object->place_name = strip_tags($request->input('Warehouse_name'));
             $Object->place_address = strip_tags($request->input('Warehouse_address'));
             $Object->save();
