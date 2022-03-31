@@ -17,27 +17,32 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="formElement">
+                    <form id="formElement" method="POST" action="">
+                        @csrf
                         <div class="mb-3">
                             <label class="form-label">Product Name</label>
-                            <input type="text" class="form-control" id="productname">
+                            <input type="text" class="form-control" id="productname" name="productname">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Location</label>
-                            <input type="text" class="form-control" id="location">
+                            <input type="text" class="form-control" id="location" name="location">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">description</label>
+                            <input type="text" class="form-control" id="description" name="description">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Price</label>
-                            <input type="text" class="form-control" id="price">
+                            <input type="text" class="form-control" id="price" name="price">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Quantity</label>
-                            <input type="text" class="form-control" id="quantity">
+                            <input type="text" class="form-control" id="quantity" name="quantity">
                         </div>
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
                     </form>
                 </div>
             </div>
