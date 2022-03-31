@@ -33,9 +33,10 @@
                 <div class="col-lg-6">
                     <div class="login-content">
                         <div class="login-logo">
-                            <img src="{{ asset('/images/otta b ta2ya.png') }}" alt="otta b ta2ya">
+                            <img src="/images/logo.png" alt="logo">
+                            <img src="/images/otta b ta2ya.png" alt="otta b ta2ya">
                         </div>
-                        <div class="login-form">
+                        <div class=" login-form">
                             <h4>Login</h4>
                             <form>
                                 <div class="form-group">
