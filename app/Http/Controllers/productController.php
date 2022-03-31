@@ -34,13 +34,20 @@ class productController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name'=> 'required',
+            'location'=>'required',
+            'description'=>'required',
+            'price'=>['required','integer'],
+            'quantity'=>['required','integer'],
+        ]);
         //POST
         $Object = new products();
-        $Object->name = $request->input('productname');
-        $Object->location=$request->input('location');
-        $Object->description=$request->input('description');
-        $Object->price=$request->input('price');
-        $Object->quantity=$request->input('quantity');
+        $Object->name = strip_tags($request->input('productname'));
+        $Object->location=strip_tags($request->input('location'));
+        $Object->description=strip_tags($request->input('description'));
+        $Object->price=strip_tags($request->input('price'));
+        $Object->quantity=strip_tags($request->input('quantity'));
         $Object->save();
 
         return back(); //basically refreshes after data is sent.
