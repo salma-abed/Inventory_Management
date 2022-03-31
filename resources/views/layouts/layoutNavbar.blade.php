@@ -47,6 +47,7 @@
                 <!-- Navbar brand -->
                 <a class="navbar-brand mt-2 mt-lg-0" href="#">
                     <img src="images/HeavenOtta.png" height="50" />
+                    <h1>2oolameme</h1>
                 </a>
             </div>
             <!-- Collapsible wrapper -->
