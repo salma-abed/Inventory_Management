@@ -4,6 +4,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\employeeController;
 use App\Http\Controllers\productController;
+use App\Http\Controllers\placesController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,3 +33,4 @@ Route::get('/dashboard',function(){
 });
 
 Route::post('/inventory',[productController::class,'store']);
+Route::post('/inventory',[placesController::class,'store']);
