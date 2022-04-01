@@ -1,9 +1,10 @@
-
 <?php
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\employeeController;
 use App\Http\Controllers\productController;
+use App\Http\Controllers\placesController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,14 +21,15 @@ Route::get('/', function () {
 Route::get('/employeetable',[employeeController::class,"view"])->name('view');
 
 
-Route::get('/inventory', function () {
-    return view('inventoryAdminPage');
+Route::get('/places', function () {
+    return view('admin/placesAdminPage');
 });
-Route::get('/warehouses', function () {
-    return view('inventoryWarehouseTable');
+Route::get('/warehouse', function () {
+    return view('warehouseManager/warehouseTable');
 });
 Route::get('/dashboard',function(){
     return view('dashboard');
 });
 
 Route::post('/inventory',[productController::class,'store']);
+Route::post('/inventory',[placesController::class,'store']);

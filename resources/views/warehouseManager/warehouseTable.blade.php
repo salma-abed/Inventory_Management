@@ -80,10 +80,10 @@
                                     <table class="table" id="warehousetable">
                                         <thead>
                                             <tr>
-                                                <th>Code</th>
                                                 <th>Branch Name</th>
                                                 <th>Location</th>
-                                                <th>View Products</th>
+                                                <th>Product Type</th>
+                                                <th>Quantity</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -92,11 +92,7 @@
                                         </tbody>
 
                                     </table>
-                                    <div class="container-fluid p-t-10">
-                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
-                                            data-bs-target="#warehousemodal">Add
-                                            Branch</button>
-                                    </div>
+
 
                                 </div>
                             </div>

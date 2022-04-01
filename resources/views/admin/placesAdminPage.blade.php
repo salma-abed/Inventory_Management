@@ -7,41 +7,33 @@
     @section('content')
 
     <!-- Modal -->
-    <!-------Add product Form--------->
+    <!-------Add place Form--------->
     <div class="modal fade" id="productmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Add Product</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Add Place</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form id="formElement" method="POST" action="">
                         @csrf
                         <div class="mb-3">
-                            <label class="form-label">Product Name</label>
-                            <input type="text" class="form-control" id="productname" name="productname">
+                            <label class="form-label">Place Name</label>
+                            <input type="text" class="form-control" id="placename" name="placename">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Location</label>
                             <input type="text" class="form-control" id="location" name="location">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">description</label>
-                            <input type="text" class="form-control" id="description" name="description">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Price</label>
-                            <input type="text" class="form-control" id="price" name="price">
+                            <label class="form-label">Product Type</label>
+                            <input type="text" class="form-control" id="product-type" name="product-type">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Quantity</label>
                             <input type="text" class="form-control" id="quantity" name="quantity">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Description</label><br>
-                            <input type="file" name="fileToUpload" id="fileToUpload">
                         </div>
 
                 </div>
@@ -64,22 +56,24 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="formElement">
-                        <div class="mb-3">
-                            <label class="form-label">Code</label>
-                            <input type="text" class="form-control" id="quantity">
-                        </div>
+                    <form id="formElement" method="POST" action="">
+                        @csrf
                         <div class="mb-3">
                             <label class="form-label">Branch name</label>
-                            <input type="text" class="form-control" id="productname">
+                            <input type="text" class="form-control" id="Warehouse_name" name="Warehouse_name">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Location</label>
-                            <input type="text" class="form-control" id="location">
+                            <label class="form-label">Branch adress</label>
+                            <input type="text" class="form-control" id="Warehouse_address" name="Warehouse_address">
                         </div>
+                        <select id="places_select" name="type_of_place">
+                            <option value="1">Warehouse</option>
+                            <option value="2">Printhouse</option>
+                            <option value="3">Store</option>
+                        </select>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
                     </form>
                 </div>
             </div>
@@ -93,26 +87,29 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Add Printinghouse Branch</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Add Printing_house Branch</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="formElement">
+                    <form id="formElement" method="POST" action="">
+                        @csrf
                         <div class="mb-3">
-                            <label class="form-label">Code</label>
-                            <input type="text" class="form-control" id="quantity">
+                            <label class="form-label">Printing_house name</label>
+                            <input type="text" class="form-control" id="Printing_house_name" name="Printing_house_name">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Branch name</label>
-                            <input type="text" class="form-control" id="productname">
+                            <label class="form-label">Printing_house_address</label>
+                            <input type="text" class="form-control" id="Printing_house_address"
+                                name="Printing_house_address">
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Location</label>
-                            <input type="text" class="form-control" id="location">
-                        </div>
+                        <select id="places_select" name="type_of_place">
+                            <option value="1">Warehouse</option>
+                            <option value="2">Printhouse</option>
+                            <option value="3">Store</option>
+                        </select>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
                     </form>
                 </div>
             </div>
@@ -130,23 +127,26 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="formElement">
-                        <div class="mb-3">
-                            <label class="form-label">Code</label>
-                            <input type="text" class="form-control" id="quantity">
-                        </div>
+                    <form id="formElement" method="POST" action="">
+                        @csrf
                         <div class="mb-3">
                             <label class="form-label">Branch name</label>
-                            <input type="text" class="form-control" id="productname">
+                            <input type="text" class="form-control" id="Store_name" name="Store_name">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Location</label>
-                            <input type="text" class="form-control" id="location">
+                            <label class="form-label">Store Location</label>
+                            <input type="text" class="form-control" id="Store_address" name="Store_address">
                         </div>
+                        <select id="places_select" name="type_of_place">
+                            <option value="1">Warehouse</option>
+                            <option value="2">Printhouse</option>
+                            <option value="3">Store</option>
+                        </select>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
                     </form>
+
                 </div>
             </div>
         </div>
@@ -183,9 +183,9 @@
 
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="products-tab" data-bs-toggle="tab"
-                                        data-bs-target="#products" type="button" role="tab" aria-controls="products"
-                                        aria-selected="true">All Products</button>
+                                    <button class="nav-link active" id="places-tab" data-bs-toggle="tab"
+                                        data-bs-target="#places" type="button" role="tab" aria-controls="places"
+                                        aria-selected="true">All Places</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="warehouses-tab" data-bs-toggle="tab"
@@ -207,18 +207,17 @@
 
 
                             <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade show active" id="products" role="tabpanel"
-                                    aria-labelledby="products-tab">
+                                <div class="tab-pane fade show active" id="places" role="tabpanel"
+                                    aria-labelledby="places-tab">
 
-                                    <table class="table" id="productTable">
+                                    <table class="table" id="placesTable">
                                         <thead>
                                             <tr>
 
-                                                <th>Product Name</th>
+                                                <th>Place Name</th>
                                                 <th>Location</th>
-                                                <th>Price</th>
+                                                <th>Product Type</th>
                                                 <th>Quantity</th>
-                                                <th>Description</th>
                                             </tr>
                                         </thead>
                                     </table>
@@ -226,7 +225,7 @@
                                     <div class="container-fluid p-t-10">
                                         <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
                                             data-bs-target="#productmodal">Add
-                                            Product</button>
+                                            Place</button>
                                     </div>
 
                                 </div>
@@ -235,10 +234,10 @@
                                     <table class="table" id="warehousetable">
                                         <thead>
                                             <tr>
-                                                <th>Code</th>
                                                 <th>Branch Name</th>
                                                 <th>Location</th>
-                                                <th>View Products</th>
+                                                <th>Product Type</th>
+                                                <th>Quantity</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -247,11 +246,7 @@
                                         </tbody>
 
                                     </table>
-                                    <div class="container-fluid p-t-10">
-                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
-                                            data-bs-target="#warehousemodal">Add
-                                            Branch</button>
-                                    </div>
+
 
                                 </div>
                                 <div class="tab-pane fade" id="printinghouses" role="tabpanel"
@@ -259,41 +254,33 @@
                                     <table class="table" id="printinghousetable">
                                         <thead>
                                             <tr>
-                                                <th>Code</th>
                                                 <th>Branch Name</th>
                                                 <th>Location</th>
-                                                <th>View Products</th>
+                                                <th>Product Type</th>
+                                                <th>Quantity</th>
                                             </tr>
                                         </thead>
                                         <tbody>
 
                                         </tbody>
                                     </table>
-                                    <div class="container-fluid p-t-10">
-                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
-                                            data-bs-target="#printinghousemodal">Add
-                                            Branch</button>
-                                    </div>
+
                                 </div>
                                 <div class="tab-pane fade" id="stores" role="tabpanel" aria-labelledby="stores-tab">
                                     <table class="table" id="storetable">
                                         <thead>
                                             <tr>
-                                                <th>Code</th>
                                                 <th>Branch Name</th>
                                                 <th>Location</th>
-                                                <th>View Products</th>
+                                                <th>Product Type</th>
+                                                <th>Quantity</th>
                                             </tr>
                                         </thead>
                                         <tbody>
 
                                         </tbody>
                                     </table>
-                                    <div class="container-fluid p-t-10">
-                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
-                                            data-bs-target="#storemodal">Add
-                                            Branch</button>
-                                    </div>
+
                                 </div>
                             </div>
 
