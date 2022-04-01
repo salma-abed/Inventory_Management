@@ -7,7 +7,7 @@
     @section('content')
 
     <!-- Modal -->
-    <!-------Add product Form--------->
+    <!-------Add place Form--------->
     <div class="modal fade" id="productmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -21,7 +21,7 @@
                         @csrf
                         <div class="mb-3">
                             <label class="form-label">Place Name</label>
-                            <input type="text" class="form-control" id="productname" name="productname">
+                            <input type="text" class="form-control" id="placename" name="placename">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Location</label>
@@ -29,7 +29,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Product Type</label>
-                            <input type="text" class="form-control" id="description" name="description">
+                            <input type="text" class="form-control" id="product-type" name="product-type">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Quantity</label>
@@ -183,8 +183,8 @@
 
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="products-tab" data-bs-toggle="tab"
-                                        data-bs-target="#products" type="button" role="tab" aria-controls="products"
+                                    <button class="nav-link active" id="places-tab" data-bs-toggle="tab"
+                                        data-bs-target="#places" type="button" role="tab" aria-controls="places"
                                         aria-selected="true">All Places</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
@@ -207,10 +207,10 @@
 
 
                             <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade show active" id="products" role="tabpanel"
-                                    aria-labelledby="products-tab">
+                                <div class="tab-pane fade show active" id="places" role="tabpanel"
+                                    aria-labelledby="places-tab">
 
-                                    <table class="table" id="productTable">
+                                    <table class="table" id="placesTable">
                                         <thead>
                                             <tr>
 
