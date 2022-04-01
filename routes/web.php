@@ -1,4 +1,3 @@
-
 <?php
 
 use Illuminate\Support\Facades\Route;
@@ -22,8 +21,8 @@ Route::get('/', function () {
 Route::get('/employeetable',[employeeController::class,"view"])->name('view');
 
 
-Route::get('/inventory', function () {
-    return view('inventoryAdminPage');
+Route::get('/places', function () {
+    return view('placesAdminPage');
 });
 Route::get('/warehouses', function () {
     return view('inventoryWarehouseTable');
