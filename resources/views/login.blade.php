@@ -28,20 +28,20 @@
 <body class="bg-primary">
 
     <div class="unix-login">
-        <div class="container-fluid">
+        <div class="container-fluid" id="login-bg">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="login-content">
                         <div class="login-logo">
-                            <img src="/images/logo.png" alt="logo">
-                            <img src="/images/otta b ta2ya.png" alt="otta b ta2ya">
+                            <img id="logo" src="/images/logo.png" alt="logo">
+
                         </div>
                         <div class=" login-form">
-                            <h4>Login</h4>
+                            <h4>LOGIN</h4>
                             <form>
                                 <div class="form-group">
-                                    <label>Email address</label>
-                                    <input type="email" class="form-control" placeholder="Email">
+                                    <label>Username</label>
+                                    <input type="text" class="form-control" placeholder="Username">
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
@@ -60,16 +60,11 @@
                                 <div class="social-login-content">
                                     <div class="social-button">
                                         <button type="button"
-                                            class="btn btn-primary bg-facebook btn-flat btn-addon m-b-10">
-                                            <i class="fa-brands fa-facebook-f"></i>Sign in with facebook</button>
-                                        <button type="button"
                                             class="btn btn-primary bg-google btn-flat btn-addon m-t-10">
                                             <i class="fa-brands fa-google"></i>Sign in with google</button>
                                     </div>
                                 </div>
-                                <div class="register-link m-t-15 text-center">
-                                    <p>Don't have account ? <a href="#"> Sign Up Here</a></p>
-                                </div>
+
                             </form>
                         </div>
                     </div>
