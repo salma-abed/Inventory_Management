@@ -22,10 +22,10 @@ Route::get('/employeetable',[employeeController::class,"view"])->name('view');
 
 
 Route::get('/places', function () {
-    return view('placesAdminPage');
+    return view('admin/placesAdminPage');
 });
-Route::get('/warehouses', function () {
-    return view('warehouseTable');
+Route::get('/warehouse', function () {
+    return view('warehouseManager/warehouseTable');
 });
 Route::get('/dashboard',function(){
     return view('dashboard');
