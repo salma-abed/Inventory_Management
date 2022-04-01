@@ -25,7 +25,7 @@ Route::get('/places', function () {
     return view('placesAdminPage');
 });
 Route::get('/warehouses', function () {
-    return view('inventoryWarehouseTable');
+    return view('warehouseTable');
 });
 Route::get('/dashboard',function(){
     return view('dashboard');
