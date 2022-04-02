@@ -1,5 +1,6 @@
 @extends('layouts/layoutNavbar')
 @extends('layouts/layoutFooter')
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,29 +22,46 @@
                         @csrf
                         <div class="mb-3">
                             <label class="form-label">Place Name</label>
-                            <input type="text" class="form-control" id="placename" name="placename">
+                            <input type="text" class="form-control" id="place_name" name="place_name">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Location</label>
-                            <input type="text" class="form-control" id="location" name="location">
+                            <input type="text" class="form-control" id="place_location" name="place_location">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Product Type</label>
-                            <input type="text" class="form-control" id="product-type" name="product-type">
+                            <label class="form-label">Product</label>
+                            <input type="text" class="form-control" id="product_name" name="product_name">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Quantity</label>
                             <input type="text" class="form-control" id="quantity" name="quantity">
                         </div>
-
+                        <label class="form-label">facility </label>
+                        <select id="type_of_place" name="type_of_place">
+                            <option value="Warehouse">Warehouse</option>
+                            <option value="Printhouse">Printhouse</option>
+                            <option value="Store">Store</option>
+                        </select>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
                     </form>
+
                 </div>
             </div>
         </div>
     </div>
+
+<!--showing error msg when field is submitted empty-->
+<div class="alert warning">
+  <strong>   @error('place_name') <h1>{{$message}}</h1>@enderror</strong>
+</div>
+
+<div class="alert warning">
+  <strong>   @error('place_location') <h1>{{$message}}</h1>@enderror</strong>
+</div>
+
+
     <!---------------------------------->
 
     <!-------Add Warehouse Form--------->
@@ -66,11 +84,7 @@
                             <label class="form-label">Branch adress</label>
                             <input type="text" class="form-control" id="Warehouse_address" name="Warehouse_address">
                         </div>
-                        <select id="places_select" name="type_of_place">
-                            <option value="1">Warehouse</option>
-                            <option value="2">Printhouse</option>
-                            <option value="3">Store</option>
-                        </select>
+
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
@@ -213,13 +227,24 @@
                                     <table class="table" id="placesTable">
                                         <thead>
                                             <tr>
-
                                                 <th>Place Name</th>
                                                 <th>Location</th>
                                                 <th>Product Type</th>
                                                 <th>Quantity</th>
+                                                <th>place_type</th>
+
                                             </tr>
-                                        </thead>
+                                        @foreach($data as $row)
+                                            <tr>
+                                                <th>{{$row->place_name}}</th>
+                                                <th>{{$row->place_address}}</th>
+                                                <th>{{$row->product}} </th>
+                                                <th>{{$row->quantity}}</th>
+                                                <th>{{$row->place_type}}</th>
+
+                                            </tr>
+                                            </thead>
+                                        @endforeach
                                     </table>
 
                                     <div class="container-fluid p-t-10">
@@ -244,7 +269,19 @@
 
 
                                         </tbody>
-
+                                        @foreach($data as $row)
+                                            <tr>
+                                                @if($row->place_type=='Warehouse')
+                                                
+                                                <th>{{$row->place_name}}</th>
+                                                <th>{{$row->place_address}}</th>
+                                                <th>{{$row->product}} </th>
+                                                <th>{{$row->quantity}}</th>
+                                                <th>{{$row->place_type}}</th>
+                                                @endif
+                                            </tr>
+                                            </thead>
+                                        @endforeach
                                     </table>
 
 
@@ -263,6 +300,19 @@
                                         <tbody>
 
                                         </tbody>
+                                        @foreach($data as $row)
+                                            <tr>
+                                                @if($row->place_type=='Printhouse')
+                                                
+                                                <th>{{$row->place_name}}</th>
+                                                <th>{{$row->place_address}}</th>
+                                                <th>{{$row->product}} </th>
+                                                <th>{{$row->quantity}}</th>
+                                                <th>{{$row->place_type}}</th>
+                                                @endif
+                                            </tr>
+                                            </thead>
+                                        @endforeach
                                     </table>
 
                                 </div>
@@ -279,6 +329,19 @@
                                         <tbody>
 
                                         </tbody>
+                                        @foreach($data as $row)
+                                            <tr>
+                                                @if($row->place_type=='Store')
+                                                
+                                                <th>{{$row->place_name}}</th>
+                                                <th>{{$row->place_address}}</th>
+                                                <th>{{$row->product}} </th>
+                                                <th>{{$row->quantity}}</th>
+                                                <th>{{$row->place_type}}</th>
+                                                @endif
+                                            </tr>
+                                            </thead>
+                                        @endforeach
                                     </table>
 
                                 </div>

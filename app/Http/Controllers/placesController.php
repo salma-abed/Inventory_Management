@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\places;
 
 class placesController extends Controller
@@ -15,6 +16,11 @@ class placesController extends Controller
     public function index()
     {
         //
+        $data=  DB::select("select * from places");
+        $arr['data']=$data;
+
+        return view('admin/placesAdminPage',$arr);
+        
     }
 
     /**
@@ -36,45 +42,37 @@ class placesController extends Controller
     public function store(Request $request)
     {
         $Object = new places();
-        $Object->place_name = strip_tags($request->input('Warehouse_name'));
-        
-  
-        if(isset($Object->place_name))
-        {
+
             $request->validate([
-                'Warehouse_name'=> 'required',
-                'Warehouse_address'=>'required',
+                'place_name'=> 'required',
+                'place_location'=>'required',
+                'type_of_place'=>'required'
 
             ]);
 
+            if($_POST['product_name']!= null)
+            {
+                if($_POST['quantity']==null)
+                {
+                    $Object->quantity = 0;                
+                }
+                else
+                $Object->quantity = strip_tags($request->input('quantity'));
+
+            }
+
             //POST
-            
 
             //need to get the place type here to store in db and to chose which if condition to run => $Object->place_type = $request->input::pluck('carlist');
-            $Object->place_name = strip_tags($request->input('Warehouse_name'));
-            $Object->place_address = strip_tags($request->input('Warehouse_address'));
+            $Object->place_name = strip_tags($request->input('place_name'));
+            $Object->product = strip_tags($request->input('product_name'));
+            $Object->place_address = strip_tags($request->input('place_location'));
+            $Object->place_type = strip_tags($request->input('type_of_place'));
+
+
             $Object->save();
-
-        }
-        // $Object->place_name = strip_tags($request->input('Printing_house_name'));
-
-        // if(isset($Object->place_name))
-        // {
-        //     $request->validate([
-        //         'Printing_house_name'=> 'required',
-        //         'Printing_house_address'=>'required',
-
-        //     ]);
-
-        //     //POST
-            
-        //     $Object->place_type = "printinghouse";
-        //     $Object->place_name = strip_tags($request->input('Printing_house_name'));
-        //     $Object->place_address = strip_tags($request->input('Printing_house_address'));
-        //     $Object->save();
-
-        // }
             return back(); //basically refreshes after data is sent.
+
 
     }
 

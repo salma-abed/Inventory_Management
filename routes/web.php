@@ -32,4 +32,6 @@ Route::get('/dashboard',function(){
 });
 
 Route::post('/inventory',[productController::class,'store']);
-Route::post('/inventory',[placesController::class,'store']);
+Route::post('/places',[placesController::class,'store']);
+Route::get('/places',[placesController::class,'index']);
+
