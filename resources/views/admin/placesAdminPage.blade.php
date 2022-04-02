@@ -60,12 +60,7 @@
 <div class="alert warning">
   <strong>   @error('place_location') <h1>{{$message}}</h1>@enderror</strong>
 </div>
-<div class="alert warning">
-  <strong>   @error('product_type') <h1>{{$message}}</h1>@enderror</strong>
-</div>
-<div class="alert warning">
-  <strong>   @error('quantity') <h1>{{$message}}</h1>@enderror</strong>
-</div>
+
 
     <!---------------------------------->
 
