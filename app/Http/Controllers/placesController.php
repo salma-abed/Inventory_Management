@@ -36,14 +36,14 @@ class placesController extends Controller
     public function store(Request $request)
     {
         $Object = new places();
-        $Object->place_name = strip_tags($request->input('Warehouse_name'));
-        
+
   
-        if(isset($Object->place_name))
-        {
+
+        
             $request->validate([
-                'Warehouse_name'=> 'required',
-                'Warehouse_address'=>'required',
+                'place_name'=> 'required',
+                'place_location'=>'required',
+                'product_type'=>'required',
 
             ]);
 
@@ -51,11 +51,13 @@ class placesController extends Controller
             
 
             //need to get the place type here to store in db and to chose which if condition to run => $Object->place_type = $request->input::pluck('carlist');
-            $Object->place_name = strip_tags($request->input('Warehouse_name'));
-            $Object->place_address = strip_tags($request->input('Warehouse_address'));
+            $Object->place_name = strip_tags($request->input('place_name'));
+            $Object->place_address = strip_tags($request->input('place_location'));
+            $Object->place_type = strip_tags($request->input('product_type'));
+
             $Object->save();
 
-        }
+        
         // $Object->place_name = strip_tags($request->input('Printing_house_name'));
 
         // if(isset($Object->place_name))
