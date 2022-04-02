@@ -5,106 +5,70 @@
 <head>
 
     @section('content')
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employees Table</title>
-</head>
-
-<body>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Name </th>
-                <th scope="col">Address</th>
-                <th scope="col">Number</th>
-                <th scope="col">Postion</th>
-                <th scope="col">Bottons</th>
-
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td> <button class="btn"><i class="fa fa-trash"></i></button>
-                    <button class="btn"><i class="fas fa-edit"></i></button>
-                </td>
-
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td> <button class="btn"><i class="fa fa-trash"></i></button>
-                    <button class="btn"><i class="fas fa-edit"></i></button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-                <td> <button class="btn"><i class="fa fa-trash"></i></button>
-                    <button class="btn"><i class="fas fa-edit"></i></button>
-                </td>
-            </tr>
-            <td> <button class="btn"><i class="fa-duotone"></i></button>
-
-            </td>
-
-            <div class=" login-form">
-                <h4>Add New User</h4>
-                <form>
-                    <div class="form-group">
-                        <label>Enter Name</label>
-                        <input type="email" class="form-control" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                        <label>Enter Address</label>
-                        <input type="text" class="form-control" placeholder="text">
-                    </div>
-                    <div class="form-group">
-                        <label>Enter Address</label>
-                        <input type="text" class="form-control" placeholder="text">
-                    </div>
-                    <div class="form-group">
-                        <label>Number</label>
-                        <input type="number" class="form-control" placeholder="number">
-                    </div>
-                    <div class="form-group">
-                        <label>Position </label>
-                        <input type="text" class="form-control" placeholder="text">
-                    </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox"> Male
-                        </label>
-                        <label class="pull-right">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox"> Female
-                                </label>
-
+    <div class="content-wrap">
+        <div class="main p-l-200">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-8 p-r-0 title-margin-right">
+                        <div class="page-header">
+                            <div class="page-title">
+                                <h1>Meow, <span>Welcome Here</span></h1>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Sign in</button>
-                            <div class="social-login-content">
-                                <div class="social-button">
+                        </div>
+                    </div>
+                    <!-- /# column -->
+                    <div class="col-lg-4 p-l-0 title-margin-left">
+                        <div class="page-header">
+                            <div class="page-title">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                                    <li class="breadcrumb-item active">Inventory</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /# column -->
+                </div>
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="places-tab" data-bs-toggle="tab"
+                                        data-bs-target="#places" type="button" role="tab" aria-controls="places"
+                                        aria-selected="true">Employess Data </button>
+
+                            </ul>
+
+
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="places" role="tabpanel"
+                                    aria-labelledby="places-tab">
+
+                                    <table class="table" id="placesTable">
+                                        <thead>
+                                            <tr>
+
+                                                <th>Name</th>
+                                                <th>Address</th>
+                                                <th>Number</th>
+                                                <th>Postion</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+
+                                    <div class="container-fluid p-t-10">
+                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#productmodal">Add Employee</button>
+                                    </div>
 
                                 </div>
                             </div>
+                        </div>
+                        @endsection
 
-                </form>
-            </div>
-            </div>
-            </div>
-        </tbody>
-    </table>
-    @endsection
-
-</body>
+                        </body>
 
 </html>
