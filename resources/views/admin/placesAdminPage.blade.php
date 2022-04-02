@@ -269,7 +269,19 @@
 
 
                                         </tbody>
-
+                                        @foreach($data as $row)
+                                            <tr>
+                                                @if($row->place_type=='Warehouse')
+                                                
+                                                <th>{{$row->place_name}}</th>
+                                                <th>{{$row->place_address}}</th>
+                                                <th>{{$row->product}} </th>
+                                                <th>{{$row->quantity}}</th>
+                                                <th>{{$row->place_type}}</th>
+                                                @endif
+                                            </tr>
+                                            </thead>
+                                        @endforeach
                                     </table>
 
 
@@ -288,6 +300,19 @@
                                         <tbody>
 
                                         </tbody>
+                                        @foreach($data as $row)
+                                            <tr>
+                                                @if($row->place_type=='Printhouse')
+                                                
+                                                <th>{{$row->place_name}}</th>
+                                                <th>{{$row->place_address}}</th>
+                                                <th>{{$row->product}} </th>
+                                                <th>{{$row->quantity}}</th>
+                                                <th>{{$row->place_type}}</th>
+                                                @endif
+                                            </tr>
+                                            </thead>
+                                        @endforeach
                                     </table>
 
                                 </div>
@@ -304,6 +329,19 @@
                                         <tbody>
 
                                         </tbody>
+                                        @foreach($data as $row)
+                                            <tr>
+                                                @if($row->place_type=='Store')
+                                                
+                                                <th>{{$row->place_name}}</th>
+                                                <th>{{$row->place_address}}</th>
+                                                <th>{{$row->product}} </th>
+                                                <th>{{$row->quantity}}</th>
+                                                <th>{{$row->place_type}}</th>
+                                                @endif
+                                            </tr>
+                                            </thead>
+                                        @endforeach
                                     </table>
 
                                 </div>
