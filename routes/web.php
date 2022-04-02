@@ -27,6 +27,9 @@ Route::get('/warehouse', function () {
 Route::get('/dashboard',function(){
     return view('dashboard');
 });
+Route::get('/profilepage',function(){
+    return view('profilePage');
+});
 
 Route::post('/inventory',[productController::class,'store']);
 Route::post('/places',[placesController::class,'store']);
