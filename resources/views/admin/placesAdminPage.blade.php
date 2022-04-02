@@ -1,5 +1,6 @@
 @extends('layouts/layoutNavbar')
 @extends('layouts/layoutFooter')
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,15 +22,15 @@
                         @csrf
                         <div class="mb-3">
                             <label class="form-label">Place Name</label>
-                            <input type="text" class="form-control" id="placename" name="placename">
+                            <input type="text" class="form-control" id="place_name" name="place_name">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Location</label>
-                            <input type="text" class="form-control" id="location" name="location">
+                            <input type="text" class="form-control" id="place_location" name="place_location">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Product Type</label>
-                            <input type="text" class="form-control" id="product-type" name="product-type">
+                            <input type="text" class="form-control" id="product_type" name="product_type">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Quantity</label>
@@ -40,10 +41,27 @@
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
                     </form>
+
                 </div>
             </div>
         </div>
     </div>
+
+
+<div class="alert warning">
+  <strong>   @error('place_name') <h1>{{$message}}</h1>@enderror</strong>
+</div>
+
+<div class="alert warning">
+  <strong>   @error('place_location') <h1>{{$message}}</h1>@enderror</strong>
+</div>
+<div class="alert warning">
+  <strong>   @error('product_type') <h1>{{$message}}</h1>@enderror</strong>
+</div>
+<div class="alert warning">
+  <strong>   @error('quantity') <h1>{{$message}}</h1>@enderror</strong>
+</div>
+
     <!---------------------------------->
 
     <!-------Add Warehouse Form--------->
