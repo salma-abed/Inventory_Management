@@ -99,5 +99,4 @@
     </nav>
     <!-- Navbar -->
     @yield('content')
-    @yield('scripts')
 </body>
