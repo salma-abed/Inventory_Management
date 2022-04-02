@@ -29,14 +29,19 @@
                             <input type="text" class="form-control" id="place_location" name="place_location">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Product Type</label>
-                            <input type="text" class="form-control" id="product_type" name="product_type">
+                            <label class="form-label">Product</label>
+                            <input type="text" class="form-control" id="product" name="product>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Quantity</label>
                             <input type="text" class="form-control" id="quantity" name="quantity">
                         </div>
-
+                        <label class="form-label">facility </label>
+                        <select id="type_of_place" name="type_of_place">
+                            <option value="Warehouse">Warehouse</option>
+                            <option value="Printhouse">Printhouse</option>
+                            <option value="Store">Store</option>
+                        </select>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
@@ -47,7 +52,7 @@
         </div>
     </div>
 
-
+<!--showing error msg when field is submitted empty-->
 <div class="alert warning">
   <strong>   @error('place_name') <h1>{{$message}}</h1>@enderror</strong>
 </div>
@@ -84,11 +89,7 @@
                             <label class="form-label">Branch adress</label>
                             <input type="text" class="form-control" id="Warehouse_address" name="Warehouse_address">
                         </div>
-                        <select id="places_select" name="type_of_place">
-                            <option value="1">Warehouse</option>
-                            <option value="2">Printhouse</option>
-                            <option value="3">Store</option>
-                        </select>
+
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
