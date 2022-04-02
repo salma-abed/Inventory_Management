@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('places', function (Blueprint $table) {
 
-            $table->id('place_id');
-            $table->string('place_type');        
+            $table->id('place_id');       
             $table->string('place_name');
+            $table->string('place_type'); 
             $table->string('place_address');
-            
+            $table->string('product');
+            $table->integer('quantity');
             $table->timestamps();
         });
     }
