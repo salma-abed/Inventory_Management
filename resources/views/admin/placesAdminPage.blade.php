@@ -30,7 +30,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Product</label>
-                            <input type="text" class="form-control" id="product" name="product>
+                            <input type="text" class="form-control" id="product_name" name="product_name">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Quantity</label>
