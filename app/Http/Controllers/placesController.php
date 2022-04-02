@@ -35,7 +35,6 @@ class placesController extends Controller
      */
     public function store(Request $request)
     {
-
         $Object = new places();
 
             $request->validate([
@@ -45,18 +44,25 @@ class placesController extends Controller
 
             ]);
 
-            // if($isset($_POST['product']))
-            // {
-            //     if(!$isset($_POST['quantity'])){
-            //     $Object->product_quantity = 0;                }
-            // }
+            if($_POST['product_name']!= null)
+            {
+                if($_POST['quantity']==null)
+                {
+                    $Object->quantity = 0;                
+                }
+                else
+                $Object->quantity = strip_tags($request->input('quantity'));
+
+            }
 
             //POST
 
             //need to get the place type here to store in db and to chose which if condition to run => $Object->place_type = $request->input::pluck('carlist');
             $Object->place_name = strip_tags($request->input('place_name'));
+            $Object->product = strip_tags($request->input('product_name'));
             $Object->place_address = strip_tags($request->input('place_location'));
             $Object->place_type = strip_tags($request->input('type_of_place'));
+
 
             $Object->save();
             return back(); //basically refreshes after data is sent.
