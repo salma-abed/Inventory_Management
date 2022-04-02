@@ -227,13 +227,24 @@
                                     <table class="table" id="placesTable">
                                         <thead>
                                             <tr>
-
                                                 <th>Place Name</th>
                                                 <th>Location</th>
                                                 <th>Product Type</th>
                                                 <th>Quantity</th>
+                                                <th>place_type</th>
+
                                             </tr>
-                                        </thead>
+                                        @foreach($data as $row)
+                                            <tr>
+                                                <th>{{$row->place_name}}</th>
+                                                <th>{{$row->place_address}}</th>
+                                                <th>{{$row->product}} </th>
+                                                <th>{{$row->quantity}}</th>
+                                                <th>{{$row->place_type}}</th>
+
+                                            </tr>
+                                            </thead>
+                                        @endforeach
                                     </table>
 
                                     <div class="container-fluid p-t-10">
