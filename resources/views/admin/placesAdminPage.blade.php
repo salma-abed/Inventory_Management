@@ -1,6 +1,4 @@
-@extends('layouts/layoutNavbar')
-@extends('layouts/layoutFooter')
-
+@extends('layouts.default')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +7,7 @@
 
     <!-- Modal -->
     <!-------Add place Form--------->
-    <div class="modal fade" id="productmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    <div class="modal fade" id="placemodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -36,6 +34,7 @@
                             <label class="form-label">Quantity</label>
                             <input type="text" class="form-control" id="quantity" name="quantity">
                         </div>
+
                         <label class="form-label">facility </label>
                         <select id="type_of_place" name="type_of_place">
                             <option value="Warehouse">Warehouse</option>
@@ -52,113 +51,56 @@
         </div>
     </div>
 
-<!--showing error msg when field is submitted empty-->
-<div class="alert warning">
-  <strong>   @error('place_name') <h1>{{$message}}</h1>@enderror</strong>
-</div>
-
-<div class="alert warning">
-  <strong>   @error('place_location') <h1>{{$message}}</h1>@enderror</strong>
-</div>
-
-
-    <!---------------------------------->
-
-    <!-------Add Warehouse Form--------->
-    <div class="modal fade" id="warehousemodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Add Warehouse Branch</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="formElement" method="POST" action="">
-                        @csrf
-                        <div class="mb-3">
-                            <label class="form-label">Branch name</label>
-                            <input type="text" class="form-control" id="Warehouse_name" name="Warehouse_name">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Branch adress</label>
-                            <input type="text" class="form-control" id="Warehouse_address" name="Warehouse_address">
-                        </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+    <!--showing error msg when field is submitted empty-->
+    <div class="alert warning">
+        <strong> @error('place_name') <h1>{{$message}}</h1>@enderror</strong>
     </div>
+
+    <div class="alert warning">
+        <strong> @error('place_location') <h1>{{$message}}</h1>@enderror</strong>
+    </div>
+
+
     <!---------------------------------->
 
-    <!-------Add Printinghouse Form--------->
-    <div class="modal fade" id="printinghousemodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    <!-------Edit Form------------->
+    <div class="modal fade" id="editmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Add Printing_house Branch</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Edit</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="formElement" method="POST" action="">
+                    <form id="formElement" method="POST" action="/update/{{$data[0]->place_id}}">
                         @csrf
                         <div class="mb-3">
-                            <label class="form-label">Printing_house name</label>
-                            <input type="text" class="form-control" id="Printing_house_name" name="Printing_house_name">
+                            <label class="form-label">Place Name</label>
+                            <input type="text" class="form-control" id="place_name" name="place_name">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Printing_house_address</label>
-                            <input type="text" class="form-control" id="Printing_house_address"
-                                name="Printing_house_address">
+                            <label class="form-label">Location</label>
+                            <input type="text" class="form-control" id="place_location" name="place_location">
                         </div>
-                        <select id="places_select" name="type_of_place">
-                            <option value="1">Warehouse</option>
-                            <option value="2">Printhouse</option>
-                            <option value="3">Store</option>
+                        <div class="mb-3">
+                            <label class="form-label">Product</label>
+                            <input type="text" class="form-control" id="product_name" name="product_name">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Quantity</label>
+                            <input type="text" class="form-control" id="quantity" name="quantity">
+                        </div>
+
+                        <label class="form-label">facility </label>
+                        <select id="type_of_place" name="type_of_place">
+                            <option value="Warehouse">Warehouse</option>
+                            <option value="Printhouse">Printhouse</option>
+                            <option value="Store">Store</option>
                         </select>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!---------------------------------->
-
-    <!-------Add Store Form--------->
-    <div class="modal fade" id="storemodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Add Store Branch</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="formElement" method="POST" action="">
-                        @csrf
-                        <div class="mb-3">
-                            <label class="form-label">Branch name</label>
-                            <input type="text" class="form-control" id="Store_name" name="Store_name">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Store Location</label>
-                            <input type="text" class="form-control" id="Store_address" name="Store_address">
-                        </div>
-                        <select id="places_select" name="type_of_place">
-                            <option value="1">Warehouse</option>
-                            <option value="2">Printhouse</option>
-                            <option value="3">Store</option>
-                        </select>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Update</button>
                     </form>
 
                 </div>
@@ -231,25 +173,30 @@
                                                 <th>Location</th>
                                                 <th>Product Type</th>
                                                 <th>Quantity</th>
-                                                <th>place_type</th>
+                                                <th>Place_type</th>
+                                                <th>Edits</th>
 
                                             </tr>
+                                        </thead>
                                         @foreach($data as $row)
-                                            <tr>
-                                                <th>{{$row->place_name}}</th>
-                                                <th>{{$row->place_address}}</th>
-                                                <th>{{$row->product}} </th>
-                                                <th>{{$row->quantity}}</th>
-                                                <th>{{$row->place_type}}</th>
+                                        <tr>
+                                            <th>{{$row->place_name}}</th>
+                                            <th>{{$row->place_address}}</th>
+                                            <th>{{$row->product}} </th>
+                                            <th>{{$row->quantity}}</th>
+                                            <th>{{$row->place_type}}</th>
+                                            <td> <a data-bs-toggle="modal" data-bs-target="#edit3modal"
+                                                    href="edit/{{$row->place_id}}"><i class="far fa-edit"></i></i>
+                                                </a></td>
 
-                                            </tr>
-                                            </thead>
+                                        </tr>
+
                                         @endforeach
                                     </table>
 
                                     <div class="container-fluid p-t-10">
                                         <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
-                                            data-bs-target="#productmodal">Add
+                                            data-bs-target="#placemodal">Add
                                             Place</button>
                                     </div>
 
@@ -270,17 +217,17 @@
 
                                         </tbody>
                                         @foreach($data as $row)
-                                            <tr>
-                                                @if($row->place_type=='Warehouse')
-                                                
-                                                <th>{{$row->place_name}}</th>
-                                                <th>{{$row->place_address}}</th>
-                                                <th>{{$row->product}} </th>
-                                                <th>{{$row->quantity}}</th>
-                                                <th>{{$row->place_type}}</th>
-                                                @endif
-                                            </tr>
-                                            </thead>
+                                        <tr>
+                                            @if($row->place_type=='Warehouse')
+
+                                            <th>{{$row->place_name}}</th>
+                                            <th>{{$row->place_address}}</th>
+                                            <th>{{$row->product}} </th>
+                                            <th>{{$row->quantity}}</th>
+                                            <th>{{$row->place_type}}</th>
+                                            @endif
+                                        </tr>
+                                        </thead>
                                         @endforeach
                                     </table>
 
@@ -301,17 +248,17 @@
 
                                         </tbody>
                                         @foreach($data as $row)
-                                            <tr>
-                                                @if($row->place_type=='Printhouse')
-                                                
-                                                <th>{{$row->place_name}}</th>
-                                                <th>{{$row->place_address}}</th>
-                                                <th>{{$row->product}} </th>
-                                                <th>{{$row->quantity}}</th>
-                                                <th>{{$row->place_type}}</th>
-                                                @endif
-                                            </tr>
-                                            </thead>
+                                        <tr>
+                                            @if($row->place_type=='Printhouse')
+
+                                            <th>{{$row->place_name}}</th>
+                                            <th>{{$row->place_address}}</th>
+                                            <th>{{$row->product}} </th>
+                                            <th>{{$row->quantity}}</th>
+                                            <th>{{$row->place_type}}</th>
+                                            @endif
+                                        </tr>
+                                        </thead>
                                         @endforeach
                                     </table>
 
@@ -330,17 +277,17 @@
 
                                         </tbody>
                                         @foreach($data as $row)
-                                            <tr>
-                                                @if($row->place_type=='Store')
-                                                
-                                                <th>{{$row->place_name}}</th>
-                                                <th>{{$row->place_address}}</th>
-                                                <th>{{$row->product}} </th>
-                                                <th>{{$row->quantity}}</th>
-                                                <th>{{$row->place_type}}</th>
-                                                @endif
-                                            </tr>
-                                            </thead>
+                                        <tr>
+                                            @if($row->place_type=='Store')
+
+                                            <th>{{$row->place_name}}</th>
+                                            <th>{{$row->place_address}}</th>
+                                            <th>{{$row->product}} </th>
+                                            <th>{{$row->quantity}}</th>
+                                            <th>{{$row->place_type}}</th>
+                                            @endif
+                                        </tr>
+                                        </thead>
                                         @endforeach
                                     </table>
 
@@ -353,16 +300,5 @@
             </div>
         </div>
     </div>
-    @endsection
-    @section('scripts')
-    <script>
-    $('#makeEditable').SetEditable({
-        onEdit: function() {},
-        onDelete: function() {},
-        onBeforeDelete: function() {},
-        onAdd: function() {},
-        $addButton: $('#but_add')
-    });
-    </script>
     @endsection
 </body>
