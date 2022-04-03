@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\employeeController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\placesController;
+use App\Http\Controllers\userController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +34,7 @@ Route::get('/profilepage', function () {
 });
 
 
-Route::get('/users', [userController::class, 'view']);
+Route::get('/users', [userController::class, 'view'])->name('users');
 Route::post('/inventory', [productController::class, 'store']);
 
 Route::post('/places', [placesController::class, 'store']);
