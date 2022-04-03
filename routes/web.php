@@ -13,13 +13,14 @@ use App\Http\Controllers\placesController;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 */
+
 Route::get('/', function () {
     return view('login');
 });
 
-
-Route::get('/employeetable',[employeeController::class,"view"])->name('view');
-
+Route::get('/users', function () {
+    return view('users');
+});
 
 Route::get('/places', function () {
     return view('admin/placesAdminPage');
@@ -27,11 +28,11 @@ Route::get('/places', function () {
 Route::get('/warehouse', function () {
     return view('warehouseManager/warehouseTable');
 });
-Route::get('/dashboard',function(){
+Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
-Route::post('/inventory',[productController::class,'store']);
-Route::post('/places',[placesController::class,'store']);
-Route::get('/places',[placesController::class,'index']);
-
+Route::post('/inventory', [productController::class, 'store']);
+Route::post('/places', [placesController::class, 'store']);
+Route::get('/places', [placesController::class, 'index']);
+Route::get('/users', [userController::class, 'view']);
