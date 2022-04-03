@@ -32,6 +32,9 @@ Route::get('/dashboard',function(){
 });
 
 Route::post('/inventory',[productController::class,'store']);
+
 Route::post('/places',[placesController::class,'store']);
 Route::get('/places',[placesController::class,'index']);
 
+Route::get('/edit/{place_id}',[placesController::class,'edit']);
+Route::post('/update/{place_id}',[placesController::class,'update']);
