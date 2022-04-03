@@ -77,21 +77,20 @@
                         @csrf
                         <div class="mb-3">
                             <label class="form-label">Place Name</label>
-                            <input type="text" class="form-control" id="place_name" name="place_name">
+                            <input type="text" class="form-control" id="place_name"  value ="{{$data[0]->place_name}}" name="place_name">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Location</label>
-                            <input type="text" class="form-control" id="place_location" name="place_location">
+                            <input type="text" class="form-control" id="place_location"  value ="{{$data[0]->place_address}}" name="place_location">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Product</label>
-                            <input type="text" class="form-control" id="product_name" name="product_name">
+                            <input type="text" class="form-control" id="product_name"  value ="{{$data[0]->product}}" name="product_name">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Quantity</label>
-                            <input type="text" class="form-control" id="quantity" name="quantity">
+                            <input type="text" class="form-control" id="quantity" value ="{{$data[0]->quantity}}"  name="quantity">
                         </div>
-
                         <label class="form-label">facility </label>
                         <select id="type_of_place" name="type_of_place">
                             <option value="Warehouse">Warehouse</option>
@@ -100,7 +99,7 @@
                         </select>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Update</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">6</button>
                     </form>
 
                 </div>
@@ -177,18 +176,24 @@
                                                 <th>Quantity</th>
                                                 <th>Place_type</th>
                                                 <th>Edits</th>
+                                                <th>Deletes</th>
+
 
                                             </tr>
                                         </thead>
                                         @foreach($data as $row)
                                         <tr>
+                                            1
                                             <th>{{$row->place_name}}</th>
                                             <th>{{$row->place_address}}</th>
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
                                             <th>{{$row->place_type}}</th>
-                                            <td> <a data-bs-toggle="modal" data-bs-target="#editmodal"
-                                                    href="edit/{{$row->place_id}}"><i class="far fa-edit"></i></i>
+                                            <td> <a  data-bs-target="#editmodal"
+                                                    href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i></i>
+                                                </a></td>
+                                                <td> <a data-bs-toggle="modal" data-bs-target="#editmodal"
+                                                    href="delete/{{$row->place_id}}"><i class="far fa-edit"></i></i>
                                                 </a></td>
 
                                         </tr>
