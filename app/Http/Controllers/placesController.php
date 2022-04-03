@@ -130,4 +130,27 @@ class placesController extends Controller
     {
         //
     }
+
+    public function search(Request $request)
+    {
+            if($request->ajax()){
+            $output="";
+            $places=DB::table('places')->where('place_name','LIKE','%'.$request->search."%")->get();
+
+            if($places){
+                foreach ($places as $key => $places) {
+                    $output.='<tr>'.
+                    '<td>'.$places->place_name.'</td>'.
+                    '<td>'.$places->place_type.'</td>'.
+                    '<td>'.$places->place_address.'</td>'.
+                    '<td>'.$places->product.'</td>'.
+                    '<td>'.$places->quantity.'</td>'.
+                    '</tr>';
+                }
+                return Response('admin/placesAdminPage', $output);
+            }
+        }
+        
+        
+    }
 }
