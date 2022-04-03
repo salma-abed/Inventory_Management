@@ -97,7 +97,7 @@ class placesController extends Controller
     {
         //       
         $data=  DB::select('select * from places where place_id=?',[$places_id]);
-        return view('admin/Edit_placesAdminPAge',['data'=>$data]);
+        return view('admin/Edit_placesAdminPage',['data'=>$data]);
     }
 
     /**
@@ -116,8 +116,10 @@ class placesController extends Controller
        $quantity= $request->input('quantity');
 
        DB::update('update places set place_name =?, place_type=?, place_address= ?,product= ?,quantity=? where place_id=? ',[$place_name,$type,$place_location,$product,$quantity,$id]);
-       return view('dashboard');
-    
+       $data=  DB::select("select * from places");
+       $arr['data']=$data;
+
+       return redirect('places');  //redirects sends to the page specified
     }
 
     /**
@@ -128,7 +130,9 @@ class placesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::update('delete from places where place_id=? ',[$id]);
+        return view('admin/Edit_placesAdminPAge',['data'=>$data]);
+
     }
 
     public function search(Request $request)
