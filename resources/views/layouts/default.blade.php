@@ -6,14 +6,14 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid no-padding">
         <header class="row">
             @include('layouts.navbar')
         </header>
         <div id="main" class="row">
             @yield('content')
         </div>
-        <footer class="row" style="position: relative">
+        <footer class="row text-center text-white" style="position: relative">
             @include('layouts.footer')
         </footer>
     </div>
