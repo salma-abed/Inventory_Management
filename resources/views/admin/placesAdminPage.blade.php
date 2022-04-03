@@ -241,6 +241,7 @@
                                                 <th>{{$row->product}} </th>
                                                 <th>{{$row->quantity}}</th>
                                                 <th>{{$row->place_type}}</th>
+                                                <td> <a href="edit/{{$row->place_id}}" class="btn btn-sucess">Edit </a></td>
 
                                             </tr>
                                             </thead>
