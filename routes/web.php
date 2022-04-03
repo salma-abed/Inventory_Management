@@ -21,14 +21,14 @@ Route::get('/', function () {
 Route::get('/employeetable',[employeeController::class,"view"])->name('view');
 
 
-Route::get('/places', function () {
-    return view('admin/placesAdminPage');
-});
 Route::get('/warehouse', function () {
     return view('warehouseManager/warehouseTable');
 });
 Route::get('/dashboard',function(){
     return view('dashboard');
+});
+Route::get('/profilepage',function(){
+    return view('profilePage');
 });
 
 Route::post('/inventory',[productController::class,'store']);

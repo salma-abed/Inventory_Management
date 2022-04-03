@@ -3342,7 +3342,6 @@ tbody tr td:last-child {
   box-shadow: none;
 }
 
-.login-content {}
 
 #login-bg {
   background-image: url(/images/HeavenOtta.png), url(/images/HellOtta.png);
@@ -5457,6 +5456,5 @@ only screen and (min-resolution: 2dppx) {
 }
 
 #footer {
-
   background-color: #000000;
 }

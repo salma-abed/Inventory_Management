@@ -1,6 +1,4 @@
-@extends('layouts/layoutNavbar')
-@extends('layouts/layoutFooter')
-
+@extends('layouts.default')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +7,7 @@
 
     <!-- Modal -->
     <!-------Add place Form--------->
-    <div class="modal fade" id="productmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    <div class="modal fade" id="placemodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -52,14 +50,14 @@
         </div>
     </div>
 
-<!--showing error msg when field is submitted empty-->
-<div class="alert warning">
-  <strong>   @error('place_name') <h1>{{$message}}</h1>@enderror</strong>
-</div>
+    <!--showing error msg when field is submitted empty-->
+    <div class="alert warning">
+        <strong> @error('place_name') <h1>{{$message}}</h1>@enderror</strong>
+    </div>
 
-<div class="alert warning">
-  <strong>   @error('place_location') <h1>{{$message}}</h1>@enderror</strong>
-</div>
+    <div class="alert warning">
+        <strong> @error('place_location') <h1>{{$message}}</h1>@enderror</strong>
+    </div>
 
 
     <!---------------------------------->
@@ -234,7 +232,7 @@
                                                 <th>place_type</th>
 
                                             </tr>
-                                        @foreach($data as $row)
+                                            @foreach($data as $row)
                                             <tr>
                                                 <th>{{$row->place_name}}</th>
                                                 <th>{{$row->place_address}}</th>
@@ -244,13 +242,13 @@
                                                 <td> <a href="edit/{{$row->place_id}}" class="btn btn-sucess">Edit </a></td>
 
                                             </tr>
-                                            </thead>
+                                        </thead>
                                         @endforeach
                                     </table>
 
                                     <div class="container-fluid p-t-10">
                                         <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
-                                            data-bs-target="#productmodal">Add
+                                            data-bs-target="#placemodal">Add
                                             Place</button>
                                     </div>
 
@@ -271,17 +269,17 @@
 
                                         </tbody>
                                         @foreach($data as $row)
-                                            <tr>
-                                                @if($row->place_type=='Warehouse')
-                                                
-                                                <th>{{$row->place_name}}</th>
-                                                <th>{{$row->place_address}}</th>
-                                                <th>{{$row->product}} </th>
-                                                <th>{{$row->quantity}}</th>
-                                                <th>{{$row->place_type}}</th>
-                                                @endif
-                                            </tr>
-                                            </thead>
+                                        <tr>
+                                            @if($row->place_type=='Warehouse')
+
+                                            <th>{{$row->place_name}}</th>
+                                            <th>{{$row->place_address}}</th>
+                                            <th>{{$row->product}} </th>
+                                            <th>{{$row->quantity}}</th>
+                                            <th>{{$row->place_type}}</th>
+                                            @endif
+                                        </tr>
+                                        </thead>
                                         @endforeach
                                     </table>
 
@@ -302,17 +300,17 @@
 
                                         </tbody>
                                         @foreach($data as $row)
-                                            <tr>
-                                                @if($row->place_type=='Printhouse')
-                                                
-                                                <th>{{$row->place_name}}</th>
-                                                <th>{{$row->place_address}}</th>
-                                                <th>{{$row->product}} </th>
-                                                <th>{{$row->quantity}}</th>
-                                                <th>{{$row->place_type}}</th>
-                                                @endif
-                                            </tr>
-                                            </thead>
+                                        <tr>
+                                            @if($row->place_type=='Printhouse')
+
+                                            <th>{{$row->place_name}}</th>
+                                            <th>{{$row->place_address}}</th>
+                                            <th>{{$row->product}} </th>
+                                            <th>{{$row->quantity}}</th>
+                                            <th>{{$row->place_type}}</th>
+                                            @endif
+                                        </tr>
+                                        </thead>
                                         @endforeach
                                     </table>
 
@@ -331,17 +329,17 @@
 
                                         </tbody>
                                         @foreach($data as $row)
-                                            <tr>
-                                                @if($row->place_type=='Store')
-                                                
-                                                <th>{{$row->place_name}}</th>
-                                                <th>{{$row->place_address}}</th>
-                                                <th>{{$row->product}} </th>
-                                                <th>{{$row->quantity}}</th>
-                                                <th>{{$row->place_type}}</th>
-                                                @endif
-                                            </tr>
-                                            </thead>
+                                        <tr>
+                                            @if($row->place_type=='Store')
+
+                                            <th>{{$row->place_name}}</th>
+                                            <th>{{$row->place_address}}</th>
+                                            <th>{{$row->product}} </th>
+                                            <th>{{$row->quantity}}</th>
+                                            <th>{{$row->place_type}}</th>
+                                            @endif
+                                        </tr>
+                                        </thead>
                                         @endforeach
                                     </table>
 
@@ -354,16 +352,5 @@
             </div>
         </div>
     </div>
-    @endsection
-    @section('scripts')
-    <script>
-    $('#makeEditable').SetEditable({
-        onEdit: function() {},
-        onDelete: function() {},
-        onBeforeDelete: function() {},
-        onAdd: function() {},
-        $addButton: $('#but_add')
-    });
-    </script>
     @endsection
 </body>
