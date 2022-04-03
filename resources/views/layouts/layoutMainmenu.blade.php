@@ -1,3 +1,5 @@
+<html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,28 +14,72 @@
 
     <!-- Styles -->
 
-    <link href="/css/helper.css" rel="stylesheet">
-    <link href="/css/app.css" rel="stylesheet">
+    <link href="{{ asset('css/helper.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    <style>
+    .main-bg {
+        background: linear-gradient(to right, rgba(236, 60, 55, 1) 0%, rgba(236, 60, 55, 1) 50%, rgba(240, 205, 19, 1) 50%, rgba(240, 205, 19, 1) 100%);
 
+    }
+
+    .main-bg .breadcrumb-item,
+    .main-bg a {
+        color: white;
+    }
+
+    .main-wrapper {
+        display: flex;
+        position: relative;
+
+    }
+
+    .main-wrapper .sidebar {
+        height: 100vh;
+        position: fixed;
+        background: #8383d5;
+    }
+
+    .main-wrapper .sidebar li {
+        padding: 5px 20px;
+        font-size: 20px;
+    }
+
+    .main-wrapper .sidebar li:hover {
+        background: #5a5aae;
+    }
+
+    .main-wrapper .sidebar ul {
+        margin-top: 20px;
+    }
+
+    .main-wrapper .main-body {
+        flex: 1;
+
+        padding-left: 250px;
+    }
+    </style>
 </head>
 
-<body>
-    <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
-        <div class="nano">
-            <div class="nano-content">
-                <div class="logo">
-                    <a href="index.html">
+<body class="main-bg">
+    <div class="main-wrapper">
+        <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+            <div class="nano">
+                <div class="nano-content">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="{{ asset('images/SPA OTA.png') }}" width="50px" alt="">
+                            <span> 2oolAmeme </span>
+                        </a>
+                    </div>
 
-                        <span> 2oolAmeme </span>
-                    </a>
-                </div>
-                <li>
-                    <a class="sidebar-sub-toggle">
-                        <i class="ti-bar-chart-alt"></i> Main Menu
-                        <span class="sidebar-collapse-icon ti-angle-down"></span>
-                    </a>
                     <ul>
+                        <li>
+                            <a class="sidebar-sub-toggle">
+                                <i class="ti-bar-chart-alt"></i> Main Menu
+                                <span class="sidebar-collapse-icon ti-angle-down"></span>
+                            </a>
+                        </li>
                         <li>
                             <a href="#.html">Dashborad</a>
                         </li>
@@ -44,17 +90,21 @@
                             <a href="#.html">Inventory</a>
                         </li>
                         <li>
-                            <a href="{{ route('view') }}">Employees</a>
+                            <a href="{{ route('users') }}">Employees</a>
                         </li>
                         <li>
                             <a href="#.html">Report/History</a>
                         </li>
                     </ul>
-                </li>
+                </div>
             </div>
+        </div>
+        <div class="main-body">
+            @yield('content')
         </div>
     </div>
 
 
 </body>
-@yield('content')
+
+</html>
