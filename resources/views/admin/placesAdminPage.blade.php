@@ -34,6 +34,7 @@
                             <label class="form-label">Quantity</label>
                             <input type="text" class="form-control" id="quantity" name="quantity">
                         </div>
+                        
                         <label class="form-label">facility </label>
                         <select id="type_of_place" name="type_of_place">
                             <option value="Warehouse">Warehouse</option>
@@ -229,9 +230,11 @@
                                                 <th>Location</th>
                                                 <th>Product Type</th>
                                                 <th>Quantity</th>
-                                                <th>place_type</th>
+                                                <th>Place_type</th>
+                                                <th>Edits</th>
 
                                             </tr>
+                                            </thead>
                                             @foreach($data as $row)
                                             <tr>
                                                 <th>{{$row->place_name}}</th>
@@ -242,7 +245,7 @@
                                                 <td> <a href="edit/{{$row->place_id}}" class="btn btn-sucess">Edit </a></td>
 
                                             </tr>
-                                        </thead>
+                                        
                                         @endforeach
                                     </table>
 
