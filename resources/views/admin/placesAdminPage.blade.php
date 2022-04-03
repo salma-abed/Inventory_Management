@@ -185,7 +185,7 @@
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
                                             <th>{{$row->place_type}}</th>
-                                            <td> <a data-bs-toggle="modal" data-bs-target="#edit3modal"
+                                            <td> <a data-bs-toggle="modal" data-bs-target="#editmodal"
                                                     href="edit/{{$row->place_id}}"><i class="far fa-edit"></i></i>
                                                 </a></td>
 
