@@ -119,6 +119,7 @@
                             </div>
                         </div>
                     </div>
+
                     <!-- /# column -->
                     <div class="col-lg-4 p-l-0 title-margin-left">
                         <div class="page-header">
@@ -132,6 +133,10 @@
                     </div>
                     <!-- /# column -->
                 </div>
+
+                <!-----search bar--------->
+                <input type="text" class="search" id="se" name="se" placeholder="Search..">
+                <!------------------------->
 
                 <div class="col-md-12">
                     <div class="card">
@@ -162,10 +167,10 @@
                             </ul>
 
 
+
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade show active" id="places" role="tabpanel"
                                     aria-labelledby="places-tab">
-
                                     <table class="table" id="placesTable">
                                         <thead>
                                             <tr>
@@ -300,5 +305,41 @@
             </div>
         </div>
     </div>
+
+
+    <script type="text/javascript">
+    $('#se').on('keyup', function() {
+
+        $value = $(this).val();
+
+        $.ajax({
+
+            type: 'get',
+
+            url: '{{URL::to('
+            search ')}}',
+
+            data: {
+                'se': $value
+            },
+
+            success: function(data) {
+
+                $('tbody').html(data);
+
+            }
+
+        });
+
+    })
+    </script>
+
+    <script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'csrftoken': '{{ csrf_token() }}'
+        }
+    });
+    </script>
     @endsection
 </body>
