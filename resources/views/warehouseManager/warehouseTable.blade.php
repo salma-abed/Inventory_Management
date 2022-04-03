@@ -1,5 +1,4 @@
-@extends('layouts/layoutNavbar')
-@extends('layouts/layoutFooter')
+@extends('layouts/default')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -102,5 +101,5 @@
             </div>
         </div>
     </div>
+    @endsection
 </body>
-@endsection

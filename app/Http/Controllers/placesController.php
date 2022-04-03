@@ -93,9 +93,11 @@ class placesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($places_id)
     {
-        //
+        //       
+        $data=  DB::select('select * from places where place_id=?',[$places_id]);
+        return view('admin/Edit_placesAdminPAge',['data'=>$data]);
     }
 
     /**
@@ -107,7 +109,15 @@ class placesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $place_name= $request->input('place_name');
+       $type=$request->input('type_of_place');
+       $place_location= $request->input('place_location');
+       $product= $request->input('product_name');
+       $quantity= $request->input('quantity');
+
+       DB::update('update places set place_name =?, place_type=?, place_address= ?,product= ?,quantity=? where place_id=? ',[$place_name,$type,$place_location,$product,$quantity,$id]);
+       return view('dashboard');
+    
     }
 
     /**

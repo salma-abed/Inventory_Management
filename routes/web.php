@@ -22,17 +22,22 @@ Route::get('/users', function () {
     return view('users');
 });
 
-Route::get('/places', function () {
-    return view('admin/placesAdminPage');
-});
 Route::get('/warehouse', function () {
     return view('warehouseManager/warehouseTable');
 });
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
+Route::get('/profilepage', function () {
+    return view('profilePage');
+});
 
+
+Route::get('/users', [userController::class, 'view']);
 Route::post('/inventory', [productController::class, 'store']);
+
 Route::post('/places', [placesController::class, 'store']);
 Route::get('/places', [placesController::class, 'index']);
-Route::get('/users', [userController::class, 'view']);
+
+Route::get('/edit/{place_id}', [placesController::class, 'edit']);
+Route::post('/update/{place_id}', [placesController::class, 'update']);
