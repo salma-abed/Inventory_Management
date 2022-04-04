@@ -20,7 +20,7 @@ class productController extends Controller
         //
         $data=  DB::select("select * from products");
         $arr['data']=$data;
-        1;
+   
         return view('admin/productsAdminPage',$arr);
     }
 
