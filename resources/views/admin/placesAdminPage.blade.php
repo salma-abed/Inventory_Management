@@ -192,7 +192,7 @@
                                         </thead>
                                         @foreach($data as $row)
                                         <tr>
-                                            1
+                                            
                                             <th>{{$row->place_name}}</th>
                                             <th>{{$row->place_address}}</th>
                                             <th>{{$row->product}} </th>
@@ -201,7 +201,7 @@
                                             <td> <a data-bs-target="#editmodal" href="edit/{{$row->place_id}}"> <i
                                                         class="far fa-edit"></i></i>
                                                 </a></td>
-                                            <td> <a data-bs-toggle="modal" data-bs-target="#editmodal"
+                                            <td> <a 
                                                     href="delete/{{$row->place_id}}"><i class="far fa-edit"></i></i>
                                                 </a></td>
 
@@ -316,7 +316,6 @@
             </div>
         </div>
     </div>
-
 
     <script type="text/javascript">
     $('#se').on('keyup', function() {
