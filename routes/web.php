@@ -23,8 +23,11 @@ Route::get('/users', function () {
     return view('users');
 });
 
-Route::get('/warehouse', function () {
+Route::get('/warehouses', function () {
     return view('warehouseManager/warehouseTable');
+});
+Route::get('/stores', function () {
+    return view('salesperson/storesTable');
 });
 Route::get('/dashboard', function () {
     return view('dashboard');
