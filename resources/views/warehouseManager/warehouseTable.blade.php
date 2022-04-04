@@ -39,13 +39,13 @@
     <!---------------------------------->
 
     <div class="content-wrap">
-        <div class="main p-l-200">
+        <div class="main">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-8 p-r-0 title-margin-right">
                         <div class="page-header">
                             <div class="page-title">
-                                <h1>Meow, <span>Welcome Here</span></h1>
+                                <h1><i class="fa-solid fa-paw"> Meow, </i> <span>Welcome Here</span></h1>
                             </div>
                         </div>
                     </div>
