@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    @section('content')
+    
     <div class="container">
 
         <div class="modal-body">
@@ -48,7 +48,6 @@
 
         </div>
     </div>
-    @endsection
 </body>
 
 </html>

@@ -128,10 +128,10 @@ class placesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($place_id)
     {
-        DB::update('delete from places where place_id=? ',[$id]);
-        return view('admin/Edit_placesAdminPAge',['data'=>$data]);
+        DB::delete('delete from places where place_id=? ',[$place_id]);
+        return redirect('places');
 
     }
 

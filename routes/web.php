@@ -40,8 +40,6 @@ Route::get('/profilepage', function () {
 Route::get('/users', [userController::class, 'view'])->name('users');
 Route::post('/inventory', [productController::class, 'store']);
 
-Route::get('/edit/{place_id}',[placesController::class,'edit']);
-Route::post('/update/{place_id}',[placesController::class,'update']); 
 
 Route::get('/search','placesController@search');
 Route::post('/places', [placesController::class, 'store']);
@@ -49,3 +47,4 @@ Route::get('/places', [placesController::class, 'index']);
 
 Route::get('/edit/{place_id}', [placesController::class, 'edit']);
 Route::post('/update/{place_id}', [placesController::class, 'update']);
+Route::get('/delete/{place_id}',[placesController::class,'destroy']);
