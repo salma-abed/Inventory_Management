@@ -390,6 +390,49 @@ span.badge {
   border-bottom-right-radius: 50%;
   border-bottom-left-radius: 50%;
 }
+
+.main-bg {
+    background: #d1d1d1 ;
+
+}
+
+.main-bg .breadcrumb-item,
+.main-bg a {
+    color: white;
+}
+
+.main-wrapper {
+    display: flex;
+    position: relative;
+
+}
+
+.main-wrapper .sidebar {
+    height: 100vh;
+    position: fixed;
+    background: rgba(236, 60, 55, 1);
+}
+
+.main-wrapper .sidebar li {
+    padding: 5px 20px;
+    font-size: 20px;
+}
+
+.main-wrapper .sidebar li:hover {
+    background: rgba(236, 60, 55, 1);
+}
+
+.main-wrapper .sidebar ul {
+    margin-top: 20px;
+}
+
+.main-wrapper .main-body {
+    flex: 1;
+
+    padding-left: 250px;
+}
+
+
 .timeline-body > p {
   font-size: 12px;
   margin-bottom: 10px;
@@ -5382,7 +5425,7 @@ a.dt-button.active:not(.disabled) {
 }
 
 .logo {
-  background: #343957;
+  background: #FFFFFF;
   display: inline-block;
   padding: 15px 0;
   text-align: center;
@@ -5394,6 +5437,12 @@ a.dt-button.active:not(.disabled) {
   color: rgba(160, 180, 200, 0.85);
   font-size: 20px;
   font-weight: 700;
+}
+.main-wrapper .logo{
+  background: rgba(240, 205, 19, 1);
+}
+.main-wrapper .logo span{
+  color:white;
 }
 
 .sidebar-hide .logo {

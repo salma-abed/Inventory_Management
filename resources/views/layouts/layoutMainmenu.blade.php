@@ -17,48 +17,7 @@
     <link href="{{ asset('css/helper.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    <style>
-    .main-bg {
-        background: linear-gradient(to right, rgba(236, 60, 55, 1) 0%, rgba(236, 60, 55, 1) 50%, rgba(240, 205, 19, 1) 50%, rgba(240, 205, 19, 1) 100%);
 
-    }
-
-    .main-bg .breadcrumb-item,
-    .main-bg a {
-        color: white;
-    }
-
-    .main-wrapper {
-        display: flex;
-        position: relative;
-
-    }
-
-    .main-wrapper .sidebar {
-        height: 100vh;
-        position: fixed;
-        background: #8383d5;
-    }
-
-    .main-wrapper .sidebar li {
-        padding: 5px 20px;
-        font-size: 20px;
-    }
-
-    .main-wrapper .sidebar li:hover {
-        background: #5a5aae;
-    }
-
-    .main-wrapper .sidebar ul {
-        margin-top: 20px;
-    }
-
-    .main-wrapper .main-body {
-        flex: 1;
-
-        padding-left: 250px;
-    }
-    </style>
 </head>
 
 <body class="main-bg">
@@ -68,7 +27,7 @@
                 <div class="nano-content">
                     <div class="logo">
                         <a href="index.html">
-                            <img src="{{ asset('images/SPA OTA.png') }}" width="50px" alt="">
+                            <img src="{{ asset('images/logo.png') }}" width="50px" alt="">
                             <span> 2oolAmeme </span>
                         </a>
                     </div>
@@ -90,7 +49,7 @@
                             <a href="#.html">Inventory</a>
                         </li>
                         <li>
-                            <a href="{{ route('users') }}">Employees</a>
+                            <a href="{{ route('users') }}">Users</a>
                         </li>
                         <li>
                             <a href="#.html">Report/History</a>
