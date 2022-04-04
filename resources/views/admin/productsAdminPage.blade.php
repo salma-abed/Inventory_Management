@@ -49,14 +49,10 @@
         </div>
     </div>
 
-    <!--showing error msg when field is submitted empty-->
-    <!-- <div class="alert warning">
-        <strong> @error('place_name') <h1>{{$message}}</h1>@enderror</strong>
-    </div>
+    <strong> @error('name') <h1>{{$message}}</h1>@enderror</strong>
+    <strong> @error('location') <h1>{{$message}}</h1>@enderror</strong>
+    <strong> @error('description') <h1>{{$message}}</h1>@enderror</strong>
 
-    <div class="alert warning">
-        <strong> @error('place_location') <h1>{{$message}}</h1>@enderror</strong>
-    </div> -->
 
 
     <!---------------------------------->

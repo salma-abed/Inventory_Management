@@ -54,8 +54,6 @@
     <!--showing error msg when field is submitted empty-->
 
         <strong> @error('place_name') <h1>{{$message}}</h1>@enderror</strong>
-
-
         <strong> @error('place_location') <h1>{{$message}}</h1>@enderror</strong>
 
 
