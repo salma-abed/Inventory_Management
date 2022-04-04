@@ -1834,6 +1834,9 @@ footer p {
 .stat-widget-one .stat-icon {
   vertical-align: top;
 }
+.stat-icon{
+  background-color:#bd2130 ;
+}
 
 .stat-widget-one .stat-icon i {
   font-size: 30px;
@@ -10934,3 +10937,4 @@ only screen and (min-resolution: 2dppx) {
 #footer {
   background-color: #000000;
 }
+
