@@ -5,13 +5,13 @@
     @section('content')
 
     <!-- Modal -->
-    <!-------Add place Form--------->
+    <!-------Add product Form--------->
     <div class="modal fade" id="productmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Add Place</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Add Product</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -19,27 +19,26 @@
                         @csrf
                         <div class="mb-3">
                             <label class="form-label">Product Name</label>
-                            <input type="text" class="form-control" id="product_name" name="place_name">
+                            <input type="text" class="form-control" id="name" name="name">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Location</label>
-                            <input type="text" class="form-control" id="place_location" name="place_location">
+                            <input type="text" class="form-control" id="location" name="location">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Product</label>
-                            <input type="text" class="form-control" id="product_name" name="product_name">
+                            <label class="form-label">description</label>
+                            <input type="text" class="form-control" id="description" name="description">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Price</label>
+                            <input type="text" class="form-control" id="price" name="price">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Quantity</label>
                             <input type="text" class="form-control" id="quantity" name="quantity">
                         </div>
 
-                        <label class="form-label">facility </label>
-                        <select id="type_of_place" name="type_of_place">
-                            <option value="Warehouse">Warehouse</option>
-                            <option value="Printhouse">Printhouse</option>
-                            <option value="Store">Store</option>
-                        </select>
+
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
@@ -51,13 +50,13 @@
     </div>
 
     <!--showing error msg when field is submitted empty-->
-    <div class="alert warning">
+    <!-- <div class="alert warning">
         <strong> @error('place_name') <h1>{{$message}}</h1>@enderror</strong>
     </div>
 
     <div class="alert warning">
         <strong> @error('place_location') <h1>{{$message}}</h1>@enderror</strong>
-    </div>
+    </div> -->
 
 
     <!---------------------------------->
@@ -72,31 +71,29 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="formElement" method="POST" action="/update/{{$data[0]->place_id}}">
+                    <form id="formElement" method="POST" action="/update/{{$data[0]->product_id}}">
                         @csrf
                         <div class="mb-3">
-                            <label class="form-label">Place Name</label>
-                            <input type="text" class="form-control" id="place_name" name="place_name">
+                            <label class="form-label">Product Name</label>
+                            <input type="text" class="form-control" id="name" name="name">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Location</label>
-                            <input type="text" class="form-control" id="place_location" name="place_location">
+                            <input type="text" class="form-control" id="location" name="location">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Product</label>
-                            <input type="text" class="form-control" id="product_name" name="product_name">
+                            <label class="form-label">Description</label>
+                            <input type="text" class="form-control" id="description" name="description">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Price</label>
+                            <input type="text" class="form-control" id="price" name="price">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Quantity</label>
                             <input type="text" class="form-control" id="quantity" name="quantity">
                         </div>
 
-                        <label class="form-label">facility </label>
-                        <select id="type_of_place" name="type_of_place">
-                            <option value="Warehouse">Warehouse</option>
-                            <option value="Printhouse">Printhouse</option>
-                            <option value="Store">Store</option>
-                        </select>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Update</button>
@@ -140,7 +137,7 @@
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link active" id="places-tab" data-bs-toggle="tab"
                                         data-bs-target="#product" type="button" role="tab" aria-controls="product"
-                                        aria-selected="true">All Places</button>
+                                        aria-selected="true">All Products</button>
                                 </li>
                             </ul>
 
@@ -152,24 +149,29 @@
                                     <table class="table" id="productTable">
                                         <thead>
                                             <tr>
-                                                <th>Place Name</th>
+                                                <th>Products Name</th>
                                                 <th>Location</th>
-                                                <th>Product Type</th>
+                                                <th>Description</th>
+                                                <th>Price</th>
                                                 <th>Quantity</th>
-                                                <th>Place_type</th>
                                                 <th>Edits</th>
+                                                <th>Deletes</th>
 
                                             </tr>
                                         </thead>
                                         @foreach($data as $row)
                                         <tr>
-                                            <th>{{$row->place_name}}</th>
-                                            <th>{{$row->place_address}}</th>
-                                            <th>{{$row->product}} </th>
+                                            <th>{{$row->name}}</th>
+                                            <th>{{$row->location}}</th>
+                                            <th>{{$row->description}} </th>
+                                            <th>{{$row->price}}</th>
                                             <th>{{$row->quantity}}</th>
-                                            <th>{{$row->place_type}}</th>
-                                            <td> <a data-bs-toggle="modal" data-bs-target="#editmodal"
-                                                    href="edit/{{$row->place_id}}"><i class="far fa-edit"></i></i>
+                                            <td> <a  data-bs-target="#editmodal"
+                                                    href="edit1/{{$row->product_id}}"><i class="far fa-edit"></i></i>
+                                                </a></td>
+
+                                                </a></td>
+                                                <td> <a href="delete1/{{$row->product_id}}"><i class="far fa-edit"></i></i>
                                                 </a></td>
 
                                         </tr>
