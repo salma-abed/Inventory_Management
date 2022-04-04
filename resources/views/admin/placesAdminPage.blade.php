@@ -103,7 +103,7 @@
                         </select>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">6</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Update</button>
                     </form>
 
                 </div>
