@@ -37,8 +37,19 @@ Route::get('/profilepage', function () {
 Route::get('/users', [userController::class, 'view'])->name('users');
 Route::post('/inventory', [productController::class, 'store']);
 
-Route::post('/places', [placesController::class, 'store']);
-Route::get('/places', [placesController::class, 'index']);
 
+Route::get('/search','placesController@search');
+
+Route::get('/places', [placesController::class, 'index']);
 Route::get('/edit/{place_id}', [placesController::class, 'edit']);
+Route::get('/delete/{place_id}',[placesController::class,'destroy']);
 Route::post('/update/{place_id}', [placesController::class, 'update']);
+Route::post('/places', [placesController::class, 'store']);
+
+
+
+Route::get('/products', [productController::class, 'index']);
+Route::get('/edit1/{product_id}', [productController::class, 'edit']);
+Route::get('/delete1/{product_id}',[productController::class,'destroy']);
+Route::post('/update1/{product_id}', [productController::class, 'update']);
+Route::post('/products', [productController::class, 'store']);

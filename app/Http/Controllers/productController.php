@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Http\Request;  //default when controller is created
+
+use Illuminate\Support\Facades\DB;    
 use App\Models\products;
+
 
 class productController extends Controller
 {
@@ -15,6 +18,10 @@ class productController extends Controller
     public function index()
     {
         //
+        $data=  DB::select("select * from products");
+        $arr['data']=$data;
+   
+        return view('admin/productsAdminPage',$arr);
     }
 
     /**
@@ -44,7 +51,7 @@ class productController extends Controller
         ]);
         //POST
         $Object = new products();
-        $Object->name = strip_tags($request->input('productname'));
+        $Object->name = strip_tags($request->input('name'));
         $Object->location = strip_tags($request->input('location'));
         $Object->description = strip_tags($request->input('description'));
         $Object->price = strip_tags($request->input('price'));
@@ -71,9 +78,11 @@ class productController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($product_id)
     {
-        //
+        //        
+        $data=  DB::select('select * from products where product_id=?',[$product_id]);
+        return view('admin/Edit_productsAdminPage',['data'=>$data]);
     }
 
     /**
@@ -85,17 +94,28 @@ class productController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $place_name= $request->input('name');
+        $place_location=$request->input('location');
+        $place_description= $request->input('description');
+        $price= $request->input('price');
+        $quantity= $request->input('quantity');
+ 
+        DB::update('update products set name =?, location= ?,description= ?, price=?, quantity=? where product_id=? ',[$place_name,$place_location,$place_description,$price,$quantity,$id]);
+        $data=  DB::select("select * from products");
+        $arr['data']=$data;
+ 
+        return redirect('products');  //redirects sends to the page specified    }
     }
-
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($product_id)
     {
         //
+        DB::delete('delete from products where product_id=? ',[$product_id]);
+        return redirect('products');
     }
 }

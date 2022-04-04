@@ -52,13 +52,10 @@
     </div>
 
     <!--showing error msg when field is submitted empty-->
-    <div class="alert warning">
-        <strong> @error('place_name') <h1>{{$message}}</h1>@enderror</strong>
-    </div>
 
-    <div class="alert warning">
+        <strong> @error('place_name') <h1>{{$message}}</h1>@enderror</strong>
         <strong> @error('place_location') <h1>{{$message}}</h1>@enderror</strong>
-    </div>
+
 
 
     <!---------------------------------->
@@ -77,21 +74,24 @@
                         @csrf
                         <div class="mb-3">
                             <label class="form-label">Place Name</label>
-                            <input type="text" class="form-control" id="place_name" name="place_name">
+                            <input type="text" class="form-control" id="place_name" value="{{$data[0]->place_name}}"
+                                name="place_name">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Location</label>
-                            <input type="text" class="form-control" id="place_location" name="place_location">
+                            <input type="text" class="form-control" id="place_location"
+                                value="{{$data[0]->place_address}}" name="place_location">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Product</label>
-                            <input type="text" class="form-control" id="product_name" name="product_name">
+                            <input type="text" class="form-control" id="product_name" value="{{$data[0]->product}}"
+                                name="product_name">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Quantity</label>
-                            <input type="text" class="form-control" id="quantity" name="quantity">
+                            <input type="text" class="form-control" id="quantity" value="{{$data[0]->quantity}}"
+                                name="quantity">
                         </div>
-
                         <label class="form-label">facility </label>
                         <select id="type_of_place" name="type_of_place">
                             <option value="Warehouse">Warehouse</option>
@@ -109,16 +109,17 @@
     </div>
     <!---------------------------------->
     <div class="content-wrap">
-        <div class="main p-l-200">
+        <div class="main">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-8 p-r-0 title-margin-right">
                         <div class="page-header">
                             <div class="page-title">
-                                <h1>Meow, <span>Welcome Here</span></h1>
+                                <h1><i class="fa-solid fa-paw"> Meow, </i> <span>Welcome Here</span></h1>
                             </div>
                         </div>
                     </div>
+
                     <!-- /# column -->
                     <div class="col-lg-4 p-l-0 title-margin-left">
                         <div class="page-header">
@@ -132,6 +133,10 @@
                     </div>
                     <!-- /# column -->
                 </div>
+
+                <!-----search bar--------->
+                <input type="text" class="search" id="se" name="se" placeholder="Search..">
+                <!------------------------->
 
                 <!-- TAPS -->
                 <div class="col-md-12">
@@ -162,12 +167,12 @@
 
                             </ul>
 
-                <!-- DISPLAY -->
+                            <!-- DISPLAY -->
+
 
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade show active" id="places" role="tabpanel"
                                     aria-labelledby="places-tab">
-
                                     <table class="table" id="placesTable">
                                         <thead>
                                             <tr>
@@ -177,18 +182,24 @@
                                                 <th>Quantity</th>
                                                 <th>Place_type</th>
                                                 <th>Edits</th>
+                                                <th>Deletes</th>
+
 
                                             </tr>
                                         </thead>
                                         @foreach($data as $row)
                                         <tr>
+
+
                                             <th>{{$row->place_name}}</th>
                                             <th>{{$row->place_address}}</th>
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
                                             <th>{{$row->place_type}}</th>
-                                            <td> <a data-bs-toggle="modal" data-bs-target="#editmodal"
-                                                    href="edit/{{$row->place_id}}"><i class="far fa-edit"></i></i>
+                                            <td> <a data-bs-target="#editmodal" href="edit/{{$row->place_id}}"> <i
+                                                        class="far fa-edit"></i></i>
+                                                </a></td>
+                                            <td> <a href="delete/{{$row->place_id}}"><i class="far fa-edit"></i></i>
                                                 </a></td>
 
                                         </tr>
@@ -302,5 +313,40 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+    $('#se').on('keyup', function() {
+
+        $value = $(this).val();
+
+        $.ajax({
+
+            type: 'get',
+
+            url: '{{URL::to('
+            search ')}}',
+
+            data: {
+                'se': $value
+            },
+
+            success: function(data) {
+
+                $('tbody').html(data);
+
+            }
+
+        });
+
+    })
+    </script>
+
+    <script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'csrftoken': '{{ csrf_token() }}'
+        }
+    });
+    </script>
     @endsection
 </body>
