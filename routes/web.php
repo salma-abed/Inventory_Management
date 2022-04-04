@@ -23,11 +23,8 @@ Route::get('/users', function () {
     return view('users');
 });
 
-Route::get('/warehouses', function () {
+Route::get('/warehouse', function () {
     return view('warehouseManager/warehouseTable');
-});
-Route::get('/stores', function () {
-    return view('salesperson/storesTable');
 });
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -42,9 +39,17 @@ Route::post('/inventory', [productController::class, 'store']);
 
 
 Route::get('/search','placesController@search');
-Route::post('/places', [placesController::class, 'store']);
-Route::get('/places', [placesController::class, 'index']);
 
+Route::get('/places', [placesController::class, 'index']);
 Route::get('/edit/{place_id}', [placesController::class, 'edit']);
-Route::post('/update/{place_id}', [placesController::class, 'update']);
 Route::get('/delete/{place_id}',[placesController::class,'destroy']);
+Route::post('/update/{place_id}', [placesController::class, 'update']);
+Route::post('/places', [placesController::class, 'store']);
+
+
+
+Route::get('/products', [productController::class, 'index']);
+Route::get('/edit1/{product_id}', [productController::class, 'edit']);
+Route::get('/delete1/{product_id}',[productController::class,'destroy']);
+Route::post('/update1/{product_id}', [productController::class, 'update']);
+Route::post('/products', [productController::class, 'store']);
