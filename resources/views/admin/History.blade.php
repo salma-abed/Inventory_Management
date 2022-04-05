@@ -6,51 +6,81 @@
     @section('content')
 
     <!-- Modal -->
-    <!-------Add place Form--------->
-    <div class="modal fade" id="placemodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <form id="formElement" method="POST" action="">
-                        @csrf
-                        <div class="mb-3">
-                            <label class="form-label">Place Name</label>
-                            <input type="text" class="form-control" id="place_name" name="place_name">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Location</label>
-                            <input type="text" class="form-control" id="place_location" name="place_location">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Product</label>
-                            <input type="text" class="form-control" id="product_name" name="product_name">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Quantity</label>
-                            <input type="text" class="form-control" id="quantity" name="quantity">
-                        </div>
-
-                        <label class="form-label">facility </label>
-                        <select id="type_of_place" name="type_of_place">
-                            <option value="Warehouse">Warehouse</option>
-                            <option value="Printhouse">Printhouse</option>
-                            <option value="Store">Store</option>
-                        </select>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
-                    </form>
+        
+    <div class="col-lg-6">
+              <div class="card">
+                <div class="card-title">
+                  <h4>Recent Project </h4>
 
                 </div>
-            </div>
-        </div>
-    </div>
-
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-hover ">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Status</th>
+                          <th>Date</th>
+                          <th>Price</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Kolor Tea Shirt For Man</td>
+                          <td>
+                            <span class="badge badge-primary">Ongoing</span>
+                          </td>
+                          <td>January 22</td>
+                          <td class="color-primary">$21.56</td>
+                        </tr>
+                        <tr>
+                          <td>Kolor Tea Shirt For Women</td>
+                          <td>
+                            <span class="badge badge-success">Complete</span>
+                          </td>
+                          <td>January 30</td>
+                          <td class="color-success">$55.32</td>
+                        </tr>
+                        <tr>
+                          <td>Blue Backpack For Baby</td>
+                          <td>
+                            <span class="badge badge-danger">Rejected</span>
+                          </td>
+                          <td>January 25</td>
+                          <td class="color-danger">$14.85</td>
+                        </tr>
+                        <tr>
+                          <td>Kolor Tea Shirt For Man</td>
+                          <td>
+                            <span class="badge badge-primary">Ongoing</span>
+                          </td>
+                          <td>January 22</td>
+                          <td class="color-primary">$21.56</td>
+                        </tr>
+                        <tr>
+                          <td>Kolor Tea Shirt For Women</td>
+                          <td>
+                            <span class="badge badge-success">Complete</span>
+                          </td>
+                          <td>January 30</td>
+                          <td class="color-success">$55.32</td>
+                        </tr>
+                        <tr>
+                          <td>Blue Backpack For Baby</td>
+                          <td>
+                            <span class="badge badge-danger">Rejected</span>
+                          </td>
+                          <td>January 25</td>
+                          <td class="color-danger">$14.85</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>  
     <!--showing error msg when field is submitted empty-->
 
-        <strong> @error('place_name') <h1>{{$message}}</h1>@enderror</strong>
-        <strong> @error('place_location') <h1>{{$message}}</h1>@enderror</strong>
 
 
 
@@ -66,34 +96,15 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="formElement" method="POST" action="/update/{{$data[0]->place_id}}">
+                    <form id="formElement" method="POST" action="/update/{{$data[0]->transaction_id}}">
                         @csrf
                         <div class="mb-3">
                             <label class="form-label">Place Name</label>
-                            <input type="text" class="form-control" id="place_name" value="{{$data[0]->place_name}}"
-                                name="place_name">
+                            <input type="text" class="form-control" id="transaction_description" value="{{$data[0]->transaction_description}}"
+                                name="transaction_description">
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Location</label>
-                            <input type="text" class="form-control" id="place_location"
-                                value="{{$data[0]->place_address}}" name="place_location">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Product</label>
-                            <input type="text" class="form-control" id="product_name" value="{{$data[0]->product}}"
-                                name="product_name">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Quantity</label>
-                            <input type="text" class="form-control" id="quantity" value="{{$data[0]->quantity}}"
-                                name="quantity">
-                        </div>
-                        <label class="form-label">facility </label>
-                        <select id="type_of_place" name="type_of_place">
-                            <option value="Warehouse">Warehouse</option>
-                            <option value="Printhouse">Printhouse</option>
-                            <option value="Store">Store</option>
-                        </select>
+
+
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Update</button>
@@ -166,142 +177,7 @@
                             <!-- DISPLAY -->
 
 
-                            <div class="tab-content" id="myTabContent">
-                                <div class="tab-pane fade show active" id="places" role="tabpanel"
-                                    aria-labelledby="places-tab">
-                                    <table class="table" id="placesTable">
-                                        <thead>
-                                            <tr>
-                                                <th>Place Name</th>
-                                                <th>Location</th>
-                                                <th>Product Type</th>
-                                                <th>Quantity</th>
-                                                <th>Place_type</th>
-                                                <th>Edits</th>
-                                                <th>Deletes</th>
 
-
-                                            </tr>
-                                        </thead>
-                                        @foreach($data as $row)
-                                        <tr>
-
-
-                                            <th>{{$row->place_name}}</th>
-                                            <th>{{$row->place_address}}</th>
-                                            <th>{{$row->product}} </th>
-                                            <th>{{$row->quantity}}</th>
-                                            <th>{{$row->place_type}}</th>
-                                            <td> <a data-bs-target="#editmodal" href="edit/{{$row->place_id}}"> <i
-                                                        class="far fa-edit"></i></i>
-                                                </a></td>
-                                            <td> <a href="delete/{{$row->place_id}}"><i class="far fa-edit"></i></i>
-                                                </a></td>
-
-                                        </tr>
-
-                                        @endforeach
-                                    </table>
-
-                                    <div class="container-fluid p-t-10">
-                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
-                                            data-bs-target="#placemodal">Add
-                                            Place</button>
-                                    </div>
-
-                                </div>
-                                <div class="tab-pane fade" id="warehouses" role="tabpanel"
-                                    aria-labelledby="warehouses-tab">
-                                    <table class="table" id="warehousetable">
-                                        <thead>
-                                            <tr>
-                                                <th>Branch Name</th>
-                                                <th>Location</th>
-                                                <th>Product Type</th>
-                                                <th>Quantity</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-
-                                        </tbody>
-                                        @foreach($data as $row)
-                                        <tr>
-                                            @if($row->place_type=='Warehouse')
-
-                                            <th>{{$row->place_name}}</th>
-                                            <th>{{$row->place_address}}</th>
-                                            <th>{{$row->product}} </th>
-                                            <th>{{$row->quantity}}</th>
-                                            <th>{{$row->place_type}}</th>
-                                            @endif
-                                        </tr>
-                                        </thead>
-                                        @endforeach
-                                    </table>
-
-
-                                </div>
-                                <div class="tab-pane fade" id="printinghouses" role="tabpanel"
-                                    aria-labelledby="printinghouses-tab">
-                                    <table class="table" id="printinghousetable">
-                                        <thead>
-                                            <tr>
-                                                <th>Branch Name</th>
-                                                <th>Location</th>
-                                                <th>Product Type</th>
-                                                <th>Quantity</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                        </tbody>
-                                        @foreach($data as $row)
-                                        <tr>
-                                            @if($row->place_type=='Printhouse')
-
-                                            <th>{{$row->place_name}}</th>
-                                            <th>{{$row->place_address}}</th>
-                                            <th>{{$row->product}} </th>
-                                            <th>{{$row->quantity}}</th>
-                                            <th>{{$row->place_type}}</th>
-                                            @endif
-                                        </tr>
-                                        </thead>
-                                        @endforeach
-                                    </table>
-
-                                </div>
-                                <div class="tab-pane fade" id="stores" role="tabpanel" aria-labelledby="stores-tab">
-                                    <table class="table" id="storetable">
-                                        <thead>
-                                            <tr>
-                                                <th>Branch Name</th>
-                                                <th>Location</th>
-                                                <th>Product Type</th>
-                                                <th>Quantity</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                        </tbody>
-                                        @foreach($data as $row)
-                                        <tr>
-                                            @if($row->place_type=='Store')
-
-                                            <th>{{$row->place_name}}</th>
-                                            <th>{{$row->place_address}}</th>
-                                            <th>{{$row->product}} </th>
-                                            <th>{{$row->quantity}}</th>
-                                            <th>{{$row->place_type}}</th>
-                                            @endif
-                                        </tr>
-                                        </thead>
-                                        @endforeach
-                                    </table>
-
-                                </div>
-                            </div>
 
                         </div>
                     </div>
