@@ -1,4 +1,4 @@
-@extends('layouts/layoutMainmenu')
+@extends('layouts/default')
 @section('content')
 <div class="content-wrap">
     <div class="main">
