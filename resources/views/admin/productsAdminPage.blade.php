@@ -150,8 +150,8 @@
                                                 <th>Description</th>
                                                 <th>Price</th>
                                                 <th>Quantity</th>
-                                                <th>Edits</th>
-                                                <th>Deletes</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
 
                                             </tr>
                                         </thead>
@@ -162,12 +162,12 @@
                                             <th>{{$row->description}} </th>
                                             <th>{{$row->price}}</th>
                                             <th>{{$row->quantity}}</th>
-                                            <td> <a  data-bs-target="#editmodal"
-                                                    href="edit1/{{$row->product_id}}"><i class="far fa-edit"></i></i>
+                                            <td> <a data-bs-target="#editmodal" href="edit1/{{$row->product_id}}"><i
+                                                        class="far fa-edit"></i></i>
                                                 </a></td>
 
-                                                </a></td>
-                                                <td> <a href="delete1/{{$row->product_id}}"><i class="far fa-edit"></i></i>
+                                            </a></td>
+                                            <td> <a href="delete1/{{$row->product_id}}"><i class="far fa-edit"></i></i>
                                                 </a></td>
 
                                         </tr>

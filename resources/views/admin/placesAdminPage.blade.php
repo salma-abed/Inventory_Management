@@ -53,8 +53,8 @@
 
     <!--showing error msg when field is submitted empty-->
 
-        <strong> @error('place_name') <h1>{{$message}}</h1>@enderror</strong>
-        <strong> @error('place_location') <h1>{{$message}}</h1>@enderror</strong>
+    <strong> @error('place_name') <h1>{{$message}}</h1>@enderror</strong>
+    <strong> @error('place_location') <h1>{{$message}}</h1>@enderror</strong>
 
 
 
@@ -181,8 +181,8 @@
                                                 <th>Product Type</th>
                                                 <th>Quantity</th>
                                                 <th>Place_type</th>
-                                                <th>Edits</th>
-                                                <th>Deletes</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
 
 
                                             </tr>
