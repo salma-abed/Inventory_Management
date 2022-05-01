@@ -5,7 +5,7 @@ use App\Http\Controllers\employeeController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\placesController;
 use App\Http\Controllers\userController;
-
+use App\Http\Controllers\historyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +23,7 @@ Route::get('/users', function () {
     return view('users');
 });
 
+
 Route::get('/warehouse', function () {
     return view('warehouseManager/warehouseTable');
 });
@@ -39,6 +40,8 @@ Route::post('/inventory', [productController::class, 'store']);
 
 
 Route::get('/search','placesController@search');
+
+Route::get('/history', [historyController::class, 'index']);
 
 Route::get('/places', [placesController::class, 'index']);
 Route::get('/edit/{place_id}', [placesController::class, 'edit']);

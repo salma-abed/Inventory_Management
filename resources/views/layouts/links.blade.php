@@ -22,5 +22,6 @@
 
 
 <script src="/js/bootstable.js"></script>
-<link rel="stylesheet" type="text/css" href="/css/app.css">
+<script src="/js/MainMenu.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/styles.css">
 <link rel="stylesheet" type="text/css" href="/css/helper.css">

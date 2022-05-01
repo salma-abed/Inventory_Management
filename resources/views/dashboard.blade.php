@@ -61,7 +61,7 @@
                         <div class="col-lg-3">
                             <div class="card p-0">
                                 <div class="stat-widget-three home-widget-three">
-                                    <div class="stat-icon bg-facebook">
+                                    <div class="stat-icon">
                                         <i class="fa-solid fa-bell"></i>
 
                                     </div>
