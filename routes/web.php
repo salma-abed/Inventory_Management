@@ -24,35 +24,35 @@ Route::get('/users', function () {
 });
 
 
-Route::get('/warehouse', function () {
+Route::get('warehouse', function () {
     return view('warehouseManager/warehouseTable');
 });
-Route::get('/dashboard', function () {
+Route::get('dashboard', function () {
     return view('dashboard');
-});
-Route::get('/profilepage', function () {
+})->name('dashboard');
+Route::get('profilepage', function () {
     return view('profilePage');
-});
+})->name('profilePage');
 
 
-Route::get('/users', [userController::class, 'view'])->name('users');
+Route::get('users', [userController::class, 'view'])->name('users.view');
 Route::post('/inventory', [productController::class, 'store']);
 
 
 Route::get('/search','placesController@search');
 
-Route::get('/history', [historyController::class, 'index']);
+Route::get('history', [historyController::class, 'index'])->name('history.index');
 
-Route::get('/places', [placesController::class, 'index']);
-Route::get('/edit/{place_id}', [placesController::class, 'edit']);
-Route::get('/delete/{place_id}',[placesController::class,'destroy']);
-Route::post('/update/{place_id}', [placesController::class, 'update']);
-Route::post('/places', [placesController::class, 'store']);
+Route::get('places', [placesController::class, 'index'])->name('places.index');
+Route::get('edit/{place_id}', [placesController::class, 'edit']);
+Route::get('delete/{place_id}',[placesController::class,'destroy']);
+Route::post('update/{place_id}', [placesController::class, 'update']);
+Route::post('places', [placesController::class, 'store']);
 
 
 
-Route::get('/products', [productController::class, 'index']);
-Route::get('/edit1/{product_id}', [productController::class, 'edit']);
-Route::get('/delete1/{product_id}',[productController::class,'destroy']);
-Route::post('/update1/{product_id}', [productController::class, 'update']);
-Route::post('/products', [productController::class, 'store']);
+Route::get('products', [productController::class, 'index'])->name('products.index');
+Route::get('edit1/{product_id}', [productController::class, 'edit']);
+Route::get('delete1/{product_id}',[productController::class,'destroy']);
+Route::post('update1/{product_id}', [productController::class, 'update']);
+Route::post('products', [productController::class, 'store']);
