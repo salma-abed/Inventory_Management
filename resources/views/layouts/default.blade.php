@@ -10,7 +10,7 @@
         <header class="row">
             @include('layouts.navbar')
         </header>
-        @include('layouts.mainmenu')
+        @include('layouts.mainmenuAdmin')
         <div id="main" class="row">
             @yield('content')
         </div>
