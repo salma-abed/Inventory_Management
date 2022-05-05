@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Focus Admin: Creative Admin Dashboard</title>
+    <title>Dashboard</title>
 </head>
 
 <body>
