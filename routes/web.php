@@ -26,10 +26,20 @@ Route::get('/users', function () {
 
 Route::get('warehouse', function () {
     return view('warehouseManager/warehouseTable');
-});
+})->name('warehouse');
+
 Route::get('dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('logout', function () {
+    return view('logout');
+})->name('logout');
+
+Route::get('dashboardwm', function () {
+    return view('warehouseManager/dashboardWm');
+})->name('dashboardwm');
+
 Route::get('profilepage', function () {
     return view('profilePage');
 })->name('profilePage');
