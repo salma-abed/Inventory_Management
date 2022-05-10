@@ -1,4 +1,4 @@
-@extends('layouts/layoutMainmenu')
+@extends('layouts/default')
 @section('content')
 <div class="content-wrap">
     <div class="main">
@@ -16,8 +16,8 @@
                     <div class="page-header">
                         <div class="page-title">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                                <li class="breadcrumb-item active">Inventory</li>
+                                <li class="breadcrumb-item"><a href="#">Main Menu</a></li>
+                                <li class="breadcrumb-item active">Users</li>
                             </ol>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
 
                                 <div class="container-fluid p-t-10">
                                     <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
-                                        data-bs-target="#productmodal">Add Employee</button>
+                                        data-bs-target="#productmodal">Add User</button>
                                 </div>
 
                             </div>

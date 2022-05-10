@@ -5,7 +5,7 @@
 
         <!-- Navbar brand -->
         <a class="navbar-brand mt-2 mt-lg-0" href="#">
-            <img src="images/logo.png" height="50" />
+            <img src="images/logo.png" height="50" onclick="openNav()" />
         </a>
 
 
