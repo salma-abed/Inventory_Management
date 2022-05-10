@@ -17,6 +17,9 @@ return new class extends Migration
 
             $table->id('transaction_id');
             $table->string('transaction_description');
+            $table->string('placeID');
+            $table->string('productID');
+
             $table->date('transaction_date');
 
             $table->timestamps();
