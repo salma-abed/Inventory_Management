@@ -33,14 +33,15 @@ class AppServiceProvider extends ServiceProvider
         View::composer('*', function ($view) {
             $navbars = Navbar::orderBy('ordering')->get();
             $view->with('navbars', $navbars);
+            $navbarwm = navbarwm::orderBy('ordering')->get();
+            $view->with('navbarwm', $navbarwm);
             
         });
 
-        View::composer('*', function ($view) {
-            $navbarwm = navbarwm::orderBy('ordering')->get();
-            $view->with('navbars', $navbarwm);
+        /*View::composer('*', function ($view) {
+          
             
-        });
+        });*/
       
     }
 }

@@ -8,7 +8,7 @@
             </div>
 
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            @foreach ($navbars as $navbarItem)
+            @foreach ($navbarwm as $navbarItem)
             <li class="nav-item list-unstyled">
                 <a class="nav-link" href="{{ route($navbarItem->route) }}">{{ $navbarItem->name }}</a>
             </li>
