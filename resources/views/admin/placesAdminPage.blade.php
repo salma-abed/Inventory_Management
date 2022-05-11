@@ -40,6 +40,8 @@
                             <option value="Warehouse">Warehouse</option>
                             <option value="Printhouse">Printhouse</option>
                             <option value="Store">Store</option>
+                            <option value="Store">Offices </option>
+                            <option value="Store">Courier_warehouse</option>
                         </select>
                 </div>
                 <div class="modal-footer">
@@ -97,6 +99,9 @@
                             <option value="Warehouse">Warehouse</option>
                             <option value="Printhouse">Printhouse</option>
                             <option value="Store">Store</option>
+                            <option value="Store">Offices </option>
+                            <option value="Store">Courier_warehouse</option>
+
                         </select>
                 </div>
                 <div class="modal-footer">
@@ -199,7 +204,8 @@
                                             <td> <a data-bs-target="#editmodal" href="edit/{{$row->place_id}}"> <i
                                                         class="far fa-edit"></i></i>
                                                 </a></td>
-                                            <td> <a href="delete/{{$row->place_id}}"><i class="far fa-edit"></i></i>
+                                            <td> <a href="delete/{{$row->place_id}}"> <i
+                                                        class="fa-regular fa-trash-can"></i>
                                                 </a></td>
 
                                         </tr>
@@ -212,6 +218,8 @@
                                             data-bs-target="#placemodal">Add
                                             Place</button>
                                     </div>
+
+
 
                                 </div>
                                 <div class="tab-pane fade" id="warehouses" role="tabpanel"
@@ -292,6 +300,64 @@
                                         @foreach($data as $row)
                                         <tr>
                                             @if($row->place_type=='Store')
+
+                                            <th>{{$row->place_name}}</th>
+                                            <th>{{$row->place_address}}</th>
+                                            <th>{{$row->product}} </th>
+                                            <th>{{$row->quantity}}</th>
+                                            <th>{{$row->place_type}}</th>
+                                            @endif
+                                        </tr>
+                                        </thead>
+                                        @endforeach
+                                    </table>
+
+                                </div>
+                                <div class="tab-pane fade" id="stores" role="tabpanel" aria-labelledby="stores-tab">
+                                    <table class="table" id="storetable">
+                                        <thead>
+                                            <tr>
+                                                <th>Branch Name</th>
+                                                <th>Location</th>
+                                                <th>Product Type</th>
+                                                <th>Quantity</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                        @foreach($data as $row)
+                                        <tr>
+                                            @if($row->place_type=='Offices')
+
+                                            <th>{{$row->place_name}}</th>
+                                            <th>{{$row->place_address}}</th>
+                                            <th>{{$row->product}} </th>
+                                            <th>{{$row->quantity}}</th>
+                                            <th>{{$row->place_type}}</th>
+                                            @endif
+                                        </tr>
+                                        </thead>
+                                        @endforeach
+                                    </table>
+
+                                </div>
+                                <div class="tab-pane fade" id="stores" role="tabpanel" aria-labelledby="stores-tab">
+                                    <table class="table" id="storetable">
+                                        <thead>
+                                            <tr>
+                                                <th>Branch Name</th>
+                                                <th>Location</th>
+                                                <th>Product Type</th>
+                                                <th>Quantity</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                        @foreach($data as $row)
+                                        <tr>
+                                            @if($row->place_type=='Courier_warehouse')
 
                                             <th>{{$row->place_name}}</th>
                                             <th>{{$row->place_address}}</th>

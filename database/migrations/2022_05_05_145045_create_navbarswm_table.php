@@ -13,15 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('histories', function (Blueprint $table) {
-
-            $table->id('transaction_id');
-            $table->string('transaction_description');
-            $table->string('placeID');
-            $table->string('productID');
-
-            $table->date('transaction_date');
-
+        Schema::create('navbarswm', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('route');
+            $table->integer('ordering')->default(0);
             $table->timestamps();
         });
     }
@@ -33,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('histories');
+        Schema::dropIfExists('navbarswm');
     }
 };

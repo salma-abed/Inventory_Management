@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('place_name');
             $table->string('place_type'); 
             $table->string('place_address');
-            $table->string('product');
-            $table->integer('quantity');
+            $table->integer('product');
             $table->timestamps();
+
         });
     }
 

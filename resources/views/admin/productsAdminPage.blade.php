@@ -167,7 +167,8 @@
                                                 </a></td>
 
                                             </a></td>
-                                            <td> <a href="delete1/{{$row->product_id}}"><i class="far fa-edit"></i></i>
+                                            <td> <a href="delete1/{{$row->product_id}}"><i
+                                                        class="fa-regular fa-trash-can"></i>
                                                 </a></td>
 
                                         </tr>
