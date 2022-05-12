@@ -181,14 +181,10 @@
                                     </table>
 
                                     <div class="container-fluid p-t-10">
-                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
-                                            data-bs-target="#placemodal">Add
-                                            Place</button>
-                                   
+                                    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#placemodal">Add Place</button>
 
-                                   
-                                      <a href=http://127.0.0.1:8000/show>  
-                                      <button type="button" class="btn btn-sm btn-primary"> Transport products  </button></a>
+                                    <a href=http://127.0.0.1:8000/show>  
+                                    <button type="button" class="btn btn-sm btn-primary"> Transport products  </button></a>
                                     </div>
 
                                 </div>
@@ -228,7 +224,12 @@
                                         </thead>
                                         @endforeach
                                     </table>
-
+                                    <div class="container-fluid p-t-10">
+                                    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#placemodal">Add Place</button>
+                                    
+                                    <a href=http://127.0.0.1:8000/show>  
+                                    <button type="button" class="btn btn-sm btn-primary"> Transport products  </button></a>
+                                    </div>
 
                                 </div>
                                 <div class="tab-pane fade" id="printinghouses" role="tabpanel"
@@ -265,7 +266,14 @@
                                         </tr>
                                         </thead>
                                         @endforeach
+                                        
                                     </table>
+                                    <div class="container-fluid p-t-10">
+                                    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#placemodal">Add Place</button>
+                                    
+                                    <a href=http://127.0.0.1:8000/show>  
+                                    <button type="button" class="btn btn-sm btn-primary"> Transport products  </button></a>
+                                    </div>
 
                                 </div>
                                 <div class="tab-pane fade" id="stores" role="tabpanel" aria-labelledby="stores-tab">
@@ -302,6 +310,12 @@
                                         </thead>
                                         @endforeach
                                     </table>
+                                    <div class="container-fluid p-t-10">
+                                    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#placemodal">Add Place</button>
+                                    
+                                    <a href=http://127.0.0.1:8000/show>  
+                                    <button type="button" class="btn btn-sm btn-primary"> Transport products  </button></a>
+                                    </div>
 
                                 </div>
                                 <div class="tab-pane fade" id="offices" role="tabpanel" aria-labelledby="offices-tab">
@@ -338,6 +352,12 @@
                                         </thead>
                                         @endforeach
                                     </table>
+                                    <div class="container-fluid p-t-10">
+                                    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#placemodal">Add Place</button>
+                                    
+                                    <a href=http://127.0.0.1:8000/show>  
+                                    <button type="button" class="btn btn-sm btn-primary"> Transport products  </button></a>
+                                    </div>
 
                                 </div>
                                 <div class="tab-pane fade" id="courier_warehouses" role="tabpanel" aria-labelledby="courier_warehouses-tab">
@@ -375,6 +395,12 @@
                                         </thead>
                                         @endforeach
                                     </table>
+                                    <div class="container-fluid p-t-10">
+                                    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#placemodal">Add Place</button>
+                                    
+                                    <a href=http://127.0.0.1:8000/show>  
+                                    <button type="button" class="btn btn-sm btn-primary"> Transport products  </button></a>
+                                    </div>
 
                                 </div>
                             </div>
