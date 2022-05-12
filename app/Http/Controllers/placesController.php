@@ -82,23 +82,25 @@ class placesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $data=  DB::select('select * from places');
+        return view('admin/Move_placesAdminPage',['data'=>$data]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+ 
+  
+
+
     public function edit($places_id)
     {
-        //       
+        //            
+    
         $data=  DB::select('select * from places where place_id=?',[$places_id]);
         return view('admin/Edit_placesAdminPage',['data'=>$data]);
     }
+
+
 
     /**
      * Update the specified resource in storage.
@@ -120,6 +122,32 @@ class placesController extends Controller
        $arr['data']=$data;
 
        return redirect('places');  //redirects sends to the page specified
+    }
+
+
+    public function Transport(Request $request)
+    {
+
+        $From_place = $request->input('From_place');
+        $Product=$request->input('product');
+        $quantity_From= DB::table('places')->select('quantity as AA')->where('place_name',$From_place)->where('product',$Product)->first();
+        $quantity_From=(int)$quantity_From->AA;
+        $PLUS=(int)$request->input('quantity');
+        $quantity_From = $quantity_From+$PLUS;
+        DB::update('update places set quantity=? where place_name=? ',[$quantity_From,$From_place]);
+
+
+
+        $To_place= $request->input('To_place');
+        $quantity= DB::table('places')->select('quantity as AA')->where('place_name',$To_place)->where('product',$Product)->first();
+        $quantity=(int)$quantity->AA;
+        $quantity = $quantity-$PLUS;
+        DB::update('update places set quantity=? where place_name=? ',[$quantity,$To_place]);
+
+
+
+        $StringHistory="An amout of: ".$PLUS." of Product: ".$Product." has been transported from ".$From_place." to ".$To_place; 
+        return redirect('places');  //redirects sends to the page specified
     }
 
     /**
