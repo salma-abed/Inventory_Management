@@ -3,12 +3,16 @@
 
 <body>
     @section('content')
-
+    @if(session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+    @endif
     <!-- Modal -->
     <!-------Add product Form--------->
     <div class="modal fade" id="productmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">Add Product</h5>
@@ -17,25 +21,45 @@
                 <div class="modal-body">
                     <form id="formElement" method="POST" action="">
                         @csrf
-                        <div class="mb-3">
+                        <div class="form-group">
                             <label class="form-label">Product Name</label>
-                            <input type="text" class="form-control" id="name" name="name">
+                            <input type="text" class="@error('name') is-invalid @enderror form-control" id="name"
+                                name="name">
+                            @error('name')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror
                         </div>
-                        <div class="mb-3">
+                        <div class="form-group">
                             <label class="form-label">Location</label>
-                            <input type="text" class="form-control" id="location" name="location">
+                            <input type="text" class="@error('location') is-invalid @enderror form-control"
+                                id="location" name="location">
+                            @error('location')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">description</label>
-                            <input type="text" class="form-control" id="description" name="description">
+                        <div class="form-group">
+                            <label class="form-label">Description</label>
+                            <input type="text" class="@error('description') is-invalid @enderror form-control"
+                                id="description" name="description">
+                            @error('description')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror
                         </div>
-                        <div class="mb-3">
+                        <div class="form-group">
                             <label class="form-label">Price</label>
-                            <input type="text" class="form-control" id="price" name="price">
+                            <input type="text" class="@error('price') is-invalid @enderror form-control" id="price"
+                                name="price">
+                            @error('price')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror
                         </div>
-                        <div class="mb-3">
+                        <div class="form-group">
                             <label class="form-label">Quantity</label>
-                            <input type="text" class="form-control" id="quantity" name="quantity">
+                            <input type="text" class="@error('quantity') is-invalid @enderror form-control"
+                                id="quantity" name="quantity">
+                            @error('quantity')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror
                         </div>
 
 
@@ -49,57 +73,20 @@
         </div>
     </div>
 
-    <strong> @error('name') <h1>{{$message}}</h1>@enderror</strong>
+    @if (count($errors) > 0)
+    <script>
+    $(document).ready(function() {
+        $('#productmodal').modal('show');
+    });
+    </script>
+    @endif
+
+    <!--<strong> @error('name') <h1>{{$message}}</h1>@enderror</strong>
     <strong> @error('location') <h1>{{$message}}</h1>@enderror</strong>
-    <strong> @error('description') <h1>{{$message}}</h1>@enderror</strong>
-
-
+    <strong> @error('description') <h1>{{$message}}</h1>@enderror</strong>-->
 
     <!---------------------------------->
 
-    <!-------Edit Form------------->
-    <div class="modal fade" id="editmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Edit</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="formElement" method="POST" action="/update/{{$data[0]->product_id}}">
-                        @csrf
-                        <div class="mb-3">
-                            <label class="form-label">Product Name</label>
-                            <input type="text" class="form-control" id="name" name="name">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Location</label>
-                            <input type="text" class="form-control" id="location" name="location">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Description</label>
-                            <input type="text" class="form-control" id="description" name="description">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Price</label>
-                            <input type="text" class="form-control" id="price" name="price">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Quantity</label>
-                            <input type="text" class="form-control" id="quantity" name="quantity">
-                        </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Update</button>
-                    </form>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!---------------------------------->
     <div class="content-wrap">
         <div class="main">
             <div class="container-fluid">
@@ -167,14 +154,19 @@
                                                 </a></td>
 
                                             </a></td>
-                                            <td> <a href="delete1/{{$row->product_id}}"><i
+                                            <td>
+                                                <a id="delete" href="delete1/{{$row->product_id}}"><i
                                                         class="fa-regular fa-trash-can"></i>
-                                                </a></td>
+                                                </a>
+                                            </td>
 
                                         </tr>
 
                                         @endforeach
                                     </table>
+                                    <script>
+
+                                    </script>
 
                                     <div class="container-fluid p-t-10">
                                         <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
@@ -192,5 +184,46 @@
             </div>
         </div>
     </div>
+
+    <script>
+    if $("#formElement").validate({
+        rules: {
+            name: {
+                required: true,
+                maxlength: 50
+            },
+            location: {
+                required: true,
+
+            },
+            description: {
+                required: true,
+            },
+            price: {
+                required: true,
+            },
+            quantity: {
+                required: true,
+            },
+        },
+        messages: {
+            title: {
+                required: "Please enter product name",
+            },
+            location: {
+                required: "Please enter product location",
+            },
+            description: {
+                required: "Please enter product description",
+            },
+            price: {
+                required: "Please enter product price",
+            },
+            quantity: {
+                required: "Please enter product quantity",
+            },
+        },
+    })
+    </script>
     @endsection
 </body>
