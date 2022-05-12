@@ -46,12 +46,15 @@
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                    
                     </form>
 
                 </div>
             </div>
         </div>
     </div>
+
+
 
     <!--showing error msg when field is submitted empty-->
 
@@ -60,58 +63,7 @@
 
 
 
-    <!---------------------------------->
-
-    <!-------Edit Form------------->
-    <div class="modal fade" id="editmodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Edit</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="formElement" method="POST" action="/update/{{$data[0]->place_id}}">
-                        @csrf
-                        <div class="mb-3">
-                            <label class="form-label">Place Name</label>
-                            <input type="text" class="form-control" id="place_name" value="{{$data[0]->place_name}}"
-                                name="place_name">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Location</label>
-                            <input type="text" class="form-control" id="place_location"
-                                value="{{$data[0]->place_address}}" name="place_location">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Product</label>
-                            <input type="text" class="form-control" id="product_name" value="{{$data[0]->product}}"
-                                name="product_name">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Quantity</label>
-                            <input type="text" class="form-control" id="quantity" value="{{$data[0]->quantity}}"
-                                name="quantity">
-                        </div>
-                        <label class="form-label">facility </label>
-                        <select id="type_of_place" name="type_of_place">
-                            <option value="Warehouse">Warehouse</option>
-                            <option value="Printhouse">Printhouse</option>
-                            <option value="Store">Store</option>
-                            <option value="Store">Offices </option>
-                            <option value="Store">Courier_warehouse</option>
-
-                        </select>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Update</button>
-                    </form>
-
-                </div>
-            </div>
-        </div>
-    </div>
+   
     <!---------------------------------->
     <div class="content-wrap">
         <div class="main">
@@ -190,6 +142,7 @@
                                                 <th>Delete</th>
 
 
+
                                             </tr>
                                         </thead>
                                         @foreach($data as $row)
@@ -201,15 +154,19 @@
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
                                             <th>{{$row->place_type}}</th>
-                                            <td> <a data-bs-target="#editmodal" href="edit/{{$row->place_id}}"> <i
-                                                        class="far fa-edit"></i></i>
-                                                </a></td>
-                                            <td> <a href="delete/{{$row->place_id}}"> <i
+                                            <td> 
+                                                <a  href="edit/{{$row->place_id}}"> 
+                                                <i class="far fa-edit"></i>
+                                                </a>
+                                            </td>
+                                            <td> 
+                                                <a href="delete/{{$row->place_id}}"> <i
                                                         class="fa-regular fa-trash-can"></i>
-                                                </a></td>
+                                                </a>
+                                            </td>
 
                                         </tr>
-
+                                        
                                         @endforeach
                                     </table>
 
@@ -217,9 +174,12 @@
                                         <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
                                             data-bs-target="#placemodal">Add
                                             Place</button>
+                                   
+
+                                   
+                                      <a href=http://127.0.0.1:8000/show>  
+                                      <button type="button" class="btn btn-sm btn-primary"> Transport products  </button></a>
                                     </div>
-
-
 
                                 </div>
                                 <div class="tab-pane fade" id="warehouses" role="tabpanel"
