@@ -62,6 +62,16 @@
 
                                     </table>
 
+                                    <div class="container-fluid p-t-10">
+                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#productmodal">Edit Product</button>
+                                    </div>
+
+                                    <div class="container-fluid p-t-10">
+                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#productmodal">Delet Product</button>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
