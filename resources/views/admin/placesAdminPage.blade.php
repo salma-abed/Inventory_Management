@@ -201,6 +201,8 @@
                                                 <th>Location</th>
                                                 <th>Product Type</th>
                                                 <th>Quantity</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -215,6 +217,12 @@
                                             <th>{{$row->place_address}}</th>
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
+                                            <td> 
+                                            <a  href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
+                                            </td>
+                                            <td> 
+                                            <a href="delete/{{$row->place_id}}">  <i class="fa-regular fa-trash-can"></i> </a>
+                                            </td>
                                             @endif
                                         </tr>
                                         </thead>
@@ -232,6 +240,8 @@
                                                 <th>Location</th>
                                                 <th>Product Type</th>
                                                 <th>Quantity</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -245,6 +255,12 @@
                                             <th>{{$row->place_address}}</th>
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
+                                            <td> 
+                                            <a  href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
+                                            </td>
+                                            <td> 
+                                            <a href="delete/{{$row->place_id}}">  <i class="fa-regular fa-trash-can"></i> </a>
+                                            </td>
                                             @endif
                                         </tr>
                                         </thead>
@@ -260,6 +276,8 @@
                                                 <th>Location</th>
                                                 <th>Product Type</th>
                                                 <th>Quantity</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -273,6 +291,12 @@
                                             <th>{{$row->place_address}}</th>
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
+                                            <td> 
+                                            <a  href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
+                                            </td>
+                                            <td> 
+                                            <a href="delete/{{$row->place_id}}">  <i class="fa-regular fa-trash-can"></i> </a>
+                                            </td>
                                             @endif
                                         </tr>
                                         </thead>
@@ -288,6 +312,8 @@
                                                 <th>Location</th>
                                                 <th>Product Type</th>
                                                 <th>Quantity</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -301,6 +327,12 @@
                                             <th>{{$row->place_address}}</th>
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
+                                            <td> 
+                                            <a  href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
+                                            </td>
+                                            <td> 
+                                            <a href="delete/{{$row->place_id}}">  <i class="fa-regular fa-trash-can"></i> </a>
+                                            </td>
                                             @endif
                                         </tr>
                                         </thead>
@@ -316,6 +348,9 @@
                                                 <th>Location</th>
                                                 <th>Product Type</th>
                                                 <th>Quantity</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -329,6 +364,12 @@
                                             <th>{{$row->place_address}}</th>
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
+                                            <td> 
+                                            <a  href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
+                                            </td>
+                                            <td> 
+                                            <a href="delete/{{$row->place_id}}">  <i class="fa-regular fa-trash-can"></i> </a>
+                                            </td>
                                             @endif
                                         </tr>
                                         </thead>
