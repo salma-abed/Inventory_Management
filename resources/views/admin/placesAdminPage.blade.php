@@ -40,8 +40,8 @@
                             <option value="Warehouse">Warehouse</option>
                             <option value="Printhouse">Printhouse</option>
                             <option value="Store">Store</option>
-                            <option value="Store">Offices </option>
-                            <option value="Store">Courier_warehouse</option>
+                            <option value="Office">Office </option>
+                            <option value="Courier_warehouse">Courier_warehouse</option>
                         </select>
                 </div>
                 <div class="modal-footer">
@@ -120,6 +120,16 @@
                                     <button class="nav-link" id="stores-tab" data-bs-toggle="tab"
                                         data-bs-target="#stores" type="button" role="tab" aria-controls="stores"
                                         aria-selected="false">Stores</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="courier_warehouses-tab" data-bs-toggle="tab"
+                                        data-bs-target="#courier_warehouses" type="button" role="tab" aria-controls="stores"
+                                        aria-selected="false">Courier_warehouses</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="offices-tab" data-bs-toggle="tab"
+                                        data-bs-target="#offices" type="button" role="tab" aria-controls="stores"
+                                        aria-selected="false">Offices</button>
                                 </li>
 
                             </ul>
@@ -205,7 +215,6 @@
                                             <th>{{$row->place_address}}</th>
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
-                                            <th>{{$row->place_type}}</th>
                                             @endif
                                         </tr>
                                         </thead>
@@ -236,7 +245,6 @@
                                             <th>{{$row->place_address}}</th>
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
-                                            <th>{{$row->place_type}}</th>
                                             @endif
                                         </tr>
                                         </thead>
@@ -265,7 +273,6 @@
                                             <th>{{$row->place_address}}</th>
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
-                                            <th>{{$row->place_type}}</th>
                                             @endif
                                         </tr>
                                         </thead>
@@ -273,8 +280,8 @@
                                     </table>
 
                                 </div>
-                                <div class="tab-pane fade" id="stores" role="tabpanel" aria-labelledby="stores-tab">
-                                    <table class="table" id="storetable">
+                                <div class="tab-pane fade" id="offices" role="tabpanel" aria-labelledby="offices-tab">
+                                    <table class="table" id="officestable">
                                         <thead>
                                             <tr>
                                                 <th>Branch Name</th>
@@ -288,13 +295,12 @@
                                         </tbody>
                                         @foreach($data as $row)
                                         <tr>
-                                            @if($row->place_type=='Offices')
+                                            @if($row->place_type=='Office')
 
                                             <th>{{$row->place_name}}</th>
                                             <th>{{$row->place_address}}</th>
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
-                                            <th>{{$row->place_type}}</th>
                                             @endif
                                         </tr>
                                         </thead>
@@ -302,8 +308,8 @@
                                     </table>
 
                                 </div>
-                                <div class="tab-pane fade" id="stores" role="tabpanel" aria-labelledby="stores-tab">
-                                    <table class="table" id="storetable">
+                                <div class="tab-pane fade" id="courier_warehouses" role="tabpanel" aria-labelledby="courier_warehouses-tab">
+                                    <table class="table" id="courier_warehousestable">
                                         <thead>
                                             <tr>
                                                 <th>Branch Name</th>
@@ -323,7 +329,6 @@
                                             <th>{{$row->place_address}}</th>
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
-                                            <th>{{$row->place_type}}</th>
                                             @endif
                                         </tr>
                                         </thead>
