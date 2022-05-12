@@ -49,7 +49,7 @@ Route::get('users', [userController::class, 'view'])->name('users.view');
 Route::post('/inventory', [productController::class, 'store']);
 
 
-Route::get('/search','placesController@search');
+Route::get('/search', 'placesController@search');
 
 Route::get('history', [historyController::class, 'index'])->name('history.index');
 
@@ -59,7 +59,7 @@ Route::get('edit/{place_id}', [placesController::class, 'edit']);
 
 Route::get('show', [placesController::class, 'show']);
 
-Route::get('delete/{place_id}',[placesController::class,'destroy']);
+Route::get('delete/{place_id}', [placesController::class, 'destroy']);
 Route::post('update/{place_id}', [placesController::class, 'update']);
 Route::post('Transport', [placesController::class, 'Transport']);
 
@@ -69,6 +69,7 @@ Route::post('places', [placesController::class, 'store']);
 
 Route::get('products', [productController::class, 'index'])->name('products.index');
 Route::get('edit1/{product_id}', [productController::class, 'edit']);
-Route::get('delete1/{product_id}',[productController::class,'destroy']);
+Route::get('delete1/{product_id}', [productController::class, 'destroy']);
 Route::post('update1/{product_id}', [productController::class, 'update']);
 Route::post('products', [productController::class, 'store']);
+Route::get('/Edit/{product_quantity}', [productController::class, 'Edit']);

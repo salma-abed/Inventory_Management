@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;  //default when controller is created
 
-use Illuminate\Support\Facades\DB;    
+use Illuminate\Support\Facades\DB;
 use App\Models\products;
 
 
@@ -18,10 +18,10 @@ class productController extends Controller
     public function index()
     {
         //
-        $data=  DB::select("select * from products");
-        $arr['data']=$data;
-   
-        return view('admin/productsAdminPage',$arr);
+        $data =  DB::select("select * from products");
+        $arr['data'] = $data;
+
+        return view('admin/productsAdminPage', $arr);
     }
 
     /**
@@ -81,8 +81,8 @@ class productController extends Controller
     public function edit($product_id)
     {
         //        
-        $data=  DB::select('select * from products where product_id=?',[$product_id]);
-        return view('admin/Edit_productsAdminPage',['data'=>$data]);
+        $data =  DB::select('select * from products where product_id=?', [$product_id]);
+        return view('admin/Edit_productsAdminPage', ['data' => $data]);
     }
 
     /**
@@ -94,16 +94,16 @@ class productController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $place_name= $request->input('name');
-        $place_location=$request->input('location');
-        $place_description= $request->input('description');
-        $price= $request->input('price');
-        $quantity= $request->input('quantity');
- 
-        DB::update('update products set name =?, location= ?,description= ?, price=?, quantity=? where product_id=? ',[$place_name,$place_location,$place_description,$price,$quantity,$id]);
-        $data=  DB::select("select * from products");
-        $arr['data']=$data;
- 
+        $place_name = $request->input('name');
+        $place_location = $request->input('location');
+        $place_description = $request->input('description');
+        $price = $request->input('price');
+        $quantity = $request->input('quantity');
+
+        DB::update('update products set name =?, location= ?,description= ?, price=?, quantity=? where product_id=? ', [$place_name, $place_location, $place_description, $price, $quantity, $id]);
+        $data =  DB::select("select * from products");
+        $arr['data'] = $data;
+
         return redirect('products');  //redirects sends to the page specified    }
     }
     /**
@@ -115,7 +115,13 @@ class productController extends Controller
     public function destroy($product_id)
     {
         //
-        DB::delete('delete from products where product_id=? ',[$product_id]);
+        DB::delete('delete from products where product_id=? ', [$product_id]);
         return redirect('products');
+    }
+    public function edit_count($product_quantity)
+    {
+        //        
+        $data =  DB::select('select * from products where product_quantity=?', [$product_quantity]);
+        return view('admin/Edit_productsAdminPage', ['data' => $data]);
     }
 }
