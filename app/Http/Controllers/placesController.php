@@ -49,6 +49,8 @@ class placesController extends Controller
             $request->validate([
                 'place_name'=> 'required',
                 'place_location'=>'required',
+                'product_name'=>'required',
+                'quantity'=>'required',
                 'type_of_place'=>'required'
 
             ]);
