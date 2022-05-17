@@ -155,18 +155,52 @@
 
                                             </a></td>
                                             <td>
-                                                <a id="delete" href="delete1/{{$row->product_id}}"><i
+                                                <!-- Modal for delete confirmation -->
+                                                <form id="formElement" method="POST"
+                                                    action="delete1/{{$row->product_id}}">
+                                                    @csrf
+                                                    <div id="myModal" class="modal fade">
+                                                        <div class="modal-dialog modal-confirm">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header flex-column">
+                                                                    <div class="icon-box">
+                                                                        <i class="material-icons">&#xE5CD;</i>
+                                                                    </div>
+                                                                    <h4 class="modal-title w-100">Are you sure?</h4>
+                                                                    <button type="button" class="close"
+                                                                        data-bs-dismiss="modal"
+                                                                        aria-hidden="true">&times;</button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <p>Do you really want to delete these records? This
+                                                                        process
+                                                                        cannot
+                                                                        be undone.</p>
+                                                                </div>
+                                                                <div class="modal-footer justify-content-center">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-bs-dismiss="modal">Cancel</button>
+
+                                                                    <button type="submit" class="btn btn-danger"
+                                                                        data-bs-dismiss="modal">Delete</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <!--  <a id="delete" href="delete1/{{$row->product_id}}"><i
                                                         class="fa-regular fa-trash-can"></i>
-                                                </a>
+                                                </a>-->
+                                                <a href="#myModal" class="trigger-btn" data-bs-toggle="modal"><i
+                                                        class="fa-regular fa-trash-can"></i> </a>
+
+
                                             </td>
 
                                         </tr>
 
                                         @endforeach
                                     </table>
-                                    <script>
-
-                                    </script>
 
                                     <div class="container-fluid p-t-10">
                                         <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
