@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\places;
+use App\Models\history;
+
+
 
 class placesController extends Controller
 {
@@ -16,7 +19,7 @@ class placesController extends Controller
     public function index()
     {
         //
-        $data=  DB::select("select * from places");
+        $data=DB::select("select * from places");
         $arr['data']=$data;
 
         return view('admin/placesAdminPage',$arr);
@@ -46,6 +49,8 @@ class placesController extends Controller
             $request->validate([
                 'place_name'=> 'required',
                 'place_location'=>'required',
+                'product_name'=>'required',
+                'quantity'=>'required',
                 'type_of_place'=>'required'
 
             ]);
@@ -131,6 +136,7 @@ class placesController extends Controller
         $From_place = $request->input('From_place');
         $Product=$request->input('product');
         $quantity_From= DB::table('places')->select('quantity as AA')->where('place_name',$From_place)->where('product',$Product)->first();
+
         $quantity_From=(int)$quantity_From->AA;
         $PLUS=(int)$request->input('quantity');
         $quantity_From = $quantity_From+$PLUS;
@@ -140,6 +146,7 @@ class placesController extends Controller
 
         $To_place= $request->input('To_place');
         $quantity= DB::table('places')->select('quantity as AA')->where('place_name',$To_place)->where('product',$Product)->first();
+
         $quantity=(int)$quantity->AA;
         $quantity = $quantity-$PLUS;
         DB::update('update places set quantity=? where place_name=? ',[$quantity,$To_place]);
@@ -147,6 +154,15 @@ class placesController extends Controller
 
 
         $StringHistory="An amout of: ".$PLUS." of Product: ".$Product." has been transported from ".$From_place." to ".$To_place; 
+
+        $Object = new history();
+        $Object->transaction_description = $StringHistory;
+        $Object->transaction_date = date("Y/m/d");
+
+        $Object->save();
+
+
+
         return redirect('places');  //redirects sends to the page specified
     }
 

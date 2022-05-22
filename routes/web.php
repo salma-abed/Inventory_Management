@@ -54,6 +54,8 @@ Route::get('/search', 'placesController@search');
 Route::get('history', [historyController::class, 'index'])->name('history.index');
 
 Route::get('places', [placesController::class, 'index'])->name('places.index');
+Route::get('history', [historyController::class, 'index'])->name('history.index');
+
 
 Route::get('edit/{place_id}', [placesController::class, 'edit']);
 
@@ -64,6 +66,7 @@ Route::post('update/{place_id}', [placesController::class, 'update']);
 Route::post('Transport', [placesController::class, 'Transport']);
 
 Route::post('places', [placesController::class, 'store']);
+Route::post('history', [historyController::class, 'store']);
 
 
 

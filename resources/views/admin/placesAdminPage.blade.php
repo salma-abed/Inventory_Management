@@ -4,7 +4,11 @@
 
 <body>
     @section('content')
-
+    @if(session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+    @endif
     <!-- Modal -->
     <!-------Add place Form--------->
     <div class="modal fade" id="placemodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -20,23 +24,40 @@
                         @csrf
                         <div class="mb-3">
                             <label class="form-label">Place Name</label>
-                            <input type="text" class="form-control" id="place_name" name="place_name">
+                            <input type="text" class="@error('place_name') is-invalid @enderror form-control"
+                                id="place_name" name="place_name">
+                            @error('place_name')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Location</label>
-                            <input type="text" class="form-control" id="place_location" name="place_location">
+                            <input type="text" class="@error('place_location') is-invalid @enderror form-control"
+                                id="place_location" name="place_location">
+                            @error('place_location')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Product</label>
-                            <input type="text" class="form-control" id="product_name" name="product_name">
+                            <input type="text" class="@error('product_name') is-invalid @enderror form-control"
+                                id="product_name" name="product_name">
+                            @error('product_name')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Quantity</label>
-                            <input type="text" class="form-control" id="quantity" name="quantity">
+                            <input type="text" class="@error('quantity') is-invalid @enderror form-control"
+                                id="quantity" name="quantity">
+                            @error('quantity')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <label class="form-label">facility </label>
-                        <select id="type_of_place" name="type_of_place">
+                        <select class="@error('type_of_place') is-invalid @enderror form-control" id="type_of_place"
+                            name="type_of_place">
                             <option value="Warehouse">Warehouse</option>
                             <option value="Printhouse">Printhouse</option>
                             <option value="Store">Store</option>
@@ -46,7 +67,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
-                    
+
                     </form>
 
                 </div>
@@ -54,16 +75,23 @@
         </div>
     </div>
 
+    @if (count($errors) > 0)
+    <script>
+    $(document).ready(function() {
+        $('#placemodal').modal('show');
+    });
+    </script>
+    @endif
 
 
     <!--showing error msg when field is submitted empty-->
 
-    <strong> @error('place_name') <h1>{{$message}}</h1>@enderror</strong>
-    <strong> @error('place_location') <h1>{{$message}}</h1>@enderror</strong>
+    <!-- <strong> @error('place_name') <h1>{{$message}}</h1>@enderror</strong>
+    <strong> @error('place_location') <h1>{{$message}}</h1>@enderror</strong>-->
 
 
 
-   
+
     <!---------------------------------->
     <div class="content-wrap">
         <div class="main">
@@ -123,8 +151,8 @@
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="courier_warehouses-tab" data-bs-toggle="tab"
-                                        data-bs-target="#courier_warehouses" type="button" role="tab" aria-controls="stores"
-                                        aria-selected="false">Courier_warehouses</button>
+                                        data-bs-target="#courier_warehouses" type="button" role="tab"
+                                        aria-controls="stores" aria-selected="false">Courier_warehouses</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="offices-tab" data-bs-toggle="tab"
@@ -164,27 +192,29 @@
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
                                             <th>{{$row->place_type}}</th>
-                                            <td> 
-                                                <a  href="edit/{{$row->place_id}}"> 
-                                                <i class="far fa-edit"></i>
+                                            <td>
+                                                <a href="edit/{{$row->place_id}}">
+                                                    <i class="far fa-edit"></i>
                                                 </a>
                                             </td>
-                                            <td> 
+                                            <td>
                                                 <a href="delete/{{$row->place_id}}"> <i
                                                         class="fa-regular fa-trash-can"></i>
                                                 </a>
                                             </td>
 
                                         </tr>
-                                        
+
                                         @endforeach
                                     </table>
 
                                     <div class="container-fluid p-t-10">
-                                    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#placemodal">Add Place</button>
+                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#placemodal">Add Place</button>
 
-                                    <a href=http://127.0.0.1:8000/show>  
-                                    <button type="button" class="btn btn-sm btn-primary"> Transport products  </button></a>
+                                        <a href=http://127.0.0.1:8000/show>
+                                            <button type="button" class="btn btn-sm btn-primary"> Transport products
+                                            </button></a>
                                     </div>
 
                                 </div>
@@ -213,11 +243,12 @@
                                             <th>{{$row->place_address}}</th>
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
-                                            <td> 
-                                            <a  href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
+                                            <td>
+                                                <a href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
                                             </td>
-                                            <td> 
-                                            <a href="delete/{{$row->place_id}}">  <i class="fa-regular fa-trash-can"></i> </a>
+                                            <td>
+                                                <a href="delete/{{$row->place_id}}"> <i
+                                                        class="fa-regular fa-trash-can"></i> </a>
                                             </td>
                                             @endif
                                         </tr>
@@ -225,10 +256,12 @@
                                         @endforeach
                                     </table>
                                     <div class="container-fluid p-t-10">
-                                    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#placemodal">Add Place</button>
-                                    
-                                    <a href=http://127.0.0.1:8000/show>  
-                                    <button type="button" class="btn btn-sm btn-primary"> Transport products  </button></a>
+                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#placemodal">Add Place</button>
+
+                                        <a href=http://127.0.0.1:8000/show>
+                                            <button type="button" class="btn btn-sm btn-primary"> Transport products
+                                            </button></a>
                                     </div>
 
                                 </div>
@@ -256,23 +289,26 @@
                                             <th>{{$row->place_address}}</th>
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
-                                            <td> 
-                                            <a  href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
+                                            <td>
+                                                <a href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
                                             </td>
-                                            <td> 
-                                            <a href="delete/{{$row->place_id}}">  <i class="fa-regular fa-trash-can"></i> </a>
+                                            <td>
+                                                <a href="delete/{{$row->place_id}}"> <i
+                                                        class="fa-regular fa-trash-can"></i> </a>
                                             </td>
                                             @endif
                                         </tr>
                                         </thead>
                                         @endforeach
-                                        
+
                                     </table>
                                     <div class="container-fluid p-t-10">
-                                    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#placemodal">Add Place</button>
-                                    
-                                    <a href=http://127.0.0.1:8000/show>  
-                                    <button type="button" class="btn btn-sm btn-primary"> Transport products  </button></a>
+                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#placemodal">Add Place</button>
+
+                                        <a href=http://127.0.0.1:8000/show>
+                                            <button type="button" class="btn btn-sm btn-primary"> Transport products
+                                            </button></a>
                                     </div>
 
                                 </div>
@@ -299,11 +335,12 @@
                                             <th>{{$row->place_address}}</th>
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
-                                            <td> 
-                                            <a  href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
+                                            <td>
+                                                <a href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
                                             </td>
-                                            <td> 
-                                            <a href="delete/{{$row->place_id}}">  <i class="fa-regular fa-trash-can"></i> </a>
+                                            <td>
+                                                <a href="delete/{{$row->place_id}}"> <i
+                                                        class="fa-regular fa-trash-can"></i> </a>
                                             </td>
                                             @endif
                                         </tr>
@@ -311,10 +348,12 @@
                                         @endforeach
                                     </table>
                                     <div class="container-fluid p-t-10">
-                                    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#placemodal">Add Place</button>
-                                    
-                                    <a href=http://127.0.0.1:8000/show>  
-                                    <button type="button" class="btn btn-sm btn-primary"> Transport products  </button></a>
+                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#placemodal">Add Place</button>
+
+                                        <a href=http://127.0.0.1:8000/show>
+                                            <button type="button" class="btn btn-sm btn-primary"> Transport products
+                                            </button></a>
                                     </div>
 
                                 </div>
@@ -341,11 +380,12 @@
                                             <th>{{$row->place_address}}</th>
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
-                                            <td> 
-                                            <a  href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
+                                            <td>
+                                                <a href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
                                             </td>
-                                            <td> 
-                                            <a href="delete/{{$row->place_id}}">  <i class="fa-regular fa-trash-can"></i> </a>
+                                            <td>
+                                                <a href="delete/{{$row->place_id}}"> <i
+                                                        class="fa-regular fa-trash-can"></i> </a>
                                             </td>
                                             @endif
                                         </tr>
@@ -353,14 +393,17 @@
                                         @endforeach
                                     </table>
                                     <div class="container-fluid p-t-10">
-                                    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#placemodal">Add Place</button>
-                                    
-                                    <a href=http://127.0.0.1:8000/show>  
-                                    <button type="button" class="btn btn-sm btn-primary"> Transport products  </button></a>
+                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#placemodal">Add Place</button>
+
+                                        <a href=http://127.0.0.1:8000/show>
+                                            <button type="button" class="btn btn-sm btn-primary"> Transport products
+                                            </button></a>
                                     </div>
 
                                 </div>
-                                <div class="tab-pane fade" id="courier_warehouses" role="tabpanel" aria-labelledby="courier_warehouses-tab">
+                                <div class="tab-pane fade" id="courier_warehouses" role="tabpanel"
+                                    aria-labelledby="courier_warehouses-tab">
                                     <table class="table" id="courier_warehousestable">
                                         <thead>
                                             <tr>
@@ -384,11 +427,12 @@
                                             <th>{{$row->place_address}}</th>
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
-                                            <td> 
-                                            <a  href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
+                                            <td>
+                                                <a href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
                                             </td>
-                                            <td> 
-                                            <a href="delete/{{$row->place_id}}">  <i class="fa-regular fa-trash-can"></i> </a>
+                                            <td>
+                                                <a href="delete/{{$row->place_id}}"> <i
+                                                        class="fa-regular fa-trash-can"></i> </a>
                                             </td>
                                             @endif
                                         </tr>
@@ -396,10 +440,12 @@
                                         @endforeach
                                     </table>
                                     <div class="container-fluid p-t-10">
-                                    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#placemodal">Add Place</button>
-                                    
-                                    <a href=http://127.0.0.1:8000/show>  
-                                    <button type="button" class="btn btn-sm btn-primary"> Transport products  </button></a>
+                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#placemodal">Add Place</button>
+
+                                        <a href=http://127.0.0.1:8000/show>
+                                            <button type="button" class="btn btn-sm btn-primary"> Transport products
+                                            </button></a>
                                     </div>
 
                                 </div>
