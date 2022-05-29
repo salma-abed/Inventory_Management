@@ -15,7 +15,7 @@ class productController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function ViewProduct()
+    public function index()
     {
         //
         $data =  DB::select("select * from products");
