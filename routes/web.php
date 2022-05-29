@@ -6,6 +6,10 @@ use App\Http\Controllers\productController;
 use App\Http\Controllers\placesController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\historyController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\OperationsAssociateController;
+use App\Http\Controllers\WarehouseManagerController;
+use App\Http\Controllers\SalesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -70,9 +74,32 @@ Route::post('history', [historyController::class, 'store']);
 
 
 
-Route::get('products', [productController::class, 'ViewProduct'])->name('products.ViewProduct');
+/*Route::get('products', [productController::class, 'index'])->name('products.index');
 Route::get('edit1/{product_id}', [productController::class, 'ViewOldProductData']);
 Route::get('delete1/{product_id}', [productController::class, 'DeleteProduct']);
 Route::post('update1/{product_id}', [productController::class, 'UpdateProduct']);
 Route::post('products', [productController::class, 'AddProduct']);
-Route::get('/Edit/{product_quantity}', [productController::class, 'Edit']);
+Route::get('/Edit/{product_quantity}', [productController::class, 'Edit']); */
+
+
+Route::controller(AdminController::class)->group(function () {
+    Route::get('productsAdmin', 'index')->name('products.index');
+    Route::get('edit1/{product_id}', 'ViewOldProductData');
+    Route::get('delete1/{product_id}', 'DeleteProduct');
+    Route::post('update1/{product_id}', 'UpdateProduct');
+    Route::post('productsAdmin', 'AddProduct');
+});
+
+Route::controller(OperationsAssociateController::class)->group(function () {
+    Route::get('productsOA', 'index');
+    Route::get('delete1/{product_id}', 'DeleteProduct');
+    Route::post('productsOA', 'AddProduct');
+});
+
+Route::controller(WarehouseManagerController::class)->group(function () {
+   
+});
+
+Route::controller(SalesController::class)->group(function () {
+   
+});
