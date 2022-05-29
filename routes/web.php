@@ -70,9 +70,9 @@ Route::post('history', [historyController::class, 'store']);
 
 
 
-Route::get('products', [productController::class, 'index'])->name('products.index');
-Route::get('edit1/{product_id}', [productController::class, 'edit']);
-Route::get('delete1/{product_id}', [productController::class, 'destroy']);
-Route::post('update1/{product_id}', [productController::class, 'update']);
-Route::post('products', [productController::class, 'store']);
+Route::get('products', [productController::class, 'ViewProduct'])->name('products.ViewProduct');
+Route::get('edit1/{product_id}', [productController::class, 'ViewOldProductData']);
+Route::get('delete1/{product_id}', [productController::class, 'DeleteProduct']);
+Route::post('update1/{product_id}', [productController::class, 'UpdateProduct']);
+Route::post('products', [productController::class, 'AddProduct']);
 Route::get('/Edit/{product_quantity}', [productController::class, 'Edit']);

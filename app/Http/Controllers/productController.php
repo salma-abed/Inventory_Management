@@ -15,7 +15,7 @@ class productController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function ViewProduct()
     {
         //
         $data =  DB::select("select * from products");
@@ -24,15 +24,6 @@ class productController extends Controller
         return view('admin/productsAdminPage', $arr);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -40,7 +31,7 @@ class productController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function AddProduct(Request $request)
     {
         $request->validate([
             'name' => 'required',
@@ -61,16 +52,6 @@ class productController extends Controller
         return back(); //basically refreshes after data is sent.
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -78,7 +59,7 @@ class productController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($product_id)
+    public function ViewOldProductData($product_id)
     {
         //        
         $data =  DB::select('select * from products where product_id=?', [$product_id]);
@@ -92,7 +73,7 @@ class productController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function UpdateProduct(Request $request, $id)
     {
         $place_name = $request->input('name');
         $place_location = $request->input('location');
@@ -112,7 +93,7 @@ class productController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($product_id)
+    public function DeleteProduct($product_id)
     {
         //
         DB::delete('delete from products where product_id=? ', [$product_id]);
