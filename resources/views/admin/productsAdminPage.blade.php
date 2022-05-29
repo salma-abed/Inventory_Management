@@ -156,7 +156,7 @@
                                             </a></td>
                                             <td>
                                                 <!-- Modal for delete confirmation -->
-                                                <form id="formElement" method="POST"
+                                                <form id="formElement" method="GET"
                                                     action="delete1/{{$row->product_id}}">
                                                     @csrf
                                                     <div id="myModal" class="modal fade">
