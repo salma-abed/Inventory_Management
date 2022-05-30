@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;  //default when controller is created
-
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\products;
+use App\Models\Admin;
 
 
-class productController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +16,6 @@ class productController extends Controller
      */
     public function index()
     {
-        //
         $data =  DB::select("select * from products");
         $arr['data'] = $data;
 
@@ -41,7 +39,7 @@ class productController extends Controller
             'quantity' => ['required', 'integer'],
         ]);
         //POST
-        $Object = new products();
+        $Object = new Admin();
         $Object->name = strip_tags($request->input('name'));
         $Object->location = strip_tags($request->input('location'));
         $Object->description = strip_tags($request->input('description'));
@@ -52,9 +50,8 @@ class productController extends Controller
         return back(); //basically refreshes after data is sent.
     }
 
-
     /**
-     * Show the form for editing the specified resource.
+     * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -65,6 +62,7 @@ class productController extends Controller
         $data =  DB::select('select * from products where product_id=?', [$product_id]);
         return view('admin/Edit_productsAdminPage', ['data' => $data]);
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -85,8 +83,9 @@ class productController extends Controller
         $data =  DB::select("select * from products");
         $arr['data'] = $data;
 
-        return redirect('products');  //redirects sends to the page specified    }
+        return redirect('productsAdmin');  //redirects sends to the page specified    }
     }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -95,14 +94,7 @@ class productController extends Controller
      */
     public function DeleteProduct($product_id)
     {
-        //
         DB::delete('delete from products where product_id=? ', [$product_id]);
-        return redirect('products');
-    }
-    public function edit_count($product_quantity)
-    {
-        //        
-        $data =  DB::select('select * from products where product_quantity=?', [$product_quantity]);
-        return view('admin/Edit_productsAdminPage', ['data' => $data]);
+        return redirect('productsAdmin');
     }
 }
