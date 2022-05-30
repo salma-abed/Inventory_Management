@@ -16,6 +16,10 @@ class SalesMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        if (Auth::user()->usertype == 'sales') {
+            return $next($request);
+        } else {
+            return redirect('/home');
+        }
     }
 }
