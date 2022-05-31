@@ -9,4 +9,3 @@ class users extends Model
 {
     use HasFactory;
 }
-#
