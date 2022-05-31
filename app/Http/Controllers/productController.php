@@ -105,4 +105,22 @@ class productController extends Controller
         $data =  DB::select('select * from products where product_quantity=?', [$product_quantity]);
         return view('admin/Edit_productsAdminPage', ['data' => $data]);
     }
+    public function RedZones(Request $request, $id)
+    {
+        $From_place = $request->input('From_place');
+        $Product = $request->input('product');
+        $quantity_From = DB::table('places')->select('quantity as AA')->where('place_name', $From_place)->where('product', $Product)->first();
+
+        $quantity_From = (int)$quantity_From->AA;
+        $PLUS = (int)$request->input('quantity');
+        $quantity_From = $quantity_From - $PLUS;
+        DB::update('update places set quantity=? where place_name=? ', [$quantity_From, $From_place]);
+        $range = 1000;
+
+        if ($quantity_From < $range) {
+
+            $StringHistory = "An amout of: " . $PLUS . " of Product: " . $Product . " is being out of stcok from " . $From_place;
+        }
+        DB::update('update places set quantity=? where place_name=? ', [$quantity_From, $From_place]);
+    }
 }
