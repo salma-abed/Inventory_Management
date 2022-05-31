@@ -114,5 +114,5 @@ Route::post('custom-registration', [CustomAuthController::class, 'customRegistra
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
 Route::get('order/details/{id}', ['uses' => 'OrderController@details', 'as' => 'order.details', 'https']);
-url($language.'/index', [], true);
+//url($language.'/index', [], true);
 asset('css/bootstrap.min.css', true);
