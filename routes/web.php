@@ -22,9 +22,7 @@ use GuzzleHttp\Middleware;
 | contains the "web" middleware group. Now create something great!
 */
 
-#Route::get('/', function () {
-#return view('login');
-#});
+
 
 Route::get('/users', function () {
     return view('users');
@@ -35,9 +33,7 @@ Route::get('warehouse', function () {
     return view('warehouseManager/warehouseTable');
 })->name('warehouse');
 
-#Route::get('dashboard', function () {
- #   return view('dashboard');
-#})->name('dashboard');
+
 
 Route::get('logout', function () {
     return view('logout');
