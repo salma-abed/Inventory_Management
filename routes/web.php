@@ -11,6 +11,8 @@ use App\Http\Controllers\OperationsAssociateController;
 use App\Http\Controllers\WarehouseManagerController;
 use App\Http\Controllers\SalesController;
 use App\Http\Controllers\CustomAuthController;
+use GuzzleHttp\Middleware;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -110,3 +112,7 @@ Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name(
 Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
+
+Route::get('order/details/{id}', ['uses' => 'OrderController@details', 'as' => 'order.details', 'https']);
+url($language.'/index', [], true);
+asset('css/bootstrap.min.css', true);
