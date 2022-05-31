@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.default')
 @section('content')
 <main class="signup-form">
     <div class="cotainer">

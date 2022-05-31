@@ -9,7 +9,7 @@ class CustomAuthController extends Controller
 {
     public function index()
     {
-        return view('auth.login');
+        return view('auth/login');
     }  
       
     public function customLogin(Request $request)
@@ -30,7 +30,7 @@ class CustomAuthController extends Controller
 
     public function registration()
     {
-        return view('auth.registration');
+        return view('auth/registration');
     }
       
     public function customRegistration(Request $request)
@@ -43,7 +43,7 @@ class CustomAuthController extends Controller
            
         $data = $request->all();
         $check = $this->create($data);
-         
+        
         return redirect("dashboard")->withSuccess('You have signed-in');
     }
 
