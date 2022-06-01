@@ -5,7 +5,7 @@
 <body>
     @section('content')
 
-  
+
 
     <!--showing error msg when field is submitted empty-->
 
@@ -24,43 +24,47 @@
                 <div class="modal-body">
                     <form id="formElement" method="POST" action="Transport">
                         @csrf
-                    <div>
-                        <label class="form-label">From facility </label>
-                        <select id="From_place" name="From_place">
+                        <div>
+                            <label class="form-label">From facility </label>
+                            <select id="From_place" name="From_place">
                                 @foreach($data as $row)
-                                        <tr>
-                                            <option>{{$row->place_name}}</option>
-                                        </tr>
+                                <tr>
+                                    <option>{{$row->place_name}}</option>
+                                </tr>
                                 @endforeach
-                        </select>
-                    
-                        <label class="form-label">To Facility </label>
-                        <select id="To_place" name="To_place">
+                            </select>
+
+                            <label class="form-label">To Facility </label>
+                            <select id="To_place" name="To_place">
                                 @foreach($data as $row)
-                                        <tr>
-                                            <option>{{$row->place_name}}</option>
-                                        </tr>
+                                <tr>
+                                    <option>{{$row->place_name}}</option>
+                                </tr>
                                 @endforeach
-                        </select>
-                    </div>
+                            </select>
+                        </div>
 
 
 
-                    <div>
-                        <label class="form-label">Product </label>
-                        <select id="product" name="product">
+                        <div>
+                            <label class="form-label">Product </label>
+                            <select id="product" name="product">
                                 @foreach($data as $row)
-                                        <tr>
-                                        <option>{{$row->product}} </option>
-                                        </tr>
+                                <tr>
+                                    <option>{{$row->product}} </option>
+                                </tr>
                                 @endforeach
-                        </select>
+                            </select>
 
-                    </div>
+                        </div>
 
-                    <div class="mb-3">
+                        <div class="mb-3">
                             <label class="form-label">Quantity</label>
-                            <input type="text" class="form-control" id="quantity" name="quantity">
+                            <input type="text" class="@error('quantity') is-invalid @enderror form-control"
+                                id="quantity" name="quantity">
+                            @error('quantity')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror
                         </div>
 
 
@@ -75,7 +79,7 @@
                 </div>
             </div>
         </div>
-        </div>
+    </div>
 
 
 
