@@ -49,7 +49,7 @@ class placesController extends Controller
             'place_name' => 'required',
             'place_location' => 'required',
             'product_name' => 'required',
-            'quantity' => 'required', 'integer',
+            'quantity' => ['required', 'integer'],
             'type_of_place' => 'required'
 
         ]);
@@ -111,6 +111,15 @@ class placesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'place_name' => 'required',
+            'place_location' => 'required',
+            'product_name' => 'required',
+            'quantity' => ['required', 'integer'],
+            'type_of_place' => 'required'
+
+        ]);
+        
         $place_name = $request->input('place_name');
         $type = $request->input('type_of_place');
         $place_location = $request->input('place_location');
@@ -127,6 +136,9 @@ class placesController extends Controller
 
     public function Transport(Request $request)
     {
+        $request->validate([
+            'quantity' => ['required', 'integer'],
+        ]);
 
         $From_place = $request->input('From_place');
         $Product = $request->input('product');
