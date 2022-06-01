@@ -81,7 +81,7 @@ class AdminController extends Controller
             'price' => ['required', 'integer'],
             'quantity' => ['required', 'integer'],
         ]);
-        
+
         $place_name = $request->input('name');
         $place_location = $request->input('location');
         $place_description = $request->input('description');
@@ -92,9 +92,8 @@ class AdminController extends Controller
         $data =  DB::select("select * from products");
         $arr['data'] = $data;
 
-        
-        return redirect('productsAdmin');
 
+        return redirect('productsAdmin');
     }
 
     /**
@@ -108,12 +107,12 @@ class AdminController extends Controller
         DB::delete('delete from products where product_id=? ', [$product_id]);
         return redirect('productsAdmin');
     }
-    protected function redirectTo()
-    {
-        if (Auth::user()->usertype == 'admin') {
-            return 'dashboard';
-        } else {
-            return 'home';
-        }
-    }
+    // protected function redirectTo()
+    // {
+    //     if (Auth::user()->usertype == 'admin') {
+    //         return 'dashboard';
+    //     } else {
+    //         return 'home';
+    //     }
+    // }
 }
