@@ -107,12 +107,4 @@ class AdminController extends Controller
         DB::delete('delete from products where product_id=? ', [$product_id]);
         return redirect('productsAdmin');
     }
-    // protected function redirectTo()
-    // {
-    //     if (Auth::user()->usertype == 'admin') {
-    //         return 'dashboard';
-    //     } else {
-    //         return 'home';
-    //     }
-    // }
 }
