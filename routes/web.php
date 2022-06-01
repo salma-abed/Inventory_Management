@@ -101,12 +101,14 @@ Route::controller(WarehouseManagerController::class)->group(function () {
 Route::controller(SalesController::class)->group(function () {
 });
 Route::middleware('role:admin,sales,operations,warehouse')->group(function () {
+
     Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard');
-    Route::middleware('role:warehouse')->group(function () {
-        Route::get('order/details/{id}', ['uses' => 'OrderController@details', 'as' => 'order.details', 'https']);
-    });
-    Route::middleware('role:operations,sales')->group(function () {
-        Route::get('Store', [CustomAuthController::class, 'Store'])->name('Store');
+});
+Route::middleware('role:warehouse')->group(function () {
+    Route::get('order/details/{id}', ['uses' => 'OrderController@details', 'as' => 'order.details', 'https']);
+});
+Route::middleware('role:operations,sales')->group(function () {
+    Route::get('Store', [CustomAuthController::class, 'Store'])->name('Store');
 });
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
