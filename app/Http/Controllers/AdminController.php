@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Admin;
-
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -96,5 +97,13 @@ class AdminController extends Controller
     {
         DB::delete('delete from products where product_id=? ', [$product_id]);
         return redirect('productsAdmin');
+    }
+    protected function redirectTo()
+    {
+        if (Auth::user()->usertype == 'admin') {
+            return 'dashboard';
+        } else {
+            return 'home';
+        }
     }
 }
