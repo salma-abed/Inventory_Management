@@ -196,7 +196,7 @@
 
 
                                             </td>
-                                            @endif
+
                                         </tr>
 
                                         @endforeach
