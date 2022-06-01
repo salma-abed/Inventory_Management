@@ -103,6 +103,11 @@ Route::controller(SalesController::class)->group(function () {
 Route::middleware('role:admin,sales,operations,warehouse')->group(function () {
 
     Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard');
+    Route::get('products', [CustomAuthController::class, 'products'])->name('products');
+});
+Route::middleware('role:admin')->group(function () {
+    Route::get('history', [CustomAuthController::class, 'history'])->name('history');
+    Route::get('PrintingHouse', [CustomAuthController::class, 'PrintingHouse'])->name('PrintingHouse');
 });
 Route::middleware('role:warehouse')->group(function () {
     Route::get('order/details/{id}', ['uses' => 'OrderController@details', 'as' => 'order.details', 'https']);
@@ -117,4 +122,4 @@ Route::post('custom-registration', [CustomAuthController::class, 'customRegistra
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 Route::get('redzones', [productController::class, 'RedZones'])->name('redzones');
 //url($language.'/index', [], true);
-//asset('css/bootstrap.min.css', true);
+asset('css/bootstrap.min.css', true);
