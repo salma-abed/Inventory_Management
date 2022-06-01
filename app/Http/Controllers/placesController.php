@@ -49,7 +49,7 @@ class placesController extends Controller
             'place_name' => 'required',
             'place_location' => 'required',
             'product_name' => 'required',
-            'quantity' => 'required',
+            'quantity' => 'required', 'integer',
             'type_of_place' => 'required'
 
         ]);

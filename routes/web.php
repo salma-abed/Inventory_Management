@@ -117,4 +117,4 @@ Route::post('custom-registration', [CustomAuthController::class, 'customRegistra
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 Route::get('redzones', [productController::class, 'RedZones'])->name('redzones');
 //url($language.'/index', [], true);
-asset('css/bootstrap.min.css', true);
+//asset('css/bootstrap.min.css', true);

@@ -198,9 +198,41 @@
                                                 </a>
                                             </td>
                                             <td>
-                                                <a href="delete/{{$row->place_id}}"> <i
-                                                        class="fa-regular fa-trash-can"></i>
-                                                </a>
+                                                <!-- Modal for delete confirmation -->
+                                                <form id="formElement" method="GET" action="delete/{{$row->place_id}}">
+                                                    @csrf
+                                                    <div id="myModal" class="modal fade">
+                                                        <div class="modal-dialog modal-confirm">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header flex-column">
+                                                                    <div class="icon-box">
+                                                                        <i class="material-icons">&#xE5CD;</i>
+                                                                    </div>
+                                                                    <h4 class="modal-title w-100">Are you sure?</h4>
+                                                                    <button type="button" class="close"
+                                                                        data-bs-dismiss="modal"
+                                                                        aria-hidden="true">&times;</button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <p>Do you really want to delete these records? This
+                                                                        process
+                                                                        cannot
+                                                                        be undone.</p>
+                                                                </div>
+                                                                <div class="modal-footer justify-content-center">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-bs-dismiss="modal">Cancel</button>
+
+                                                                    <button type="submit" class="btn btn-danger"
+                                                                        data-bs-dismiss="modal">Delete</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+
+                                                <a href="#myModal" class="trigger-btn" data-bs-toggle="modal"><i
+                                                        class="fa-regular fa-trash-can"></i> </a>
                                             </td>
 
                                         </tr>
@@ -247,7 +279,40 @@
                                                 <a href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
                                             </td>
                                             <td>
-                                                <a href="delete/{{$row->place_id}}"> <i
+                                                <!-- Modal for delete confirmation -->
+                                                <form id="formElement" method="GET" action="delete/{{$row->place_id}}">
+                                                    @csrf
+                                                    <div id="myModal" class="modal fade">
+                                                        <div class="modal-dialog modal-confirm">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header flex-column">
+                                                                    <div class="icon-box">
+                                                                        <i class="material-icons">&#xE5CD;</i>
+                                                                    </div>
+                                                                    <h4 class="modal-title w-100">Are you sure?</h4>
+                                                                    <button type="button" class="close"
+                                                                        data-bs-dismiss="modal"
+                                                                        aria-hidden="true">&times;</button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <p>Do you really want to delete these records? This
+                                                                        process
+                                                                        cannot
+                                                                        be undone.</p>
+                                                                </div>
+                                                                <div class="modal-footer justify-content-center">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-bs-dismiss="modal">Cancel</button>
+
+                                                                    <button type="submit" class="btn btn-danger"
+                                                                        data-bs-dismiss="modal">Delete</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+
+                                                <a href="#myModal" class="trigger-btn" data-bs-toggle="modal"><i
                                                         class="fa-regular fa-trash-can"></i> </a>
                                             </td>
                                             @endif
@@ -293,7 +358,40 @@
                                                 <a href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
                                             </td>
                                             <td>
-                                                <a href="delete/{{$row->place_id}}"> <i
+                                                <!-- Modal for delete confirmation -->
+                                                <form id="formElement" method="GET" action="delete/{{$row->place_id}}">
+                                                    @csrf
+                                                    <div id="myModal" class="modal fade">
+                                                        <div class="modal-dialog modal-confirm">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header flex-column">
+                                                                    <div class="icon-box">
+                                                                        <i class="material-icons">&#xE5CD;</i>
+                                                                    </div>
+                                                                    <h4 class="modal-title w-100">Are you sure?</h4>
+                                                                    <button type="button" class="close"
+                                                                        data-bs-dismiss="modal"
+                                                                        aria-hidden="true">&times;</button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <p>Do you really want to delete these records? This
+                                                                        process
+                                                                        cannot
+                                                                        be undone.</p>
+                                                                </div>
+                                                                <div class="modal-footer justify-content-center">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-bs-dismiss="modal">Cancel</button>
+
+                                                                    <button type="submit" class="btn btn-danger"
+                                                                        data-bs-dismiss="modal">Delete</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+
+                                                <a href="#myModal" class="trigger-btn" data-bs-toggle="modal"><i
                                                         class="fa-regular fa-trash-can"></i> </a>
                                             </td>
                                             @endif
@@ -339,7 +437,40 @@
                                                 <a href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
                                             </td>
                                             <td>
-                                                <a href="delete/{{$row->place_id}}"> <i
+                                                <!-- Modal for delete confirmation -->
+                                                <form id="formElement" method="GET" action="delete/{{$row->place_id}}">
+                                                    @csrf
+                                                    <div id="myModal" class="modal fade">
+                                                        <div class="modal-dialog modal-confirm">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header flex-column">
+                                                                    <div class="icon-box">
+                                                                        <i class="material-icons">&#xE5CD;</i>
+                                                                    </div>
+                                                                    <h4 class="modal-title w-100">Are you sure?</h4>
+                                                                    <button type="button" class="close"
+                                                                        data-bs-dismiss="modal"
+                                                                        aria-hidden="true">&times;</button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <p>Do you really want to delete these records? This
+                                                                        process
+                                                                        cannot
+                                                                        be undone.</p>
+                                                                </div>
+                                                                <div class="modal-footer justify-content-center">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-bs-dismiss="modal">Cancel</button>
+
+                                                                    <button type="submit" class="btn btn-danger"
+                                                                        data-bs-dismiss="modal">Delete</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+
+                                                <a href="#myModal" class="trigger-btn" data-bs-toggle="modal"><i
                                                         class="fa-regular fa-trash-can"></i> </a>
                                             </td>
                                             @endif
@@ -384,7 +515,40 @@
                                                 <a href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
                                             </td>
                                             <td>
-                                                <a href="delete/{{$row->place_id}}"> <i
+                                                <!-- Modal for delete confirmation -->
+                                                <form id="formElement" method="GET" action="delete/{{$row->place_id}}">
+                                                    @csrf
+                                                    <div id="myModal" class="modal fade">
+                                                        <div class="modal-dialog modal-confirm">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header flex-column">
+                                                                    <div class="icon-box">
+                                                                        <i class="material-icons">&#xE5CD;</i>
+                                                                    </div>
+                                                                    <h4 class="modal-title w-100">Are you sure?</h4>
+                                                                    <button type="button" class="close"
+                                                                        data-bs-dismiss="modal"
+                                                                        aria-hidden="true">&times;</button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <p>Do you really want to delete these records? This
+                                                                        process
+                                                                        cannot
+                                                                        be undone.</p>
+                                                                </div>
+                                                                <div class="modal-footer justify-content-center">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-bs-dismiss="modal">Cancel</button>
+
+                                                                    <button type="submit" class="btn btn-danger"
+                                                                        data-bs-dismiss="modal">Delete</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+
+                                                <a href="#myModal" class="trigger-btn" data-bs-toggle="modal"><i
                                                         class="fa-regular fa-trash-can"></i> </a>
                                             </td>
                                             @endif
@@ -431,7 +595,40 @@
                                                 <a href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
                                             </td>
                                             <td>
-                                                <a href="delete/{{$row->place_id}}"> <i
+                                                <!-- Modal for delete confirmation -->
+                                                <form id="formElement" method="GET" action="delete/{{$row->place_id}}">
+                                                    @csrf
+                                                    <div id="myModal" class="modal fade">
+                                                        <div class="modal-dialog modal-confirm">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header flex-column">
+                                                                    <div class="icon-box">
+                                                                        <i class="material-icons">&#xE5CD;</i>
+                                                                    </div>
+                                                                    <h4 class="modal-title w-100">Are you sure?</h4>
+                                                                    <button type="button" class="close"
+                                                                        data-bs-dismiss="modal"
+                                                                        aria-hidden="true">&times;</button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <p>Do you really want to delete these records? This
+                                                                        process
+                                                                        cannot
+                                                                        be undone.</p>
+                                                                </div>
+                                                                <div class="modal-footer justify-content-center">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-bs-dismiss="modal">Cancel</button>
+
+                                                                    <button type="submit" class="btn btn-danger"
+                                                                        data-bs-dismiss="modal">Delete</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+
+                                                <a href="#myModal" class="trigger-btn" data-bs-toggle="modal"><i
                                                         class="fa-regular fa-trash-can"></i> </a>
                                             </td>
                                             @endif
