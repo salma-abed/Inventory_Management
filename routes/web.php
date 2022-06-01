@@ -105,6 +105,8 @@ Route::middleware('role:admin,sales,operations,warehouse')->group(function () {
     Route::middleware('role:warehouse')->group(function () {
         Route::get('order/details/{id}', ['uses' => 'OrderController@details', 'as' => 'order.details', 'https']);
     });
+    Route::middleware('role:operations,sales')->group(function () {
+        Route::get('Store', [CustomAuthController::class, 'Store'])->name('Store');
 });
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
