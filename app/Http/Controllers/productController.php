@@ -85,7 +85,14 @@ class productController extends Controller
         $data =  DB::select("select * from products");
         $arr['data'] = $data;
 
-        return redirect('products');  //redirects sends to the page specified    }
+        if(!is_null($data)) { 
+            return redirect('products')->with("success", "Updated successfully");
+        }
+
+        else {
+            return back()->with("failed", "Update failed. Try again.");
+        }
+        
     }
     /**
      * Remove the specified resource from storage.
