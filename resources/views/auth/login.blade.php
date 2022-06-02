@@ -43,11 +43,23 @@
                                     <label>
                                         <input type="checkbox" name="remember"> Remember Me
                                     </label>
+                                    <label class="pull-right">
+                                        <a href="#">Forgotten Password?</a>
+                                    </label>
+
                                 </div>
                             </div>
                             <div class="d-grid mx-auto">
                                 <button type="submit" class="btn btn-dark btn-block">LogIn</button>
                             </div>
+                            <div class="social-login-content">
+                                <div class="social-button">
+                                    <button type="button"
+                                        class="btn btn-primary bg-google btn-flat btn-addon m-t-10">
+                                        <i class="fa-brands fa-google"></i>Sign in with google</button>
+                                </div>
+                            </div>
+
                         </form>
                     </div>
                 </div>
