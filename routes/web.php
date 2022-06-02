@@ -58,8 +58,6 @@ Route::post('history', [historyController::class, 'store']);
 
 
 
-
-
 Route::get('users', [userController::class, 'view'])->name('users.view');
 Route::get('users', [userController::class, 'ViewPlaces'])->name('users.ViewPlaces');
 Route::post('Transport', [placesController::class, 'Transport']);
