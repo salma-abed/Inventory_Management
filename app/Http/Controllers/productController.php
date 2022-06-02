@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;  //default when controller is created
-
+use Illuminate\Http\Request;  //default when controller is created 
 use Illuminate\Support\Facades\DB;
 use App\Models\products;
 
@@ -52,7 +51,6 @@ class productController extends Controller
         return back(); //basically refreshes after data is sent.
     }
 
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -85,14 +83,11 @@ class productController extends Controller
         $data =  DB::select("select * from products");
         $arr['data'] = $data;
 
-        if(!is_null($data)) { 
+        if (!is_null($data)) {
             return redirect('products')->with("success", "Updated successfully");
-        }
-
-        else {
+        } else {
             return back()->with("failed", "Update failed. Try again.");
         }
-        
     }
     /**
      * Remove the specified resource from storage.
@@ -111,23 +106,5 @@ class productController extends Controller
         //        
         $data =  DB::select('select * from products where product_quantity=?', [$product_quantity]);
         return view('admin/Edit_productsAdminPage', ['data' => $data]);
-    }
-    public function RedZones(Request $request, $id)
-    {
-        $From_place = $request->input('From_place');
-        $Product = $request->input('product');
-        $quantity = DB::table('places')->select('quantity as AA')->where('place_name', $From_place)->where('product', $Product)->first();
-
-        $quantity = (int)$quantity->AA;
-        $PLUS = (int)$request->input('quantity');
-        $quantity = $quantity - $PLUS;
-        DB::update('update places set quantity=? where place_name=? ', [$quantity, $From_place]);
-        $range = 1000;
-
-        if ($quantity < $range) {
-
-            $String = "An amout of: " . $PLUS . " of Product: " . $Product . " is being out of stcok from " . $From_place;
-        }
-        DB::update('update places set quantity=? where place_name=? ', [$quantity, $From_place]);
     }
 }

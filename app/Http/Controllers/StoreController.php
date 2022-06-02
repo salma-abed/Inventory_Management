@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\products;
@@ -18,14 +19,14 @@ class StoreController extends Controller
         $data =  DB::select("select quantity from products");
         $arr['data'] = $data;
 
-        return view('admin/productsAdminPage', $arr);    
+        return view('admin/productsAdminPage', $arr);
     }
     public function SoldProductQuantity()
     {
         $data =  DB::select("select quantity from products");
         $arr['data'] = $data;
 
-        return view('admin/productsAdminPage', $arr);    
+        return view('admin/productsAdminPage', $arr);
     }
 
     public function ViewProducts()
@@ -33,7 +34,7 @@ class StoreController extends Controller
         $data =  DB::select("select * from products");
         $arr['data'] = $data;
 
-        return view('admin/productsAdminPage', $arr);    
+        return view('admin/productsAdminPage', $arr);
     }
     public function GetLocations()
     {
@@ -41,7 +42,6 @@ class StoreController extends Controller
         $arr['data'] = $data;
 
         return view('admin/productsAdminPage', $arr);
-
     }
     public function GetProductQuantity()
     {
@@ -49,7 +49,6 @@ class StoreController extends Controller
         $arr['data'] = $data;
 
         return view('admin/productsAdminPage', $arr);
-
     }
     /**
      * Show the form for creating a new resource.

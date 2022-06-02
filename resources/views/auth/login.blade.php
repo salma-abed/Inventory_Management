@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,29 +12,34 @@
 </head>
 
 <body class="bg-primary">
-    <div class="cotainer">
+    <div class="container-fluid" id="login-bg">
         <div class="row justify-content-center">
-            <div class="col-md-4">
+            <div class="col-lg-6">
+                <div class="login-content">
+                <div class="login-logo">
+                    <img id="logo" src="/images/logo.png" alt="logo">
+
+                </div>
                 <div class="card">
-                    <h3 class="card-header text-center">LogIn</h3>
+                    <h4 class="card-header text-center">LogIn</h4>
                     <div class="card-body">
                         <form method="POST" action="{{ route('login.custom') }}">
                             @csrf
                             @if (Session::has('error'))
-                            <span class="text-danger">{{ Session::get('error') }}</span>
+                                <span class="text-danger">{{ Session::get('error') }}</span>
                             @endif
                             <div class="form-group mb-3">
                                 <input type="text" placeholder="Email" id="email" class="form-control" name="email"
                                     required autofocus>
                                 @if ($errors->has('email'))
-                                <span class="text-danger">{{ $errors->first('email') }}</span>
+                                    <span class="text-danger">{{ $errors->first('email') }}</span>
                                 @endif
                             </div>
                             <div class="form-group mb-3">
                                 <input type="password" placeholder="Password" id="password" class="form-control"
                                     name="password" required>
                                 @if ($errors->has('password'))
-                                <span class="text-danger">{{ $errors->first('password') }}</span>
+                                    <span class="text-danger">{{ $errors->first('password') }}</span>
                                 @endif
                             </div>
                             <div class="form-group mb-3">
@@ -43,17 +47,22 @@
                                     <label>
                                         <input type="checkbox" name="remember"> Remember Me
                                     </label>
+                                    <label class="pull-right">
+                                        <a href="#">Forgotten Password?</a>
+                                    </label>
+
                                 </div>
                             </div>
                             <div class="d-grid mx-auto">
-                                <button type="submit" class="btn btn-dark btn-block">LogIn</button>
+                                <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Sign in</button>
                             </div>
+                                    
+
                         </form>
                     </div>
+                 </div>
                 </div>
             </div>
         </div>
     </div>
 </main>
-
-</html>
