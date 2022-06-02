@@ -90,11 +90,9 @@ Route::controller(AdminController::class)->group(function () {
 
 
     #where do we display these? ----------------------------------------------------------(first paramter)?
-    Route::post('places', 'ViewPlaces'); 
-    Route::post('places', 'AddPlace'); 
+    Route::post('places', 'ViewPlaces');
+    Route::post('places', 'AddPlace');
     Route::post('places', 'DeletePlace');
-
-    
 });
 
 Route::controller(OperationsAssociateController::class)->group(function () {
@@ -104,9 +102,8 @@ Route::controller(OperationsAssociateController::class)->group(function () {
 });
 
 Route::controller(WarehouseManagerController::class)->group(function () {
-        #where do we display these? ----------------------------------------------------------(first paramter)?
+    #where do we display these? ----------------------------------------------------------(first paramter)?
     Route::get('places', 'ViewPlaces');
-
 });
 
 Route::controller(SalesController::class)->group(function () {
@@ -118,7 +115,7 @@ Route::middleware('role:admin,sales,operations,warehouse')->group(function () {
 });
 Route::middleware('role:admin')->group(function () {
     Route::controller(AdminController::class)->group(function () {
-        Route::get('productsAdmin', 'index')->name('products.index');
+        Route::get('productsAdmin', 'Products_index')->name('products.index');
         Route::get('edit1/{product_id}', 'ViewOldProductData');
         Route::get('delete1/{product_id}', 'DeleteProduct');
         Route::post('update1/{product_id}', 'UpdateProduct');
