@@ -3440,7 +3440,7 @@ tbody tr td:last-child {
 }
 
 .login-form {
-  background: #ffffff;
+  background: #000000;
   padding: 30px 30px 20px;
   border-radius: 2px;
 }
@@ -8881,7 +8881,7 @@ tbody tr td:last-child {
 }
 
 .login-logo span {
-  color: #ffffff;
+  color: #000000;
   font-size: 24px;
 }
 
@@ -8894,7 +8894,7 @@ tbody tr td:last-child {
 }
 
 .login-form {
-  background: #ffffff;
+  background: #000000;
   padding: 30px 30px 20px;
   border-radius: 2px;
 }
