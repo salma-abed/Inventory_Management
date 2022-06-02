@@ -21,33 +21,33 @@ class placesController extends Controller
         $data =  DB::select("select quantity from products");
         $arr['data'] = $data;
 
-        return view('admin/productsAdminPage', $arr);    
+        return view('admin/productsAdminPage', $arr);
     }
-    
+
     public function Transport(Request $request)
     {
 
         $From_place = $request->input('From_place');
-        $Product=$request->input('product');
-        $quantity_From= DB::table('places')->select('quantity as AA')->where('place_name',$From_place)->where('product',$Product)->first();
+        $Product = $request->input('product');
+        $quantity_From = DB::table('places')->select('quantity as AA')->where('place_name', $From_place)->where('product', $Product)->first();
 
-        $quantity_From=(int)$quantity_From->AA;
-        $PLUS=(int)$request->input('quantity');
-        $quantity_From = $quantity_From+$PLUS;
-        DB::update('update places set quantity=? where place_name=? ',[$quantity_From,$From_place]);
-
-
-
-        $To_place= $request->input('To_place');
-        $quantity= DB::table('places')->select('quantity as AA')->where('place_name',$To_place)->where('product',$Product)->first();
-
-        $quantity=(int)$quantity->AA;
-        $quantity = $quantity-$PLUS;
-        DB::update('update places set quantity=? where place_name=? ',[$quantity,$To_place]);
+        $quantity_From = (int)$quantity_From->AA;
+        $PLUS = (int)$request->input('quantity');
+        $quantity_From = $quantity_From + $PLUS;
+        DB::update('update places set quantity=? where place_name=? ', [$quantity_From, $From_place]);
 
 
 
-        $StringHistory="An amout of: ".$PLUS." of Product: ".$Product." has been transported from ".$From_place." to ".$To_place; 
+        $To_place = $request->input('To_place');
+        $quantity = DB::table('places')->select('quantity as AA')->where('place_name', $To_place)->where('product', $Product)->first();
+
+        $quantity = (int)$quantity->AA;
+        $quantity = $quantity - $PLUS;
+        DB::update('update places set quantity=? where place_name=? ', [$quantity, $To_place]);
+
+
+
+        $StringHistory = "An amout of: " . $PLUS . " of Product: " . $Product . " has been transported from " . $From_place . " to " . $To_place;
 
         $Object = new history();
         $Object->transaction_description = $StringHistory;
@@ -59,12 +59,4 @@ class placesController extends Controller
 
         return redirect('places');  //redirects sends to the page specified
     }
-    
-
-
-
-
-
-
-
 }
