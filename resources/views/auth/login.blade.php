@@ -14,7 +14,8 @@
 <body class="bg-primary">
     <div class="container-fluid" id="login-bg">
         <div class="row justify-content-center">
-            <div class="col-md-4">
+            <div class="col-lg-6">
+                <div class="login-content">
                 <div class="login-logo">
                     <img id="logo" src="/images/logo.png" alt="logo">
 
@@ -65,6 +66,7 @@
 
                         </form>
                     </div>
+                </div>
                 </div>
             </div>
         </div>
