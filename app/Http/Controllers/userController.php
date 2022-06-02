@@ -11,7 +11,7 @@ class userController extends Controller
         return view('users');
     }
 
-    public function index()
+    public function ViewPlaces()
     {
         //
         $data=DB::select("select * from places");
