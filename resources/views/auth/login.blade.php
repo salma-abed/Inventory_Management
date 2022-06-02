@@ -12,15 +12,16 @@
 </head>
 
 <body class="bg-primary">
-    <div class="cotainer">
+    <div class="container-fluid" id="login-bg">
         <div class="row justify-content-center">
-            <div class="col-md-4">
+            <div class="col-lg-6">
+                <div class="login-content">
                 <div class="login-logo">
                     <img id="logo" src="/images/logo.png" alt="logo">
 
                 </div>
                 <div class="card">
-                    <h3 class="card-header text-center">LogIn</h3>
+                    <h4 class="card-header text-center">LogIn</h4>
                     <div class="card-body">
                         <form method="POST" action="{{ route('login.custom') }}">
                             @csrf
@@ -53,18 +54,13 @@
                                 </div>
                             </div>
                             <div class="d-grid mx-auto">
-                                <button type="submit" class="btn btn-dark btn-block">LOGIN</button>
+                                <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Sign in</button>
                             </div>
-                            <div class="social-login-content">
-                                <div class="social-button">
-                                    <button type="button"
-                                        class="btn btn-primary bg-google btn-flat btn-addon m-t-10">
-                                        <i class="fa-brands fa-google"></i>Sign in with google</button>
-                                </div>
-                            </div>
+                                    
 
                         </form>
                     </div>
+                 </div>
                 </div>
             </div>
         </div>
