@@ -1,5 +1,60 @@
 @extends('layouts/default')
 @section('content')
+<div class="modal fade" id="placemodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Add Place</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('register.custom') }}" method="POST">
+                    @csrf
+                    <div class="form-group mb-3">
+                        <input type="text" placeholder="Name" id="name" class="form-control" name="name" required
+                            autofocus>
+                        @if ($errors->has('name'))
+                        <span class="text-danger">{{ $errors->first('name') }}</span>
+                        @endif
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="text" placeholder="Email" id="email_address" class="form-control" name="email"
+                            required autofocus>
+                        @if ($errors->has('email'))
+                        <span class="text-danger">{{ $errors->first('email') }}</span>
+                        @endif
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="password" placeholder="Password" id="password" class="form-control" name="password"
+                            required>
+                        @if ($errors->has('password'))
+                        <span class="text-danger">{{ $errors->first('password') }}</span>
+                        @endif
+                    </div>
+                    <div class="form-group mb-3">
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="remember"> Remember Me</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Sign up</button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (count($errors) > 0)
+<script>
+$(document).ready(function() {
+    $('#placemodal').modal('show');
+});
+</script>
+@endif
+
 <div class="content-wrap">
     <div class="main">
         <div class="container-fluid">
@@ -62,4 +117,9 @@
                             </div>
                         </div>
                     </div>
-                    @endsection
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
