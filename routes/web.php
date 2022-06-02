@@ -103,11 +103,18 @@ Route::controller(SalesController::class)->group(function () {
 Route::middleware('role:admin,sales,operations,warehouse')->group(function () {
 
     Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard');
-    Route::get('products', [CustomAuthController::class, 'products'])->name('products');
+    #Route::get('products', [CustomAuthController::class, 'products'])->name('products');
 });
 Route::middleware('role:admin')->group(function () {
-    Route::get('history', [CustomAuthController::class, 'history'])->name('history');
-    Route::get('PrintingHouse', [CustomAuthController::class, 'PrintingHouse'])->name('PrintingHouse');
+    Route::controller(AdminController::class)->group(function () {
+        Route::get('productsAdmin', 'index')->name('products.index');
+        Route::get('edit1/{product_id}', 'ViewOldProductData');
+        Route::get('delete1/{product_id}', 'DeleteProduct');
+        Route::post('update1/{product_id}', 'UpdateProduct');
+        Route::post('productsAdmin', 'AddProduct');
+    });
+    Route::get('history', [historyController::class, 'index'])->name('history.index');
+    # Route::get('PrintingHouse', [CustomAuthController::class, 'PrintingHouse'])->name('PrintingHouse');
 });
 Route::middleware('role:warehouse')->group(function () {
     Route::get('order/details/{id}', ['uses' => 'OrderController@details', 'as' => 'order.details', 'https']);
