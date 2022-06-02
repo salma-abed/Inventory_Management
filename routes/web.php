@@ -24,11 +24,6 @@ use GuzzleHttp\Middleware;
 
 
 
-Route::get('/users', function () {
-    return view('users');
-});
-
-
 Route::get('warehouse', function () {
     return view('warehouseManager/warehouseTable');
 })->name('warehouse');
@@ -67,8 +62,6 @@ Route::post('history', [historyController::class, 'store']);
 
 
 
-Route::get('users', [userController::class, 'view'])->name('users.view');
-Route::get('users', [userController::class, 'ViewPlaces'])->name('users.ViewPlaces');
 Route::post('Transport', [placesController::class, 'Transport']);
 Route::post('places', [placesController::class, 'CheckProductQuantity']);
 
@@ -90,10 +83,13 @@ Route::controller(AdminController::class)->group(function () {
 
 
     #where do we display these? ----------------------------------------------------------(first paramter)?
-    Route::post('places', 'ViewPlaces'); 
-    Route::post('places', 'AddPlace'); 
-    Route::post('places', 'DeletePlace');
+    Route::post('placesAdmin', 'ViewPlaces'); 
+    Route::post('placesAdmin', 'AddPlace'); 
+    Route::post('delete1/{place_id}', 'DeletePlace');
 
+    
+    Route::get('usersPage', [userController::class, 'view'])->name('users.view');
+   #Route::get('users', [userController::class, 'ViewUsers'])->name('users.ViewUsers');
     
 });
 
@@ -105,7 +101,7 @@ Route::controller(OperationsAssociateController::class)->group(function () {
 
 Route::controller(WarehouseManagerController::class)->group(function () {
         #where do we display these? ----------------------------------------------------------(first paramter)?
-    Route::get('places', 'ViewPlaces');
+    Route::get('placesWm', 'ViewPlaces');
 
 });
 
