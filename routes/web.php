@@ -82,7 +82,7 @@ Route::get('/Edit/{product_quantity}', [productController::class, 'Edit']); */
 
 
 Route::controller(AdminController::class)->group(function () {
-    Route::get('productsAdmin', 'index')->name('products.index');
+    Route::get('productsAdmin', 'Products_index')->name('products.Products_index');
     Route::get('edit1/{product_id}', 'ViewOldProductData');
     Route::get('delete1/{product_id}', 'DeleteProduct');
     Route::post('update1/{product_id}', 'UpdateProduct');
