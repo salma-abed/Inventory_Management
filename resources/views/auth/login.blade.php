@@ -12,7 +12,7 @@
 </head>
 
 <body class="bg-primary">
-    <div class="cotainer">
+    <div class="container-fluid" id="login-bg">
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="login-logo">
