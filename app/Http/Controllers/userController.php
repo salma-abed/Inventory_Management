@@ -10,4 +10,14 @@ class userController extends Controller
     {
         return view('users');
     }
+
+    public function ViewPlaces()
+    {
+        //
+        $data=DB::select("select * from places");
+        $arr['data']=$data;
+
+        return view('admin/placesAdminPage',$arr);
+        
+    }
 }

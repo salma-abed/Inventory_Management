@@ -23,4 +23,12 @@ class RoleMiddleware
         }
         return $next($request);
     }
+    // public function hand(Request $request, Closure $next)
+    // {
+    //     $userRole = Auth::user()->user_type;
+    //     if (Auth::user()->user_type == 'admin') {
+    //         return $next($request);
+    //     }
+    //     return redirect('/dashborad');
+    // }
 }

@@ -85,7 +85,14 @@ class productController extends Controller
         $data =  DB::select("select * from products");
         $arr['data'] = $data;
 
-        return redirect('products');  //redirects sends to the page specified    }
+        if(!is_null($data)) { 
+            return redirect('products')->with("success", "Updated successfully");
+        }
+
+        else {
+            return back()->with("failed", "Update failed. Try again.");
+        }
+        
     }
     /**
      * Remove the specified resource from storage.
@@ -109,18 +116,18 @@ class productController extends Controller
     {
         $From_place = $request->input('From_place');
         $Product = $request->input('product');
-        $quantity_From = DB::table('places')->select('quantity as AA')->where('place_name', $From_place)->where('product', $Product)->first();
+        $quantity = DB::table('places')->select('quantity as AA')->where('place_name', $From_place)->where('product', $Product)->first();
 
-        $quantity_From = (int)$quantity_From->AA;
+        $quantity = (int)$quantity->AA;
         $PLUS = (int)$request->input('quantity');
-        $quantity_From = $quantity_From - $PLUS;
-        DB::update('update places set quantity=? where place_name=? ', [$quantity_From, $From_place]);
+        $quantity = $quantity - $PLUS;
+        DB::update('update places set quantity=? where place_name=? ', [$quantity, $From_place]);
         $range = 1000;
 
-        if ($quantity_From < $range) {
+        if ($quantity < $range) {
 
-            $StringHistory = "An amout of: " . $PLUS . " of Product: " . $Product . " is being out of stcok from " . $From_place;
+            $String = "An amout of: " . $PLUS . " of Product: " . $Product . " is being out of stcok from " . $From_place;
         }
-        DB::update('update places set quantity=? where place_name=? ', [$quantity_From, $From_place]);
+        DB::update('update places set quantity=? where place_name=? ', [$quantity, $From_place]);
     }
 }

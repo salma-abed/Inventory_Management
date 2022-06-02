@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Admin;
-
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -14,7 +15,66 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function ViewPlaces()
+    {
+        //
+        $data=DB::select("select * from places");
+        $arr['data']=$data;
+
+        return view('admin/placesAdminPage',$arr);
+        
+
+    }
+
+    public function AddPlace(Request $request)
+    {
+        $Object = new places();
+
+            $request->validate([
+                'place_name'=> 'required',
+                'place_location'=>'required',
+                'product_name'=>'required',
+                'quantity'=>'required',
+                'type_of_place'=>'required'
+
+            ]);
+
+            if($_POST['product_name']!= null)
+            {
+                if($_POST['quantity']==null)
+                {
+                    $Object->quantity = 0;                
+                }
+                else
+                $Object->quantity = strip_tags($request->input('quantity'));
+
+            }
+
+            //POST
+
+            //need to get the place type here to store in db and to chose which if condition to run => $Object->place_type = $request->input::pluck('carlist');
+            $Object->place_name = strip_tags($request->input('place_name'));
+            $Object->product = strip_tags($request->input('product_name'));
+            $Object->place_address = strip_tags($request->input('place_location'));
+            $Object->place_type = strip_tags($request->input('type_of_place'));
+
+
+            $Object->save();
+            return back(); //basically refreshes after data is sent.
+
+
+    }
+
+
+    public function DeletePlace($place_id)
+    {
+        DB::delete('delete from places where place_id=? ',[$place_id]);
+        return redirect('places');
+
+    }
+
+
+    public function Products_index()
     {
         $data =  DB::select("select * from products");
         $arr['data'] = $data;
@@ -73,6 +133,14 @@ class AdminController extends Controller
      */
     public function UpdateProduct(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required',
+            'location' => 'required',
+            'description' => 'required',
+            'price' => ['required', 'integer'],
+            'quantity' => ['required', 'integer'],
+        ]);
+
         $place_name = $request->input('name');
         $place_location = $request->input('location');
         $place_description = $request->input('description');
@@ -83,7 +151,8 @@ class AdminController extends Controller
         $data =  DB::select("select * from products");
         $arr['data'] = $data;
 
-        return redirect('productsAdmin');  //redirects sends to the page specified    }
+
+        return redirect('productsAdmin');
     }
 
     /**

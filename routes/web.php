@@ -48,29 +48,29 @@ Route::get('profilepage', function () {
 })->name('profilePage');
 
 
-Route::get('users', [userController::class, 'view'])->name('users.view');
+
+
 Route::post('/inventory', [productController::class, 'store']);
 
 
-Route::get('/search', 'placesController@search');
 
 Route::get('history', [historyController::class, 'index'])->name('history.index');
 
-Route::get('places', [placesController::class, 'index'])->name('places.index');
 Route::get('history', [historyController::class, 'index'])->name('history.index');
 
 
-Route::get('edit/{place_id}', [placesController::class, 'edit']);
 
-Route::get('show', [placesController::class, 'show']);
 
-Route::get('delete/{place_id}', [placesController::class, 'destroy']);
-Route::post('update/{place_id}', [placesController::class, 'update']);
-Route::post('Transport', [placesController::class, 'Transport']);
-
-Route::post('places', [placesController::class, 'store']);
 Route::post('history', [historyController::class, 'store']);
 
+
+
+
+
+Route::get('users', [userController::class, 'view'])->name('users.view');
+Route::get('users', [userController::class, 'ViewPlaces'])->name('users.ViewPlaces');
+Route::post('Transport', [placesController::class, 'Transport']);
+Route::post('places', [placesController::class, 'CheckProductQuantity']);
 
 
 /*Route::get('products', [productController::class, 'index'])->name('products.index');
@@ -82,11 +82,19 @@ Route::get('/Edit/{product_quantity}', [productController::class, 'Edit']); */
 
 
 Route::controller(AdminController::class)->group(function () {
-    Route::get('productsAdmin', 'index')->name('products.index');
+    Route::get('productsAdmin', 'Products_index')->name('products.Products_index');
     Route::get('edit1/{product_id}', 'ViewOldProductData');
     Route::get('delete1/{product_id}', 'DeleteProduct');
     Route::post('update1/{product_id}', 'UpdateProduct');
     Route::post('productsAdmin', 'AddProduct');
+
+
+    #where do we display these? ----------------------------------------------------------(first paramter)?
+    Route::post('places', 'ViewPlaces'); 
+    Route::post('places', 'AddPlace'); 
+    Route::post('places', 'DeletePlace');
+
+    
 });
 
 Route::controller(OperationsAssociateController::class)->group(function () {
@@ -96,6 +104,9 @@ Route::controller(OperationsAssociateController::class)->group(function () {
 });
 
 Route::controller(WarehouseManagerController::class)->group(function () {
+        #where do we display these? ----------------------------------------------------------(first paramter)?
+    Route::get('places', 'ViewPlaces');
+
 });
 
 Route::controller(SalesController::class)->group(function () {
@@ -103,6 +114,11 @@ Route::controller(SalesController::class)->group(function () {
 Route::middleware('role:admin,sales,operations,warehouse')->group(function () {
 
     Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard');
+    Route::get('products', [CustomAuthController::class, 'products'])->name('products');
+});
+Route::middleware('role:admin')->group(function () {
+    Route::get('history', [CustomAuthController::class, 'history'])->name('history');
+    Route::get('PrintingHouse', [CustomAuthController::class, 'PrintingHouse'])->name('PrintingHouse');
 });
 Route::middleware('role:warehouse')->group(function () {
     Route::get('order/details/{id}', ['uses' => 'OrderController@details', 'as' => 'order.details', 'https']);
