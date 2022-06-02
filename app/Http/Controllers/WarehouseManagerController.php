@@ -8,7 +8,7 @@ use App\Models\WarehouseManager;
 
 class WarehouseManagerController extends Controller
 {
-    public function index()
+    public function ViewPlaces()
     {
         //
         $data=DB::select("select * from places");
