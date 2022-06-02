@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+
 use Illuminate\Http\Request;
 
 class userController extends Controller
@@ -14,10 +16,9 @@ class userController extends Controller
     public function ViewPlaces()
     {
         //
-        $data=DB::select("select * from places");
-        $arr['data']=$data;
+        $data = DB::select("select * from places");
+        $arr['data'] = $data;
 
-        return view('admin/placesAdminPage',$arr);
-        
+        return view('admin/placesAdminPage', $arr);
     }
 }
