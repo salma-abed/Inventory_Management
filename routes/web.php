@@ -52,14 +52,7 @@ Route::get('profilepage', function () {
 
 Route::post('/inventory', [productController::class, 'store']);
 
-
-
 Route::get('history', [historyController::class, 'index'])->name('history.index');
-
-Route::get('history', [historyController::class, 'index'])->name('history.index');
-
-
-
 
 Route::post('history', [historyController::class, 'store']);
 
@@ -135,6 +128,6 @@ Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name(
 Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
-Route::get('redzones', [productController::class, 'RedZones'])->name('redzones');
+Route::get('redzones', [RedZonesController::class, 'SendNotification'])->name('redzones');
 //url($language.'/index', [], true);
 asset('css/bootstrap.min.css', true);
