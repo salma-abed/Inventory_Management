@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Admin;
-
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -73,6 +74,14 @@ class AdminController extends Controller
      */
     public function UpdateProduct(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required',
+            'location' => 'required',
+            'description' => 'required',
+            'price' => ['required', 'integer'],
+            'quantity' => ['required', 'integer'],
+        ]);
+
         $place_name = $request->input('name');
         $place_location = $request->input('location');
         $place_description = $request->input('description');
@@ -83,7 +92,8 @@ class AdminController extends Controller
         $data =  DB::select("select * from products");
         $arr['data'] = $data;
 
-        return redirect('productsAdmin');  //redirects sends to the page specified    }
+
+        return redirect('productsAdmin');
     }
 
     /**

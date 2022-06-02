@@ -10,6 +10,9 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\OperationsAssociateController;
 use App\Http\Controllers\WarehouseManagerController;
 use App\Http\Controllers\SalesController;
+use App\Http\Controllers\CustomAuthController;
+use GuzzleHttp\Middleware;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,9 +22,7 @@ use App\Http\Controllers\SalesController;
 | contains the "web" middleware group. Now create something great!
 */
 
-Route::get('/', function () {
-    return view('login');
-});
+
 
 Route::get('/users', function () {
     return view('users');
@@ -32,9 +33,7 @@ Route::get('warehouse', function () {
     return view('warehouseManager/warehouseTable');
 })->name('warehouse');
 
-Route::get('dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+
 
 Route::get('logout', function () {
     return view('logout');
@@ -97,9 +96,30 @@ Route::controller(OperationsAssociateController::class)->group(function () {
 });
 
 Route::controller(WarehouseManagerController::class)->group(function () {
-   
 });
 
 Route::controller(SalesController::class)->group(function () {
-   
 });
+Route::middleware('role:admin,sales,operations,warehouse')->group(function () {
+
+    Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard');
+    Route::get('products', [CustomAuthController::class, 'products'])->name('products');
+});
+Route::middleware('role:admin')->group(function () {
+    Route::get('history', [CustomAuthController::class, 'history'])->name('history');
+    Route::get('PrintingHouse', [CustomAuthController::class, 'PrintingHouse'])->name('PrintingHouse');
+});
+Route::middleware('role:warehouse')->group(function () {
+    Route::get('order/details/{id}', ['uses' => 'OrderController@details', 'as' => 'order.details', 'https']);
+});
+Route::middleware('role:operations,sales')->group(function () {
+    Route::get('Store', [CustomAuthController::class, 'Store'])->name('Store');
+});
+Route::get('login', [CustomAuthController::class, 'index'])->name('login');
+Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
+Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
+Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
+Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
+Route::get('redzones', [productController::class, 'RedZones'])->name('redzones');
+//url($language.'/index', [], true);
+asset('css/bootstrap.min.css', true);
