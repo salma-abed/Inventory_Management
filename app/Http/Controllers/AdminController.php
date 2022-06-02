@@ -15,7 +15,7 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function Places_index()
+    public function ViewPlaces()
     {
         //
         $data=DB::select("select * from places");
@@ -65,7 +65,7 @@ class AdminController extends Controller
 
     }
 
-    
+
     public function DeletePlace($place_id)
     {
         DB::delete('delete from places where place_id=? ',[$place_id]);
