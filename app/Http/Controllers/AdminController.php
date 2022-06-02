@@ -74,7 +74,7 @@ class AdminController extends Controller
     }
 
 
-    public function Products_index()
+    public function index()
     {
         $data =  DB::select("select * from products");
         $arr['data'] = $data;

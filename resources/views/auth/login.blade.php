@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> b251475b1a7f49371aab3764476ff502a458206b
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,12 +15,12 @@
     @include('layouts.links')
 </head>
 
-<main class="login-form">
+<body class="bg-primary">
     <div class="cotainer">
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="card">
-                    <h3 class="card-header text-center">Login</h3>
+                    <h3 class="card-header text-center">LogIn</h3>
                     <div class="card-body">
                         <form method="POST" action="{{ route('login.custom') }}">
                             @csrf
@@ -45,7 +49,7 @@
                                 </div>
                             </div>
                             <div class="d-grid mx-auto">
-                                <button type="submit" class="btn btn-dark btn-block">Signin</button>
+                                <button type="submit" class="btn btn-dark btn-block">LogIn</button>
                             </div>
                         </form>
                     </div>
@@ -55,4 +59,8 @@
     </div>
 </main>
 
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> b251475b1a7f49371aab3764476ff502a458206b
