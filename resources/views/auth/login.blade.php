@@ -1,4 +1,4 @@
-@section('content')
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,5 +55,5 @@
         </div>
     </div>
 </main>
-@endsection
+
 </html>
