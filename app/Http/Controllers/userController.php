@@ -15,7 +15,7 @@ class userController extends Controller
 
     public function ViewPlaces()
     {
-        //
+
         $data = DB::select("select * from places");
         $arr['data'] = $data;
 
