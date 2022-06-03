@@ -11,6 +11,7 @@ use App\Http\Controllers\OperationsAssociateController;
 use App\Http\Controllers\WarehouseManagerController;
 use App\Http\Controllers\SalesController;
 use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\StoreController;
 use GuzzleHttp\Middleware;
 
 /*
@@ -47,9 +48,11 @@ Route::get('profilepage', function () {
 
 Route::post('/inventory', [productController::class, 'store']);
 
-Route::get('history', [historyController::class, 'index'])->name('history.index');
+Route::get('history', [historyController::class, 'index']);
+Route::get('Stores', [StoreController::class, 'ViewProducts']);
 
 Route::post('history', [historyController::class, 'store']);
+
 
 
 
@@ -59,12 +62,12 @@ Route::post('Transport', [placesController::class, 'Transport']);
 Route::post('places', [placesController::class, 'CheckProductQuantity']);
 
 
-/*Route::get('products', [productController::class, 'index'])->name('products.index');
+Route::get('products', [productController::class, 'index'])->name('products.index');
 Route::get('edit1/{product_id}', [productController::class, 'ViewOldProductData']);
 Route::get('delete1/{product_id}', [productController::class, 'DeleteProduct']);
 Route::post('update1/{product_id}', [productController::class, 'UpdateProduct']);
 Route::post('products', [productController::class, 'AddProduct']);
-Route::get('/Edit/{product_quantity}', [productController::class, 'Edit']); */
+Route::get('/Edit/{product_quantity}', [productController::class, 'Edit']); 
 
 
 Route::controller(AdminController::class)->group(function () {
