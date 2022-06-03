@@ -19,7 +19,7 @@
                 <a class="nav-link" href="productsAdmin">Products</a>
             </li>
             <li class="nav-item list-unstyled">
-                <a class="nav-link" href="placesAdmin">Places</a>
+                <a class="nav-link" href="places">Places</a>
             </li>
             <li class="nav-item list-unstyled">
                 <a class="nav-link" href="users">Users</a>

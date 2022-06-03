@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+
 class userController extends Controller
 {
     public function view()
@@ -13,7 +13,7 @@ class userController extends Controller
         return view('users');
     }
 
-    /*public function ViewUsers()
+    public function ViewUsers()
     {
 <<<<<<< HEAD
 
@@ -27,5 +27,5 @@ class userController extends Controller
 
         return view('users',$arr);
         
-    }*/
+    }
 }
