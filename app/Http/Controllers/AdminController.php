@@ -159,4 +159,9 @@ class AdminController extends Controller
         DB::delete('delete from products where product_id=? ', [$product_id]);
         return redirect('productsAdmin');
     }
+    public function reservation($product_id)
+    {
+        DB::delete('delete from products where product_id=? ', [$product_id]);
+        return redirect('productsAdmin');
+    }
 }
