@@ -32,7 +32,7 @@ class StoreController extends Controller
 
     public function ViewProducts()
     {
-        $data =  DB::select("select * from products");
+        $data =  DB::select("select * from places");
         $arr['data'] = $data;
 
         return view('salespeople/storesTable', $arr);
