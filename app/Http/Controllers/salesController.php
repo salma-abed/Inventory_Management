@@ -12,4 +12,19 @@ class SalesController extends Controller
     {
         return view('salespeople/storesTable');
     }
+
+    public function UpdateQuantity(Request $request, $id)
+    {
+        $quantity = $request->input('quantity');
+
+        DB::update('update places set quantity=? where place_id=?, place_type=Store', [$quantity, $id, $place_type]);
+        $data =  DB::select("select * from places");
+        $arr['data'] = $data;
+
+        if (!is_null($data)) {
+            return redirect('products')->with("success", "Updated successfully");
+        } else {
+            return back()->with("failed", "Update failed. Try again.");
+        }
+    }
 }
