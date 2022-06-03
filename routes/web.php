@@ -49,9 +49,15 @@ Route::get('profilepage', function () {
 Route::post('/inventory', [productController::class, 'store']);
 
 Route::get('history', [historyController::class, 'index']);
+Route::post('history', [historyController::class, 'store']);
+
+
+
+
 Route::get('Stores', [StoreController::class, 'ViewProducts']);
 
-Route::post('history', [historyController::class, 'store']);
+Route::get('products', [productController::class, 'index'])->name('products.index');
+
 
 
 
@@ -62,7 +68,6 @@ Route::post('Transport', [placesController::class, 'Transport']);
 Route::post('places', [placesController::class, 'CheckProductQuantity']);
 
 
-Route::get('products', [productController::class, 'index'])->name('products.index');
 Route::get('edit1/{product_id}', [productController::class, 'ViewOldProductData']);
 Route::get('delete1/{product_id}', [productController::class, 'DeleteProduct']);
 Route::post('update1/{product_id}', [productController::class, 'UpdateProduct']);
