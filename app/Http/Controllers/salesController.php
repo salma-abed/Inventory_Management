@@ -10,7 +10,11 @@ class SalesController extends Controller
 {
     public function view()
     {
-        return view('salespeople/storesTable');
+         //
+         $data = DB::select("select * from places where place_type=Store");
+         $arr['data'] = $data;
+ 
+        return view('salespeople/storesTable', $arr);
     }
 
     public function UpdateQuantity(Request $request, $id)
