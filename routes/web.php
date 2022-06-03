@@ -66,7 +66,8 @@ Route::get('users', [userController::class, 'view'])->name('users.view');
 Route::get('users', [userController::class, 'ViewPlaces'])->name('users.ViewPlaces');
 Route::post('Transport', [placesController::class, 'Transport']);
 Route::post('places', [placesController::class, 'CheckProductQuantity']);
-
+Route::get('show', [placesController::class, 'show']);
+Route::get('edit/{place_id}', [placesController::class, 'edit']);
 
 Route::get('edit1/{product_id}', [productController::class, 'ViewOldProductData']);
 Route::get('delete1/{product_id}', [productController::class, 'DeleteProduct']);
