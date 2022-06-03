@@ -54,10 +54,20 @@
                                                 <th>Location</th>
                                                 <th>Product Type</th>
                                                 <th>Quantity</th>
+                                                <th>Edit Quantity</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-
+                                            @foreach($data as $row)
+                                            <tr>
+                                                <th>{{$row->name}}</th>
+                                                <th>{{$row->location}}</th>
+                                                <th>{{$row->product}}</th>
+                                                <th>{{$row->quantity}}</th>
+                                                <td> <a data-bs-target="#editmodal" href="edit1/{{$row->place_id}}"><i
+                                                            class="far fa-edit"></i>
+                                                    </a>
+                                                </td>
                                         </tbody>
 
                                     </table>
@@ -65,11 +75,6 @@
                                     <div class="container-fluid p-t-10">
                                         <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
                                             data-bs-target="#productmodal">Edit Product</button>
-                                    </div>
-
-                                    <div class="container-fluid p-t-10">
-                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
-                                            data-bs-target="#productmodal">Delet Product</button>
                                     </div>
 
                                 </div>
