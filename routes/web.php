@@ -85,7 +85,8 @@ Route::post('updateQuantity/{place_id}', [StoreController::class, 'updateQuantit
 Route::get('edit1/{product_id}', [productController::class, 'ViewOldProductData']);
 Route::get('delete1/{product_id}', [productController::class, 'DeleteProduct']);
 Route::post('update1/{product_id}', [productController::class, 'UpdateProduct']);
-Route::post('products', [productController::class, 'AddProduct']);
+Route::post('products', [productController::class, 'vali'])->name('products.vali');
+Route::post('products', [productController::class, 'AddProduct'])->name('products.AddProduct');
 Route::get('/Edit/{product_quantity}', [productController::class, 'Edit']); 
 
 
@@ -105,7 +106,6 @@ Route::controller(AdminController::class)->group(function () {
     
     Route::post('places', 'ViewPlaces');
     Route::post('places', 'AddPlace');
-
     Route::post('delete1/{place_id}', 'DeletePlace');
 });
 Route::get('users', [userController::class, 'view'])->name('users.view');
