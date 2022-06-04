@@ -54,22 +54,27 @@ class AdminController extends Controller
 
     public function AddPlace(Request $request)
     {
+
         $Object = new places();
 
         $request->validate([
-            'place_name' => 'required',
-            'place_location' => 'required',
-            'product_name' => 'required',
-            'quantity' => 'required',
-            'type_of_place' => 'required'
+            'place_name'=> 'required',
+            'place_location'=>'required',
+            'product_name'=>'required',
+            'quantity'=>'required',
+            'type_of_place'=>'required'
 
         ]);
 
-        if ($_POST['product_name'] != null) {
-            if ($_POST['quantity'] == null) {
-                $Object->quantity = 0;
-            } else
-                $Object->quantity = strip_tags($request->input('quantity'));
+        if($_POST['product_name']!= null)
+        {
+            if($_POST['quantity']==null)
+            {
+                $Object->quantity = 0;                
+            }
+            else
+            $Object->quantity = strip_tags($request->input('quantity'));
+
         }
 
         //POST
