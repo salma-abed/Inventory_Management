@@ -89,7 +89,7 @@
                                             <th>{{$row->quantity}}</th>
                                             <th>{{$row->place_type}}</th>
                                             <td>
-                                                <a href="edit/{{$row->place_id}}">
+                                                <a href="EditQuantity/{{$row->place_id}}">
                                                     <i class="far fa-edit"></i>
                                                 </a>
                                             </td>
