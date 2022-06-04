@@ -45,10 +45,13 @@
                             @enderror
                         </div>
                         <label class="form-label">facility </label>
-                        <select id="type_of_place" name="type_of_place">
+                        <select class="@error('type_of_place') is-invalid @enderror form-control" id="type_of_place"
+                            name="type_of_place">
                             <option value="Warehouse">Warehouse</option>
                             <option value="Printhouse">Printhouse</option>
                             <option value="Store">Store</option>
+                            <option value="Office">Office </option>
+                            <option value="Courier_warehouse">Courier_warehouse</option>
                         </select>
                         <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Update</button>
                 </div>
