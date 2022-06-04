@@ -43,17 +43,30 @@ class StoreController extends Controller
 
     public function updateQuantity(Request $request, $id)
     {
-
-
+        //Places Select        
         $data=  DB::select('select * from places where place_id=?',[$id]);
 
-        $quantityDB=$data[0]->quantity;
+        $product_name=$data[0]->product;
+        $quantity_Store=$data[0]->quantity;
 
-        $quantityUser= $request->input('quantity');
+        //Products Select
+        $data=  DB::select('select * from products where name=?',[$product_name]);
 
-        $newQuantity=(int)$quantityDB-(int)$quantityUser;
+        $Sold_Products=$data[0]->SoldProducts;
+        $Products_Quantity=$data[0]->quantity;
+        
+        #the user input -- that is to be added to Sold and substracted from exsiting quantity
+        $Sold= $request->input('quantity');
+        
+        #substracting the existing quantity at that Store
+        $newQuantity=(int)$quantity_Store-(int)$Sold;
+
+        
+        $NEW_SoldProducts=$Sold+$Sold_Products;
+        $NEW_quantity=$Products_Quantity-$Sold;
 
 
+        DB::update('update products set SoldProducts=?, quantity=? where name=? ',[$NEW_SoldProducts,$NEW_quantity,$product_name]);
         DB::update('update places set quantity=? where place_id=? ',[$newQuantity,$id]);
 
 
