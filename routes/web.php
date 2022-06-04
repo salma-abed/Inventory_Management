@@ -67,7 +67,19 @@ Route::get('users', [userController::class, 'ViewPlaces'])->name('users.ViewPlac
 Route::post('Transport', [placesController::class, 'Transport']);
 Route::post('places', [placesController::class, 'CheckProductQuantity']);
 Route::get('show', [placesController::class, 'show']);
-Route::get('edit/{place_id}', [placesController::class, 'edit']);
+
+
+Route::get('EditPlace/{place_id}', [placesController::class, 'EditPlace']);
+Route::get('EditQuantity/{place_id}', [StoreController::class, 'EditQuantity']);
+
+Route::post('updatePlace/{place_id}', [placesController::class, 'updatePlace']);
+Route::post('updateQuantity/{place_id}', [StoreController::class, 'updateQuantity']);
+
+
+
+
+
+
 
 Route::get('edit1/{product_id}', [productController::class, 'ViewOldProductData']);
 Route::get('delete1/{product_id}', [productController::class, 'DeleteProduct']);
