@@ -42,6 +42,11 @@ Route::get('profilepage', function () {
     return view('profilePage');
 })->name('profilePage');
 
+Route::get('/registration', function () {
+    return view('registration');
+})->name('registration');
+
+
 
 
 
@@ -52,22 +57,13 @@ Route::get('history', [historyController::class, 'index'])->name('history.index'
 Route::post('history', [historyController::class, 'store']);
 
 
-
-<<<<<<< HEAD
+Route::get('users', [userController::class, 'ViewPlaces'])->name('users.ViewPlaces');
 
 Route::get('users', [userController::class, 'view'])->name('users.view');
 Route::get('users', [userController::class, 'ViewPlaces'])->name('users.ViewPlaces');
 
-
-
-
-=======
-Route::get('users', [userController::class, 'view'])->name('users.view');
-Route::get('users', [userController::class, 'ViewPlaces'])->name('users.ViewPlaces');
->>>>>>> 82e4a4a68a7b3903d8d96cf3883d6d6b3048ca94
 Route::post('Transport', [placesController::class, 'Transport']);
 Route::post('places', [placesController::class, 'CheckProductQuantity']);
-
 
 /*Route::get('products', [productController::class, 'index'])->name('products.index');
 Route::get('edit1/{product_id}', [productController::class, 'ViewOldProductData']);
@@ -86,7 +82,6 @@ Route::controller(AdminController::class)->group(function () {
 
 
     #where do we display these? ----------------------------------------------------------(first paramter)?
-<<<<<<< HEAD
     Route::post('placesAdmin', 'ViewPlaces');
     Route::post('placesAdmin', 'AddPlace');
     Route::post('delete1/{place_id}', 'DeletePlace');
@@ -95,13 +90,12 @@ Route::controller(AdminController::class)->group(function () {
     Route::get('usersPage', [userController::class, 'view'])->name('users.view');
     #Route::get('users', [userController::class, 'ViewUsers'])->name('users.ViewUsers');
 
-=======
-  /* Route::post('placesAdmin', 'ViewPlaces'); 
+    /* Route::post('placesAdmin', 'ViewPlaces'); 
     Route::post('placesAdmin', 'AddPlace'); 
     Route::post('delete1/{place_id}', 'DeletePlace');*/
-   #Route::get('users', [userController::class, 'ViewUsers'])->name('users.ViewUsers');
-    
->>>>>>> 82e4a4a68a7b3903d8d96cf3883d6d6b3048ca94
+    #Route::get('users', [userController::class, 'ViewUsers'])->name('users.ViewUsers');
+
+
     Route::post('places', 'ViewPlaces');
     Route::post('places', 'AddPlace');
     Route::post('delete1/{place_id}', 'DeletePlace');
@@ -142,12 +136,11 @@ Route::middleware('role:operations,sales')->group(function () {
     Route::get('Store', [CustomAuthController::class, 'Store'])->name('Store');
 });
 Route::middleware('role:operations')->group(function () {
- Route::controller(OperationsAssociateController::class)->group(function () {
-    Route::get('productsOA', 'index');
-    Route::get('delete1/{product_id}', 'DeleteProduct');
-    Route::post('productsOA', 'AddProduct');
- });
-
+    Route::controller(OperationsAssociateController::class)->group(function () {
+        Route::get('productsOA', 'index');
+        Route::get('delete1/{product_id}', 'DeleteProduct');
+        Route::post('productsOA', 'AddProduct');
+    });
 });
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
@@ -155,5 +148,6 @@ Route::get('registration', [CustomAuthController::class, 'registration'])->name(
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 Route::get('redzones', [RedZonesController::class, 'SendNotification'])->name('redzones');
+
 //url($language.'/index', [], true);
 asset('css/bootstrap.min.css', true);
