@@ -65,7 +65,7 @@ class OperationsAssociateController extends Controller
     {
         $quantity = $request->input('quantity');
 
-        DB::update('update places set quantity=? where place_id=?, place_type=Store', [$quantity, $id, $place_type]);
+        DB::update('update places set quantity=? where place_id=?, place_type=Store', [$quantity, $id]);
         $data =  DB::select("select * from places");
         $arr['data'] = $data;
 
