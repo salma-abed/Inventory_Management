@@ -69,7 +69,7 @@ Route::post('places', [placesController::class, 'CheckProductQuantity']);
 Route::get('show', [placesController::class, 'show']);
 
 
-Route::get('delete/{place_id}', [AdminController::class, 'destroy']);
+Route::get('delete/{place_id}', [AdminController::class, 'destroyPlace']);
 Route::get('EditPlace/{place_id}', [placesController::class, 'EditPlace']);
 Route::get('EditQuantity/{place_id}', [StoreController::class, 'EditQuantity']);
 

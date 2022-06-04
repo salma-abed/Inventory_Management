@@ -26,7 +26,7 @@ class AdminController extends Controller
         return view('admin/placesAdminPage', $arr);
     }
 
-    public function destroy($place_id)
+    public function destroyPlace($place_id)
     {
         DB::delete('delete from places where place_id=? ',[$place_id]);
         return redirect('places');
@@ -51,7 +51,7 @@ class AdminController extends Controller
     }
 
 
-    
+
     public function AddPlace(Request $request)
     {
         $Object = new places();
