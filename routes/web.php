@@ -48,8 +48,7 @@ Route::get('profilepage', function () {
 
 Route::post('/inventory', [productController::class, 'store']);
 
-Route::get('history', [historyController::class, 'index']);
-Route::post('history', [historyController::class, 'store']);
+Route::get('history', [historyController::class, 'getTransaction']);
 
 
 
@@ -134,7 +133,7 @@ Route::middleware('role:admin')->group(function () {
         Route::post('update1/{product_id}', 'UpdateProduct');
         Route::post('productsAdmin', 'AddProduct');
     });
-    Route::get('history', [historyController::class, 'index'])->name('history.index');
+    Route::get('history', [historyController::class, 'getTransaction'])->name('history.getTransaction');
     # Route::get('PrintingHouse', [CustomAuthController::class, 'PrintingHouse'])->name('PrintingHouse');
 });
 Route::middleware('role:warehouse')->group(function () {
