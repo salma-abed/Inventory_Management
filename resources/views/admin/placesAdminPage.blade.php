@@ -193,7 +193,7 @@
                                             <th>{{$row->quantity}}</th>
                                             <th>{{$row->place_type}}</th>
                                             <td>
-                                                <a href="edit/{{$row->place_id}}">
+                                                <a href="EditPlace/{{$row->place_id}}">
                                                     <i class="far fa-edit"></i>
                                                 </a>
                                             </td>
@@ -276,7 +276,7 @@
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
                                             <td>
-                                                <a href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
+                                                <a href="EditPlace/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
                                             </td>
                                             <td>
                                                 <!-- Modal for delete confirmation -->
@@ -355,7 +355,7 @@
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
                                             <td>
-                                                <a href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
+                                                <a href="EditPlace/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
                                             </td>
                                             <td>
                                                 <!-- Modal for delete confirmation -->
@@ -434,7 +434,7 @@
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
                                             <td>
-                                                <a href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
+                                                <a href="EditPlace/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
                                             </td>
                                             <td>
                                                 <!-- Modal for delete confirmation -->
@@ -512,7 +512,7 @@
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
                                             <td>
-                                                <a href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
+                                                <a href="EditPlace/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
                                             </td>
                                             <td>
                                                 <!-- Modal for delete confirmation -->
@@ -592,7 +592,7 @@
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
                                             <td>
-                                                <a href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
+                                                <a href="EditPlace/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
                                             </td>
                                             <td>
                                                 <!-- Modal for delete confirmation -->
