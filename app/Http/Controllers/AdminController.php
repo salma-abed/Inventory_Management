@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Admin;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use Illuminate\Support\Facades\Auth;
+use App\Models\places;
+
 
 class AdminController extends Controller
 {
