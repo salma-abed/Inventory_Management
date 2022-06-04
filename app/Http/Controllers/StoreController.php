@@ -25,7 +25,7 @@ class StoreController extends Controller
     }
     public function SoldProductQuantity()
     {
-        $data =  DB::select("select quantity from products");
+        $data =  DB::select("select SoldProducts from products");
         $arr['data'] = $data;
 
         return view('salespeople/storesTable', $arr);
