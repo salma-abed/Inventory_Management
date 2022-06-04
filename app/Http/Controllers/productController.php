@@ -32,13 +32,7 @@ class productController extends Controller
      */
     public function AddProduct(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'location' => 'required',
-            'description' => 'required',
-            'price' => ['required', 'integer'],
-            'quantity' => ['required', 'integer'],
-        ]);
+
         //POST
         $Object = new products();
         $Object->name = strip_tags($request->input('name'));
@@ -50,6 +44,22 @@ class productController extends Controller
 
         return back(); //basically refreshes after data is sent.
     }
+
+
+    public function vali(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'location' => 'required',
+            'description' => 'required',
+            'price' => ['required', 'integer'],
+            'quantity' => ['required', 'integer'],
+        ]);
+
+        return redirect()->route('products.AddProduct');
+
+    }
+
 
     /**
      * Show the form for editing the specified resource.
