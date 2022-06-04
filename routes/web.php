@@ -105,6 +105,7 @@ Route::controller(AdminController::class)->group(function () {
     
     Route::post('places', 'ViewPlaces');
     Route::post('places', 'AddPlace');
+
     Route::post('delete1/{place_id}', 'DeletePlace');
 });
 Route::get('users', [userController::class, 'view'])->name('users.view');
