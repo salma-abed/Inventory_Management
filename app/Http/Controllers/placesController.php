@@ -23,6 +23,13 @@ class placesController extends Controller
 
         return view('admin/productsAdminPage', $arr);
     }
+    public function EditPlace($places_id)
+    {
+        //            
+        $data=  DB::select('select * from places where place_id=?',[$places_id]);
+        return view('admin/Edit_place',['data'=>$data]);
+    }
+
 
     public function Transport(Request $request)
     {

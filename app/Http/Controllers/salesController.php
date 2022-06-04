@@ -8,6 +8,30 @@ use App\Models\Sales;
 
 class SalesController extends Controller
 {
+    public function UpdateProduct(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required',
+            'location' => 'required',
+            'description' => 'required',
+            'price' => ['required', 'integer'],
+            'quantity' => ['required', 'integer'],
+        ]);
+
+        $place_name = $request->input('name');
+        $place_location = $request->input('location');
+        $place_description = $request->input('description');
+        $price = $request->input('price');
+        $quantity = $request->input('quantity');
+
+        DB::update('update products set name =?, location= ?,description= ?, price=?, quantity=? where product_id=? ', [$place_name, $place_location, $place_description, $price, $quantity, $id]);
+        $data =  DB::select("select * from products");
+        $arr['data'] = $data;
+
+
+        return redirect('productsAdmin');
+    }
+    
     public function view()
     {
          //

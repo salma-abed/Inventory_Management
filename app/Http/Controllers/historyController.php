@@ -13,7 +13,7 @@ class historyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function getTransaction()
     {
         //
         $data=  DB::select("select * from histories");

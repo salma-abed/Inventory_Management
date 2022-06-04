@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Admin;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use Illuminate\Support\Facades\Auth;
+use App\Models\places;
+
 
 class AdminController extends Controller
 {
@@ -24,24 +26,55 @@ class AdminController extends Controller
         return view('admin/placesAdminPage', $arr);
     }
 
+    public function destroyPlace($place_id)
+    {
+        DB::delete('delete from places where place_id=? ',[$place_id]);
+        return redirect('places');
+
+    }
+
+
+    
+    public function updatePlace(Request $request, $id)
+    {
+       $place_name= $request->input('place_name');
+       $type=$request->input('type_of_place');
+       $place_location= $request->input('place_location');
+       $product= $request->input('product_name');
+       $quantity= $request->input('quantity');
+
+       DB::update('update places set place_name =?, place_type=?, place_address= ?,product= ?,quantity=? where place_id=? ',[$place_name,$type,$place_location,$product,$quantity,$id]);
+       $data=  DB::select("select * from places");
+       $arr['data']=$data;
+
+       return redirect('places');  //redirects sends to the page specified
+    }
+
+
+
     public function AddPlace(Request $request)
     {
+
         $Object = new places();
 
         $request->validate([
-            'place_name' => 'required',
-            'place_location' => 'required',
-            'product_name' => 'required',
-            'quantity' => 'required',
-            'type_of_place' => 'required'
+            'place_name'=> 'required',
+            'place_location'=>'required',
+            'product_name'=>'required',
+            'quantity'=>'required',
+            'type_of_place'=>'required'
 
         ]);
 
-        if ($_POST['product_name'] != null) {
-            if ($_POST['quantity'] == null) {
-                $Object->quantity = 0;
-            } else
-                $Object->quantity = strip_tags($request->input('quantity'));
+        if($_POST['product_name']!= null)
+        {
+            if($_POST['quantity']==null)
+            {
+                $Object->quantity = 0;                
+            }
+            else
+            $Object->quantity = strip_tags($request->input('quantity'));
+
         }
 
         //POST

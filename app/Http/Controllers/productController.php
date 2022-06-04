@@ -32,13 +32,7 @@ class productController extends Controller
      */
     public function AddProduct(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'location' => 'required',
-            'description' => 'required',
-            'price' => ['required', 'integer'],
-            'quantity' => ['required', 'integer'],
-        ]);
+
         //POST
         $Object = new products();
         $Object->name = strip_tags($request->input('name'));
@@ -51,60 +45,20 @@ class productController extends Controller
         return back(); //basically refreshes after data is sent.
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function ViewOldProductData($product_id)
+
+    public function vali(Request $request)
     {
-        //        
-        $data =  DB::select('select * from products where product_id=?', [$product_id]);
-        return view('admin/Edit_productsAdminPage', ['data' => $data]);
+        $request->validate([
+            'name' => 'required',
+            'location' => 'required',
+            'description' => 'required',
+            'price' => ['required', 'integer'],
+            'quantity' => ['required', 'integer'],
+        ]);
+
+        return redirect()->route('products.AddProduct');
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function UpdateProduct(Request $request, $id)
-    {
-        $place_name = $request->input('name');
-        $place_location = $request->input('location');
-        $place_description = $request->input('description');
-        $price = $request->input('price');
-        $quantity = $request->input('quantity');
 
-        DB::update('update products set name =?, location= ?,description= ?, price=?, quantity=? where product_id=? ', [$place_name, $place_location, $place_description, $price, $quantity, $id]);
-        $data =  DB::select("select * from products");
-        $arr['data'] = $data;
-
-        if (!is_null($data)) {
-            return redirect('products')->with("success", "Updated successfully");
-        } else {
-            return back()->with("failed", "Update failed. Try again.");
-        }
-    }
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function DeleteProduct($product_id)
-    {
-        //
-        DB::delete('delete from products where product_id=? ', [$product_id]);
-        return redirect('products');
-    }
-    public function edit_count($product_quantity)
-    {
-        //        
-        $data =  DB::select('select * from products where product_quantity=?', [$product_quantity]);
-        return view('admin/Edit_productsAdminPage', ['data' => $data]);
-    }
 }

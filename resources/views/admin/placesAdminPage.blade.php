@@ -192,16 +192,15 @@
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
                                             <th>{{$row->place_type}}</th>
+
                                             <td>
-                                                <a href="edit/{{$row->place_id}}">
+                                                <a href="EditPlace/{{$row->place_id}}">
                                                     <i class="far fa-edit"></i>
                                                 </a>
                                             </td>
                                             <td>
                                                 <!-- Modal for delete confirmation -->
-                                                <form id="formElement" method="GET" action="delete/{{$row->place_id}}">
-                                                    @csrf
-                                                    <div id="myModal" class="modal fade">
+                                                    <div id="myModal{{$row->place_id}}" name= '{{$row->place_id}}' class="modal fade">
                                                         <div class="modal-dialog modal-confirm">
                                                             <div class="modal-content">
                                                                 <div class="modal-header flex-column">
@@ -223,15 +222,16 @@
                                                                     <button type="button" class="btn btn-secondary"
                                                                         data-bs-dismiss="modal">Cancel</button>
 
+                                                                        <a href="delete/{{$row->place_id}}">
                                                                     <button type="submit" class="btn btn-danger"
                                                                         data-bs-dismiss="modal">Delete</button>
+                                                                        </a>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </form>
 
-                                                <a href="#myModal" class="trigger-btn" data-bs-toggle="modal"><i
+                                                <a href="#myModal{{$row->place_id}}" class="trigger-btn" data-bs-toggle="modal"><i
                                                         class="fa-regular fa-trash-can"></i> </a>
                                             </td>
 
@@ -275,8 +275,9 @@
                                             <th>{{$row->place_address}}</th>
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
+                                            <
                                             <td>
-                                                <a href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
+                                                <a href="EditPlace/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
                                             </td>
                                             <td>
                                                 <!-- Modal for delete confirmation -->
@@ -315,9 +316,10 @@
                                                 <a href="#myModal" class="trigger-btn" data-bs-toggle="modal"><i
                                                         class="fa-regular fa-trash-can"></i> </a>
                                             </td>
-                                            @endif
+                                            
                                         </tr>
                                         </thead>
+                                        @endif
                                         @endforeach
                                     </table>
                                     <div class="container-fluid p-t-10">
@@ -355,7 +357,7 @@
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
                                             <td>
-                                                <a href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
+                                                <a href="EditPlace/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
                                             </td>
                                             <td>
                                                 <!-- Modal for delete confirmation -->
@@ -434,7 +436,7 @@
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
                                             <td>
-                                                <a href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
+                                                <a href="EditPlace/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
                                             </td>
                                             <td>
                                                 <!-- Modal for delete confirmation -->
@@ -512,7 +514,7 @@
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
                                             <td>
-                                                <a href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
+                                                <a href="EditPlace/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
                                             </td>
                                             <td>
                                                 <!-- Modal for delete confirmation -->
@@ -592,7 +594,7 @@
                                             <th>{{$row->product}} </th>
                                             <th>{{$row->quantity}}</th>
                                             <td>
-                                                <a href="edit/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
+                                                <a href="EditPlace/{{$row->place_id}}"> <i class="far fa-edit"></i> </a>
                                             </td>
                                             <td>
                                                 <!-- Modal for delete confirmation -->

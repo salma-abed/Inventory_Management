@@ -9,7 +9,7 @@
             <div class="col-lg-6">
                 <div class=" login-form">
                     <h3>Edit</h3>
-                    <form id="formElement" method="POST" action="/update/{{$data[0]->place_id}}">
+                    <form id="formElement" method="POST" action="/updatePlace/{{$data[0]->place_id}}">
                         @csrf
                         <div class="mb-3">
                             <label class="form-label">Place Name</label>
@@ -45,10 +45,13 @@
                             @enderror
                         </div>
                         <label class="form-label">facility </label>
-                        <select id="type_of_place" name="type_of_place">
+                        <select class="@error('type_of_place') is-invalid @enderror form-control" id="type_of_place"
+                            name="type_of_place">
                             <option value="Warehouse">Warehouse</option>
                             <option value="Printhouse">Printhouse</option>
                             <option value="Store">Store</option>
+                            <option value="Office">Office </option>
+                            <option value="Courier_warehouse">Courier_warehouse</option>
                         </select>
                         <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Update</button>
                 </div>
