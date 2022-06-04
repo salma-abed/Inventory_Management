@@ -30,21 +30,6 @@ class placesController extends Controller
         return view('admin/Edit_place',['data'=>$data]);
     }
 
-    public function updatePlace(Request $request, $id)
-    {
-       $place_name= $request->input('place_name');
-       $type=$request->input('type_of_place');
-       $place_location= $request->input('place_location');
-       $product= $request->input('product_name');
-       $quantity= $request->input('quantity');
-
-       DB::update('update places set place_name =?, place_type=?, place_address= ?,product= ?,quantity=? where place_id=? ',[$place_name,$type,$place_location,$product,$quantity,$id]);
-       $data=  DB::select("select * from places");
-       $arr['data']=$data;
-
-       return redirect('places');  //redirects sends to the page specified
-    }
-
 
     public function Transport(Request $request)
     {
